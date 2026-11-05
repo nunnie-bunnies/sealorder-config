@@ -1,0 +1,7701 @@
+{
+  "cage": {"_note": "Xenosaurid cages (XenoCages): stageSeconds to be opened or you die; the maxCaptures-th capture kills; a teammate opens the gate with a lockpick (pickSeconds, quiet, can snap) or the cube held out at chargeCost% (chargeSeconds, loud, charge spent); for freeGrace s after a cage opens it leaves anyone within freeGraceRange m alone.", "stageSeconds": 180, "maxCaptures": 2, "pickSeconds": 8, "pickNoiseRadius": 10, "pickNoiseEvery": 3, "pickSnap": 0.25, "chargeCost": 60, "chargeSeconds": 3, "chargeNoiseRadius": 120, "chargeNoiseEvery": 1.5, "freeGrace": 10, "freeGraceRange": 8, "resinCages": 3},
+  "cube": {"_note": "The cube stun (XenoClimber): Use with stunMinCharge% or more, aimed at the Xenosaurid (stunAngle deg) within stunRange m, spends stunCost%: carrying someone it drops them, else it is stunned stunSeconds.", "stunMinCharge": 80, "stunCost": 40, "stunSeconds": 6, "stunRange": 8, "stunAngle": 30},
+  "guided": {
+    "_note": "Guided first raid: real items a player can take from its containers per session, first time through only.",
+    "realItems": 8
+  },
+  "ambience": {
+    "_note": "RaidAmbience (Docs/SOUNDS.md plan): beds start at startLevel x cap and rise over rampSeconds to cap; Emergency Stairwell in stair shafts, Utility Level below basementBelowY; chase music while an apex chases within chaseRange m (lingers chaseLinger s); Tense Full Mix in the squeeze; madhouse under madhouseBelow sanity. All x the ambience volume setting.",
+    "cap": 0.35,
+    "startLevel": 0.15,
+    "rampSeconds": 1140,
+    "basementBelowY": -1.5,
+    "chaseRange": 35,
+    "chaseLinger": 6,
+    "madhouseBelow": 20,
+    "madhouseLevel": 0.35
+  },
+  "raidSeconds": 1440,
+  "entryCloseSeconds": 300,
+  "joinSeconds": 240,
+  "squeeze": {
+    "_note": "Closing out long runs. From enrageSeconds left the evac siren sounds: the apex stays at full anger and wakes even if the power never came on (a shock mine only stands the Xenosaurid up for standSeconds, flares burn flareSeconds). Time's up = overtimeSeconds more, where an apex hit kills; then the run ends.",
+    "enrageSeconds": 300,
+    "overtimeSeconds": 120,
+    "standSeconds": 20,
+    "flareSeconds": 10
+  },
+  "achievements": {
+    "_note": "Achievements (Docs/ACHIEVEMENTS.md, v2). stat = counter, all = every listed counter >= the tier, max = highest value (not a sum). Counters bank on escape unless any = true. titles[t] = the title tier t+1 gives (\"\" = none): the early tiers give plain ones, the top tier the cool one. xp per tier = 60 x diff x (1,2,4,8,15 for five tiers; 1,3,6,12 four; 1,3,8 three; 2,6 two; 6 one), rounded to 10. cat = the icon on its card (escaping, apex, combat, medic, looting, progress).",
+    "list": [
+      {
+        "id": "survivor",
+        "name": "Survivor",
+        "desc": "Escape raids",
+        "tiers": [
+          5,
+          25,
+          100,
+          300,
+          1000
+        ],
+        "diff": 2,
+        "stat": "escape",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Lucky Break",
+          "Regular",
+          "Hardened",
+          "Unkillable"
+        ],
+        "cat": "escaping"
+      },
+      {
+        "id": "clean",
+        "name": "Clean Getaway",
+        "desc": "Escape without being hit",
+        "tiers": [
+          1,
+          5,
+          25,
+          75,
+          200
+        ],
+        "diff": 3,
+        "stat": "escape_clean",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Unscathed",
+          "Untouched",
+          "Ghost",
+          "Untouchable"
+        ],
+        "cat": "escaping"
+      },
+      {
+        "id": "lights_out",
+        "name": "Lights Out",
+        "desc": "Escape a run where the power never came on",
+        "tiers": [
+          1,
+          5,
+          20,
+          60,
+          150
+        ],
+        "diff": 2,
+        "stat": "escape_dark",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Night Shift",
+          "Night Owl",
+          "Lights Out",
+          "Darkness Itself"
+        ],
+        "cat": "escaping"
+      },
+      {
+        "id": "overtime",
+        "name": "Overtime",
+        "desc": "Escape after time's up",
+        "tiers": [
+          1
+        ],
+        "diff": 3,
+        "stat": "escape_overtime",
+        "xp": [
+          1080
+        ],
+        "titles": [
+          "Last One Out"
+        ],
+        "cat": "escaping"
+      },
+      {
+        "id": "close_call",
+        "name": "Close Call",
+        "desc": "Escape with under 10% health",
+        "tiers": [
+          1,
+          5,
+          20,
+          50,
+          120
+        ],
+        "diff": 3,
+        "stat": "escape_close",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Shaky",
+          "By A Thread",
+          "Death Dodger",
+          "Cheated Death"
+        ],
+        "cat": "escaping"
+      },
+      {
+        "id": "every_way",
+        "name": "Every Way Out",
+        "desc": "Escape by every exit: dock, vent, hatch and road",
+        "tiers": [
+          1
+        ],
+        "diff": 3,
+        "all": [
+          "exit_dock",
+          "exit_vent",
+          "exit_hatch",
+          "exit_road"
+        ],
+        "xp": [
+          1080
+        ],
+        "titles": [
+          "Escape Artist"
+        ],
+        "cat": "escaping"
+      },
+      {
+        "id": "not_today",
+        "name": "Not Today",
+        "desc": "Survive a full-anger down (the coin flip went your way)",
+        "tiers": [
+          1,
+          5,
+          20,
+          50,
+          100
+        ],
+        "diff": 3,
+        "stat": "apex_spared",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Spared",
+          "Lucky",
+          "Not Today",
+          "Too Stubborn To Die"
+        ],
+        "cat": "apex"
+      },
+      {
+        "id": "executed",
+        "name": "Executed",
+        "desc": "Be executed by an apex",
+        "tiers": [
+          1,
+          10,
+          50
+        ],
+        "diff": 1,
+        "stat": "executed",
+        "secret": true,
+        "any": true,
+        "xp": [
+          60,
+          180,
+          480
+        ],
+        "titles": [
+          "",
+          "Snack",
+          "Chew Toy"
+        ],
+        "cat": "apex"
+      },
+      {
+        "id": "grounded",
+        "name": "Grounded",
+        "desc": "Be there when a shock mine knocks the Xenosaurid onto its feet",
+        "tiers": [
+          1,
+          5,
+          20,
+          60,
+          150
+        ],
+        "diff": 3,
+        "stat": "apex_grounded",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Trip Wire",
+          "Grounded",
+          "Lion Tamer",
+          "Apex Breaker"
+        ],
+        "cat": "apex"
+      },
+      {
+        "id": "flare",
+        "name": "Light Them Up",
+        "desc": "Be there when a flare holds Hollowface off",
+        "tiers": [
+          1,
+          5,
+          20,
+          60,
+          150
+        ],
+        "diff": 3,
+        "stat": "apex_flared",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Sparky",
+          "Flare Bearer",
+          "Torch",
+          "Lighthouse"
+        ],
+        "cat": "apex"
+      },
+      {
+        "id": "enraged",
+        "name": "Siren Song",
+        "desc": "Escape after the evac siren",
+        "tiers": [
+          1,
+          5,
+          20,
+          60,
+          150
+        ],
+        "diff": 3,
+        "stat": "escape_enraged",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Ears Ringing",
+          "Siren Song",
+          "Red Alert",
+          "Siren Proof"
+        ],
+        "cat": "apex"
+      },
+      {
+        "id": "both_apex",
+        "name": "Both Of Them",
+        "desc": "Escape a run with each apex",
+        "tiers": [
+          1
+        ],
+        "diff": 2,
+        "all": [
+          "escape_apex0",
+          "escape_apex1"
+        ],
+        "xp": [
+          720
+        ],
+        "titles": [
+          "Apex Survivor"
+        ],
+        "cat": "apex"
+      },
+      {
+        "id": "husks",
+        "name": "Husk Hunter",
+        "desc": "Kill husks",
+        "tiers": [
+          25,
+          100,
+          500,
+          2000,
+          5000
+        ],
+        "diff": 3,
+        "stat": "kill",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Husk Swatter",
+          "Husk Hunter",
+          "Husk Bane",
+          "Extinction Event"
+        ],
+        "cat": "combat"
+      },
+      {
+        "id": "knife",
+        "name": "Close Quarters",
+        "desc": "Kill husks with a knife",
+        "tiers": [
+          10,
+          50,
+          250,
+          750,
+          2000
+        ],
+        "diff": 3,
+        "stat": "kill_knife",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Cutter",
+          "Blade",
+          "Butcher",
+          "Thousand Cuts"
+        ],
+        "cat": "combat"
+      },
+      {
+        "id": "crowbar",
+        "name": "Heavy Hitter",
+        "desc": "Kill husks with a crowbar",
+        "tiers": [
+          10,
+          50,
+          250,
+          750,
+          2000
+        ],
+        "diff": 3,
+        "stat": "kill_crowbar",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Basher",
+          "Wrecker",
+          "Skull Cracker",
+          "Free Man"
+        ],
+        "cat": "combat"
+      },
+      {
+        "id": "bottle",
+        "name": "Distraction",
+        "desc": "Land a thrown bottle hard enough to make noise",
+        "tiers": [
+          5,
+          25,
+          100,
+          400,
+          1000
+        ],
+        "diff": 2,
+        "stat": "throw_noise",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Litterbug",
+          "Bottle Rocket",
+          "Pied Piper",
+          "Puppet Master"
+        ],
+        "cat": "combat"
+      },
+      {
+        "id": "medic",
+        "name": "Field Medic",
+        "desc": "Revive teammates",
+        "tiers": [
+          5,
+          25,
+          100,
+          300,
+          750
+        ],
+        "diff": 3,
+        "stat": "revive",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Medic",
+          "Field Medic",
+          "Lifeline",
+          "Miracle Worker"
+        ],
+        "cat": "medic"
+      },
+      {
+        "id": "patch",
+        "name": "Patch Job",
+        "desc": "Treat a teammate (bandage, splint, medkit)",
+        "tiers": [
+          10,
+          50,
+          250,
+          750,
+          2000
+        ],
+        "diff": 2,
+        "stat": "treat_other",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "First Aider",
+          "Nurse",
+          "Field Surgeon",
+          "Saint"
+        ],
+        "cat": "medic"
+      },
+      {
+        "id": "one_more",
+        "name": "One More Shot",
+        "desc": "Get yourself up with the self-syringe",
+        "tiers": [
+          1,
+          10,
+          25,
+          60,
+          120
+        ],
+        "diff": 2,
+        "stat": "self_revive",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Stubborn",
+          "Mule-Headed",
+          "Second Wind",
+          "Undying"
+        ],
+        "cat": "medic"
+      },
+      {
+        "id": "drag",
+        "name": "Nobody Left Behind",
+        "desc": "Drag a downed teammate into an exit",
+        "tiers": [
+          1,
+          10,
+          40,
+          100,
+          250
+        ],
+        "diff": 3,
+        "stat": "drag_out",
+        "any": true,
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Lifter",
+          "Pack Mule",
+          "Shepherd",
+          "Nobody Left Behind"
+        ],
+        "cat": "medic"
+      },
+      {
+        "id": "squad",
+        "name": "Squad",
+        "desc": "Escape with 3 or more teammates in the run",
+        "tiers": [
+          1,
+          10,
+          50,
+          150,
+          400
+        ],
+        "diff": 2,
+        "stat": "escape_squad",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Teammate",
+          "Crew",
+          "Squad Leader",
+          "Old Guard"
+        ],
+        "cat": "medic"
+      },
+      {
+        "id": "scavenger",
+        "name": "Scavenger",
+        "desc": "Search containers",
+        "tiers": [
+          50,
+          300,
+          1500,
+          5000,
+          15000
+        ],
+        "diff": 2,
+        "stat": "search",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Rummager",
+          "Scavenger",
+          "Picker",
+          "Locust"
+        ],
+        "cat": "looting"
+      },
+      {
+        "id": "picks",
+        "name": "Lockpicker",
+        "desc": "Pick locks",
+        "tiers": [
+          10,
+          50,
+          250,
+          750,
+          2000
+        ],
+        "diff": 2,
+        "stat": "pick",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Tinkerer",
+          "Picklock",
+          "Locksmith",
+          "Master Of Keys"
+        ],
+        "cat": "looting"
+      },
+      {
+        "id": "pries",
+        "name": "Crowbar Diplomacy",
+        "desc": "Pry things open",
+        "tiers": [
+          10,
+          50,
+          250,
+          750,
+          2000
+        ],
+        "diff": 2,
+        "stat": "pry",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Jimmy",
+          "Crowbar",
+          "Breaker",
+          "Crowbar Diplomat"
+        ],
+        "cat": "looting"
+      },
+      {
+        "id": "secure",
+        "name": "Secure Room",
+        "desc": "Enter a powered secure room",
+        "tiers": [
+          1,
+          10,
+          50,
+          150,
+          400
+        ],
+        "diff": 2,
+        "stat": "secure_room",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Snoop",
+          "Vault Rat",
+          "Safecracker",
+          "Fort Knox"
+        ],
+        "cat": "looting"
+      },
+      {
+        "id": "hazard",
+        "name": "Hazard Pay",
+        "desc": "Open a hazard crate",
+        "tiers": [
+          1,
+          5,
+          25,
+          75,
+          200
+        ],
+        "diff": 3,
+        "stat": "hazard_crate",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Hot Hands",
+          "Hazmat",
+          "Glow Stick",
+          "Fallout"
+        ],
+        "cat": "looting"
+      },
+      {
+        "id": "heavy",
+        "name": "Heavy Load",
+        "desc": "Escape carrying over your limit",
+        "tiers": [
+          1,
+          10,
+          40,
+          100,
+          250
+        ],
+        "diff": 2,
+        "stat": "escape_heavy",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Hauler",
+          "Beast Of Burden",
+          "Pack Horse",
+          "Atlas"
+        ],
+        "cat": "looting"
+      },
+      {
+        "id": "haul",
+        "name": "Big Haul",
+        "desc": "Bring home a single haul worth this much",
+        "tiers": [
+          500,
+          1500,
+          4000,
+          8000,
+          15000
+        ],
+        "diff": 3,
+        "stat": "best_haul",
+        "max": true,
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Lucky Find",
+          "Big Haul",
+          "Big Spender",
+          "Jackpot"
+        ],
+        "cat": "looting"
+      },
+      {
+        "id": "power",
+        "name": "Lights On",
+        "desc": "Help fuel the generator to power-on",
+        "tiers": [
+          1,
+          10,
+          50,
+          150,
+          400
+        ],
+        "diff": 2,
+        "stat": "power_on",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Handyman",
+          "Electrician",
+          "Lineworker",
+          "Live Wire"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "tourist",
+        "name": "Tourist",
+        "desc": "Visit every quest zone on Riverside",
+        "tiers": [
+          1
+        ],
+        "diff": 2,
+        "all": [
+          "zone_rad_treatment",
+          "zone_medical_records",
+          "zone_trauma_room",
+          "zone_pharmacy",
+          "zone_operating_room",
+          "zone_chapel",
+          "zone_director",
+          "zone_security_office",
+          "zone_lab_storage"
+        ],
+        "xp": [
+          720
+        ],
+        "titles": [
+          "Local"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "floors",
+        "name": "Two Floors",
+        "desc": "Escape after visiting both floors in one run",
+        "tiers": [
+          1,
+          10,
+          40,
+          100
+        ],
+        "diff": 2,
+        "stat": "escape_both_floors",
+        "xp": [
+          120,
+          360,
+          720,
+          1440
+        ],
+        "titles": [
+          "",
+          "Climber",
+          "Stair Master",
+          "Mountaineer"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "veteran",
+        "name": "Veteran",
+        "desc": "Reach survivor level",
+        "tiers": [
+          5,
+          10,
+          25,
+          40,
+          50
+        ],
+        "diff": 4,
+        "stat": "level",
+        "max": true,
+        "any": true,
+        "xp": [
+          240,
+          480,
+          960,
+          1920,
+          3600
+        ],
+        "titles": [
+          "",
+          "Rookie",
+          "Regular Joe",
+          "Veteran",
+          "Legend"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "specialist",
+        "name": "Specialist",
+        "desc": "Max skill cards (rank V)",
+        "tiers": [
+          1,
+          5,
+          10,
+          18,
+          25
+        ],
+        "diff": 3,
+        "stat": "maxed_cards",
+        "max": true,
+        "any": true,
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Studied",
+          "Specialist",
+          "Expert",
+          "Polymath"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "classes",
+        "name": "Class Act",
+        "desc": "Escape 10 times as each class",
+        "tiers": [
+          10
+        ],
+        "diff": 3,
+        "all": [
+          "escape_medic",
+          "escape_scout",
+          "escape_mechanic",
+          "escape_guard"
+        ],
+        "xp": [
+          1080
+        ],
+        "titles": [
+          "Jack Of All Trades"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "rich",
+        "name": "Rich",
+        "desc": "Earn money in total",
+        "tiers": [
+          5000,
+          25000,
+          100000,
+          500000,
+          1000000
+        ],
+        "diff": 4,
+        "stat": "money",
+        "any": true,
+        "xp": [
+          240,
+          480,
+          960,
+          1920,
+          3600
+        ],
+        "titles": [
+          "",
+          "Saver",
+          "Comfortable",
+          "Tycoon",
+          "Kingpin"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "quests",
+        "name": "Quest Giver's Favourite",
+        "desc": "Finish quests",
+        "tiers": [
+          5,
+          10,
+          20,
+          30,
+          41
+        ],
+        "diff": 3,
+        "stat": "quest",
+        "any": true,
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Errand Runner",
+          "Reliable",
+          "Trusted",
+          "Outpost Legend"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "contracts",
+        "name": "Contractor",
+        "desc": "Finish daily contracts",
+        "tiers": [
+          10,
+          50,
+          150,
+          365,
+          1000
+        ],
+        "diff": 3,
+        "stat": "contract",
+        "any": true,
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Day Laborer",
+          "Contractor",
+          "Professional",
+          "Lifer"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "klutz",
+        "name": "Butterfingers",
+        "desc": "Drop a full fuel cylinder from a height",
+        "tiers": [
+          1
+        ],
+        "diff": 1,
+        "stat": "cylinder_drop",
+        "secret": true,
+        "any": true,
+        "xp": [
+          360
+        ],
+        "titles": [
+          "Klutz"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "unafraid",
+        "name": "Did You Hear That",
+        "desc": "Spend 60 s in the dark with your light off on a raid",
+        "tiers": [
+          1
+        ],
+        "diff": 2,
+        "stat": "dark_minute",
+        "secret": true,
+        "xp": [
+          720
+        ],
+        "titles": [
+          "Unafraid"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "speedrun",
+        "name": "Speedrun",
+        "desc": "Escape within 3 minutes of deploying",
+        "tiers": [
+          1
+        ],
+        "diff": 3,
+        "stat": "escape_fast",
+        "secret": true,
+        "xp": [
+          1080
+        ],
+        "titles": [
+          "In And Out"
+        ],
+        "cat": "progress"
+      },
+      {
+        "id": "rescuer",
+        "name": "Nobody Left Behind",
+        "desc": "Open a teammate's cage",
+        "tiers": [
+          1,
+          5,
+          25,
+          75,
+          200
+        ],
+        "diff": 3,
+        "stat": "rescue",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Key Holder",
+          "Gatekeeper",
+          "Jailbreaker",
+          "Nobody Left Behind"
+        ],
+        "cat": "medic"
+      },
+      {
+        "id": "quiet_hands",
+        "name": "Quiet Hands",
+        "desc": "Pick a teammate's cage open",
+        "tiers": [
+          1,
+          5,
+          20,
+          60
+        ],
+        "diff": 3,
+        "stat": "rescue_pick",
+        "xp": [
+          180,
+          540,
+          1080,
+          2160
+        ],
+        "titles": [
+          "",
+          "Light Fingers",
+          "Quiet Hands",
+          "Silent Key"
+        ],
+        "cat": "medic"
+      },
+      {
+        "id": "loud_way",
+        "name": "The Loud Way",
+        "desc": "Burst a teammate's cage open with the cube",
+        "tiers": [
+          1,
+          5,
+          20,
+          60
+        ],
+        "diff": 2,
+        "stat": "rescue_cube",
+        "xp": [
+          120,
+          360,
+          720,
+          1440
+        ],
+        "titles": [
+          "",
+          "Doorbuster",
+          "Loud Way Out",
+          "Fireworks"
+        ],
+        "cat": "medic"
+      },
+      {
+        "id": "slippery",
+        "name": "Slippery",
+        "desc": "Break free of its tail",
+        "tiers": [
+          1,
+          5,
+          20,
+          60,
+          150
+        ],
+        "diff": 3,
+        "stat": "break_free",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Wriggler",
+          "Unhooked",
+          "Eel",
+          "Nothing Holds Me"
+        ],
+        "cat": "apex"
+      },
+      {
+        "id": "flinch",
+        "name": "Make It Flinch",
+        "desc": "Stun it with the cube",
+        "tiers": [
+          1,
+          5,
+          25,
+          75,
+          200
+        ],
+        "diff": 3,
+        "stat": "apex_stun",
+        "xp": [
+          180,
+          360,
+          720,
+          1440,
+          2700
+        ],
+        "titles": [
+          "",
+          "Flinch",
+          "Back Off",
+          "Tamer",
+          "It Knows Your Name"
+        ],
+        "cat": "apex"
+      },
+      {
+        "id": "let_go",
+        "name": "Let Go",
+        "desc": "Stun it into dropping a teammate",
+        "tiers": [
+          1,
+          5,
+          20,
+          60
+        ],
+        "diff": 4,
+        "stat": "apex_stun_drop",
+        "xp": [
+          240,
+          720,
+          1440,
+          2880
+        ],
+        "titles": [
+          "",
+          "Hands Off",
+          "Let Go",
+          "Guardian"
+        ],
+        "cat": "apex"
+      },
+      {
+        "id": "taken",
+        "name": "Taken",
+        "desc": "Get caught",
+        "tiers": [
+          1,
+          10,
+          50
+        ],
+        "diff": 1,
+        "stat": "caught",
+        "xp": [
+          60,
+          180,
+          480
+        ],
+        "titles": [
+          "",
+          "Taken",
+          "Frequent Flyer"
+        ],
+        "cat": "apex"
+      },
+      {
+        "id": "uncaught",
+        "name": "Never Taken",
+        "desc": "Escape without being caught",
+        "tiers": [
+          5,
+          25,
+          100,
+          300,
+          1000
+        ],
+        "diff": 2,
+        "stat": "escape_uncaught",
+        "xp": [
+          120,
+          240,
+          480,
+          960,
+          1800
+        ],
+        "titles": [
+          "",
+          "Slipped By",
+          "Unseen",
+          "Shadow",
+          "Never Taken"
+        ],
+        "cat": "escaping"
+      }
+    ]
+  },
+  "resultsSeconds": 8,
+  "loot": {
+    "_note": "Share drops ON: a drop is yours alone dropLockSeconds (then also until your save no longer has it - anti-dupe); OFF: keepDropsSeconds. Default was 15 s; the user: a friend could not pick up a shared drop.",
+    "dropLockSeconds": 3,
+    "keepDropsSeconds": 120
+  },
+  "wrist": {
+    "_note": "VR wrist hologram (WristStatus): off = where it sits from the hand (hand space, m); back = the back-of-hand axis in hand space (it rises along it); lookAngle = how close to it you must look (deg); faceDot > 0 also needs the back of the hand turned toward your eyes (0.3 = roughly facing).",
+    "offX": 0,
+    "offY": 0.055,
+    "offZ": -0.05,
+    "backX": 0,
+    "backY": 1,
+    "backZ": 0,
+    "lookAngle": 24,
+    "faceDot": 0
+  },
+  "vr": {
+    "_note": "VR point-to-pocket aim (PointPocket): pitch / yaw on the hand tracking rotation, cone in degrees; pointDebug 1 = debug users always see the aim beam.",
+    "pointPitch": 0,
+    "pointYaw": 0,
+    "pointCone": 12,
+    "pointDebug": 1,
+    "clipReach": 0.08
+  },
+  "player": {
+    "walkSpeed": 2,
+    "runSpeed": 4.5,
+    "jumpImpulse": 3,
+    "maxStamina": 100,
+    "staminaRegen": 18,
+    "sprintCost": 14,
+    "jumpCost": 12,
+    "carryLimit": 9,
+    "wornWeightMult": 0.4,
+    "noise": 1
+  },
+  "avatar": {
+    "_note": "Allowed avatar eye-height range (m), kept tight (1.6-1.8) so grabs, seats and the execution line up; animations aim at apex.execEyeHeight (1.7). VRChat scales anyone outside it into range, so body zones (hip ring, stow zones, wrist) stay reachable. freeUsers (VRChat display names, exact) get the full 0.2-5 m range.",
+    "eyeMin": 1.6,
+    "eyeMax": 1.8,
+    "freeUsers": [
+      "Tasty Meow Mix"
+    ]
+  },
+  "containers": {
+    "apex_crate": {
+      "min": 1,
+      "max": 1,
+      "lockChance": 0,
+      "apexItems": {
+        "0": [
+          "flare"
+        ],
+        "1": [
+          "shock_mine"
+        ]
+      },
+      "_note": "Hazard crates (ApexCrates): power.apexCrates of the map's ApexCrateSpot candidates show per raid, open from the raid start (an emptied one can be charged again: hazardCrates). They roll only this raid's apex counter item: apexItems.<slot> (0 Hollowface, 1 Xenosaurid)."
+    },
+    "crate": {
+      "min": 0,
+      "max": 2,
+      "bias": [
+        1,
+        1,
+        0.7,
+        0.35,
+        0.1
+      ],
+      "affinity": {
+        "bandage": 1,
+        "material": 6,
+        "gear": 0.8,
+        "valuable": 0.8,
+        "food": 1,
+        "medical": 0.4
+      },
+      "lockChance": 0.15,
+      "pryOnly": 0.5
+    },
+    "locker": {
+      "min": 1,
+      "max": 2,
+      "bias": [
+        0.8,
+        1,
+        1.2,
+        0.9,
+        0.3
+      ],
+      "affinity": {
+        "bandage": 1,
+        "material": 3,
+        "gear": 2,
+        "medical": 1,
+        "valuable": 0.5,
+        "key": 0.3
+      },
+      "lockChance": 0.75,
+      "pickOnly": 0.45,
+      "pryOnly": 0.35,
+      "_note": "Most lockers are locked: pickOnly / pryOnly = odds a locked one takes only a pick (padlock) or only a crowbar (jammed); the rest take either. Slightly better loot than crates."
+    },
+    "register": {
+      "min": 1,
+      "max": 2,
+      "bias": [
+        1,
+        1,
+        1.2,
+        1.5,
+        2
+      ],
+      "affinity": {
+        "valuable": 5,
+        "food": 1
+      },
+      "lockChance": 0.25,
+      "pickOnly": 0.5
+    },
+    "fridge": {
+      "min": 0,
+      "max": 2,
+      "bias": [
+        1,
+        1,
+        1,
+        0.5,
+        0
+      ],
+      "affinity": {
+        "food": 6,
+        "material": 0.3,
+        "spoiled": 1.2
+      },
+      "lockChance": 0.0
+    },
+    "medcab": {
+      "min": 1,
+      "max": 2,
+      "bias": [
+        1,
+        1,
+        1.1,
+        0.8,
+        0
+      ],
+      "affinity": {
+        "bandage": 6,
+        "material": 4,
+        "medical": 2,
+        "gear": 0.5,
+        "valuable": 0.5,
+        "food": 0.5,
+        "monster": 0.4
+      },
+      "lockChance": 0.3,
+      "pickOnly": 0.5
+    },
+    "vault": {
+      "min": 3,
+      "max": 5,
+      "bias": [
+        0.1,
+        0.5,
+        1.4,
+        2.0,
+        1.6
+      ],
+      "affinity": {
+        "valuable": 4,
+        "gear": 3,
+        "medical": 2,
+        "key": 0.8,
+        "material": 0.5
+      },
+      "lockChance": 0,
+      "_note": "Power-on secure caches (SecureRooms): only in the picked rooms, only after the generator's running - so no lock of their own. Rich on purpose; weight and space are the limit."
+    },
+    "secure": {
+      "min": 2,
+      "max": 3,
+      "bias": [
+        0.3,
+        0.8,
+        1.4,
+        1.5,
+        1.0
+      ],
+      "affinity": {
+        "gear": 3,
+        "valuable": 3,
+        "medical": 2,
+        "material": 1,
+        "key": 0.6
+      },
+      "lockChance": 0.8,
+      "pickOnly": 0.5
+    },
+    "husk": {
+      "min": 1,
+      "max": 1,
+      "bias": [
+        1,
+        0.6,
+        0.3,
+        0.1,
+        0
+      ],
+      "affinity": {
+        "monster": 6,
+        "valuable": 0.3
+      },
+      "lockChance": 0.0,
+      "_note": "What a killed husk can drop (enemies.husk.dropChance): monster parts (rotten meat common, husk samples uncommon) for quests/trading, now and then a valuable they still had on them. No medical, food or materials - corpses aren't supply crates."
+    },
+    "training_crate": {
+      "_note": "Training wing: always a lockpick.",
+      "min": 1,
+      "max": 1,
+      "items": {
+        "lockpick": 1
+      },
+      "lockChance": 0.0
+    },
+    "training_lockbox": {
+      "_note": "Training wing: locked; the lock bonus roll gives the crowbar.",
+      "min": 0,
+      "max": 0,
+      "items": {
+        "crowbar": 1
+      },
+      "lockChance": 1.0,
+      "pickOnly": 1.0
+    },
+    "training_prybox": {
+      "_note": "Training wing: locked; a bandage (+1 from the lock bonus).",
+      "min": 1,
+      "max": 1,
+      "items": {
+        "bandage": 1
+      },
+      "lockChance": 1.0,
+      "pryOnly": 1.0
+    },
+    "guided_crate": {
+      "_note": "Guided first raid (per player, training-style). First time through the finds are real (at most guided.realItems), replays training items.",
+      "min": 1,
+      "max": 2,
+      "items": {
+        "scrap_metal": 2,
+        "duct_tape": 1,
+        "batteries": 1,
+        "cloth": 1
+      },
+      "lockChance": 0.0
+    },
+    "guided_case": {
+      "min": 1,
+      "max": 2,
+      "items": {
+        "bandage": 3,
+        "painkillers": 1,
+        "splint": 1
+      },
+      "lockChance": 0.0
+    },
+    "guided_toolbox": {
+      "min": 1,
+      "max": 1,
+      "items": {
+        "screwdriver": 1,
+        "copper_wire": 1,
+        "glue": 1
+      },
+      "lockChance": 0.0
+    },
+    "secure_case": {
+      "_note": "The good hard cases (SecureCases picker; SecureCaseSpot_n candidates in Riverside). Every raid shows perRaidMin..perRaidMax of them, power or not. Always locked, lockpick only; rolls lean rare.",
+      "perRaidMin": 4,
+      "perRaidMax": 6,
+      "min": 2,
+      "max": 4,
+      "bias": [
+        0.1,
+        0.4,
+        1.2,
+        1.8,
+        1.6
+      ],
+      "affinity": {
+        "gear": 3,
+        "valuable": 3.5,
+        "medical": 2,
+        "material": 0.6,
+        "key": 0.8
+      },
+      "lockChance": 1.0,
+      "pickOnly": 1.0
+    },
+    "crate_spots": {
+      "_note": "Not a loot table: the share of Riverside's 521 loot crate candidates (CrateSpot_n, about 5 per room) switched on each raid by the CrateSpots picker (SecureCases.cs, table crate_spots), +-15% per raid: about 130 crates, a different set every run.",
+      "share": 0.25
+    }
+  },
+  "floorLoot": {
+    "_note": "A sparse handful of loose items per run on the map's FloorLoot spots (one per spot). Same rarity bias / tag affinity as containers.",
+    "min": 6,
+    "max": 11,
+    "bias": [
+      1,
+      0.7,
+      0.35,
+      0.12,
+      0.02
+    ],
+    "affinity": {
+      "material": 5,
+      "food": 2,
+      "medical": 0.8,
+      "valuable": 0.8,
+      "tool": 0.6,
+      "weapon": 0.2,
+      "gear": 0.3
+    }
+  },
+  "items": {
+    "scrap_metal": {
+      "name": "Scrap Metal",
+      "code": "SCR",
+      "rarity": 0,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.8,
+      "min": 6,
+      "max": 12,
+      "shape": "cube",
+      "size": [
+        0.25,
+        0.06,
+        0.18
+      ],
+      "desc": "Bent sheet and offcuts. Crafting staple.",
+      "icon": "material",
+      "stack": 6
+    },
+    "bolt": {
+      "name": "Bolts & Screws",
+      "code": "BLT",
+      "rarity": 0,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.35,
+      "min": 5,
+      "max": 12,
+      "shape": "cylinder",
+      "size": [
+        0.06,
+        0.04,
+        0.06
+      ],
+      "desc": "A jar's worth of nuts and bolts. Crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "cloth": {
+      "name": "Cloth",
+      "code": "CLT",
+      "rarity": 0,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.25,
+      "min": 5,
+      "max": 10,
+      "shape": "cube",
+      "size": [
+        0.25,
+        0.03,
+        0.25
+      ],
+      "desc": "Torn fabric. Bandages and padding are made from it.",
+      "icon": "material",
+      "stack": 6
+    },
+    "plastic": {
+      "name": "Plastic",
+      "code": "PLS",
+      "rarity": 0,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.35,
+      "min": 5,
+      "max": 10,
+      "shape": "cube",
+      "size": [
+        0.2,
+        0.08,
+        0.15
+      ],
+      "desc": "Hard plastic scrap. Crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "bottle": {
+      "name": "Empty Bottle",
+      "code": "BTL",
+      "rarity": 0,
+      "tags": [
+        "material",
+        "throwable",
+        "fragile"
+      ],
+      "kg": 0.5,
+      "min": 5,
+      "max": 12,
+      "shape": "cylinder",
+      "size": [
+        0.07,
+        0.12,
+        0.07
+      ],
+      "desc": "An empty glass bottle. Crafting.",
+      "icon": "water",
+      "stack": 6
+    },
+    "duct_tape": {
+      "name": "Duct Tape",
+      "code": "TAP",
+      "rarity": 1,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.2,
+      "min": 15,
+      "max": 28,
+      "shape": "cylinder",
+      "size": [
+        0.1,
+        0.04,
+        0.1
+      ],
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/Tape.prefab",
+      "desc": "Fixes most things, for a while. Crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "copper_wire": {
+      "name": "Copper Wire",
+      "code": "WIR",
+      "rarity": 1,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.3,
+      "min": 18,
+      "max": 30,
+      "shape": "cylinder",
+      "size": [
+        0.12,
+        0.03,
+        0.12
+      ],
+      "desc": "Stripped copper. Electrics and crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "leather": {
+      "name": "Leather",
+      "code": "LTH",
+      "rarity": 1,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.45,
+      "min": 18,
+      "max": 32,
+      "shape": "cube",
+      "size": [
+        0.3,
+        0.02,
+        0.25
+      ],
+      "desc": "Tough hide offcuts. Gear crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "rope": {
+      "name": "Rope",
+      "code": "RPE",
+      "rarity": 1,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.5,
+      "min": 15,
+      "max": 26,
+      "shape": "cylinder",
+      "size": [
+        0.14,
+        0.05,
+        0.14
+      ],
+      "desc": "A coil of nylon rope. Crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "glue": {
+      "name": "Glue",
+      "code": "GLU",
+      "rarity": 1,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.2,
+      "min": 16,
+      "max": 28,
+      "shape": "cylinder",
+      "size": [
+        0.04,
+        0.08,
+        0.04
+      ],
+      "desc": "Industrial adhesive. Crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "batteries": {
+      "name": "Batteries",
+      "code": "BAT",
+      "rarity": 1,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.2,
+      "min": 18,
+      "max": 34,
+      "shape": "cube",
+      "size": [
+        0.08,
+        0.03,
+        0.06
+      ],
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/battery small.prefab",
+      "desc": "Loose cells, mostly charged. Electrics and crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "toolbox": {
+      "name": "Toolbox",
+      "code": "TBX",
+      "rarity": 2,
+      "tags": [
+        "material"
+      ],
+      "kg": 7,
+      "min": 110,
+      "max": 160,
+      "shape": "cube",
+      "size": [
+        0.5,
+        0.2,
+        0.2
+      ],
+      "twoHanded": true,
+      "desc": "A rusty box of hand tools. Valuable crafting material.",
+      "icon": "material",
+      "salvage": {
+        "bolt": 3,
+        "scrap_metal": 2,
+        "duct_tape": 1,
+        "glue": 1
+      }
+    },
+    "electronics": {
+      "name": "Electronics",
+      "code": "ELC",
+      "rarity": 2,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.4,
+      "min": 50,
+      "max": 90,
+      "shape": "cube",
+      "size": [
+        0.15,
+        0.02,
+        0.1
+      ],
+      "desc": "Circuit boards and chips. Advanced crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "kevlar": {
+      "name": "Kevlar Fiber",
+      "code": "KEV",
+      "rarity": 2,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.6,
+      "min": 55,
+      "max": 95,
+      "shape": "cube",
+      "size": [
+        0.25,
+        0.03,
+        0.2
+      ],
+      "desc": "Ballistic fibre panels. Armour crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "chemicals": {
+      "name": "Chemicals",
+      "code": "CHM",
+      "rarity": 2,
+      "tags": [
+        "material"
+      ],
+      "kg": 0.6,
+      "min": 45,
+      "max": 85,
+      "shape": "cylinder",
+      "size": [
+        0.07,
+        0.1,
+        0.07
+      ],
+      "desc": "Unlabelled reagents. Medical crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "ceramic_plate": {
+      "name": "Ceramic Plate",
+      "code": "CER",
+      "rarity": 3,
+      "tags": [
+        "material"
+      ],
+      "kg": 1.5,
+      "min": 120,
+      "max": 200,
+      "shape": "cube",
+      "size": [
+        0.25,
+        0.3,
+        0.03
+      ],
+      "desc": "An armour insert. Top-tier armour crafting.",
+      "icon": "material",
+      "stack": 6
+    },
+    "rotten_meat": {
+      "name": "Spoiled Meat",
+      "code": "RMT",
+      "rarity": 0,
+      "tags": [
+        "spoiled"
+      ],
+      "kg": 0.6,
+      "min": 2,
+      "max": 5,
+      "shape": "cube",
+      "size": [
+        0.16,
+        0.07,
+        0.12
+      ],
+      "desc": "Four years in a dead cold store. It reeks. Dell wants bait.",
+      "icon": "material",
+      "stack": 6
+    },
+    "husk_sample": {
+      "name": "Resin Sample",
+      "code": "HSP",
+      "rarity": 1,
+      "tags": [
+        "monster"
+      ],
+      "kg": 0.2,
+      "min": 14,
+      "max": 24,
+      "shape": "cylinder",
+      "size": [
+        0.04,
+        0.09,
+        0.04
+      ],
+      "desc": "Pale resin scraped off a cage or a vent rim. Still faintly warm. Doc wants it; so does Continuity.",
+      "icon": "material",
+      "stack": 6
+    },
+    "lighter": {
+      "name": "Lighter",
+      "code": "LTR",
+      "rarity": 0,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 0.1,
+      "min": 6,
+      "max": 12,
+      "shape": "cube",
+      "size": [
+        0.03,
+        0.06,
+        0.015
+      ],
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/LighterFull.prefab",
+      "maxSize": 0.07,
+      "desc": "A brass lighter. Sells well.",
+      "icon": "cigarettes"
+    },
+    "cigarettes": {
+      "name": "Cigarettes",
+      "code": "CIG",
+      "rarity": 0,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 0.1,
+      "min": 8,
+      "max": 15,
+      "shape": "cube",
+      "size": [
+        0.06,
+        0.09,
+        0.02
+      ],
+      "use": "comfort",
+      "sanity": 15,
+      "desc": "A crumpled pack. Calms the nerves; also sells.",
+      "icon": "cigarettes"
+    },
+    "old_coins": {
+      "name": "Old Coins",
+      "code": "CNS",
+      "rarity": 0,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 0.2,
+      "min": 7,
+      "max": 14,
+      "shape": "cylinder",
+      "size": [
+        0.06,
+        0.02,
+        0.06
+      ],
+      "desc": "Pre-collapse coins. Sell at the trader.",
+      "icon": "gold"
+    },
+    "wristwatch": {
+      "name": "Wristwatch",
+      "code": "WTC",
+      "rarity": 1,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 0.1,
+      "min": 22,
+      "max": 38,
+      "shape": "cylinder",
+      "size": [
+        0.05,
+        0.015,
+        0.05
+      ],
+      "desc": "Still ticking. Sell at the trader.",
+      "icon": "gold",
+      "salvage": {
+        "copper_wire": 1
+      }
+    },
+    "silverware": {
+      "name": "Silverware",
+      "code": "SLV",
+      "rarity": 1,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 0.8,
+      "min": 18,
+      "max": 34,
+      "shape": "cube",
+      "size": [
+        0.22,
+        0.04,
+        0.08
+      ],
+      "desc": "Tarnished silver cutlery. Sell at the trader.",
+      "icon": "gold",
+      "salvage": {
+        "scrap_metal": 2
+      }
+    },
+    "perfume": {
+      "name": "Perfume",
+      "code": "PRF",
+      "rarity": 1,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 0.3,
+      "min": 20,
+      "max": 36,
+      "shape": "cube",
+      "size": [
+        0.06,
+        0.1,
+        0.04
+      ],
+      "desc": "Sealed designer bottle. Sell at the trader.",
+      "icon": "gold"
+    },
+    "wedding_ring": {
+      "name": "Wedding Ring",
+      "code": "RNG",
+      "rarity": 2,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 0.05,
+      "min": 60,
+      "max": 95,
+      "shape": "cylinder",
+      "size": [
+        0.03,
+        0.008,
+        0.03
+      ],
+      "desc": "Somebody's promise. Sell at the trader.",
+      "icon": "gold"
+    },
+    "vintage_camera": {
+      "name": "Vintage Camera",
+      "code": "CAM",
+      "rarity": 2,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 1.0,
+      "min": 55,
+      "max": 90,
+      "shape": "cube",
+      "size": [
+        0.14,
+        0.09,
+        0.08
+      ],
+      "desc": "A collector's piece. Sell at the trader.",
+      "icon": "gold",
+      "salvage": {
+        "plastic": 2,
+        "copper_wire": 1
+      }
+    },
+    "whiskey": {
+      "name": "Sealed Whiskey",
+      "code": "WSK",
+      "rarity": 2,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 1.2,
+      "min": 45,
+      "max": 80,
+      "shape": "cylinder",
+      "size": [
+        0.08,
+        0.22,
+        0.08
+      ],
+      "use": "comfort",
+      "sanity": 30,
+      "desc": "Sealed, aged. A long drink steadies you; worth a lot too.",
+      "icon": "gold"
+    },
+    "gold_chain": {
+      "name": "Gold Chain",
+      "code": "CHN",
+      "rarity": 3,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 0.1,
+      "min": 120,
+      "max": 200,
+      "shape": "cube",
+      "size": [
+        0.08,
+        0.01,
+        0.08
+      ],
+      "desc": "Heavy gold chain. Sell at the trader.",
+      "icon": "gold"
+    },
+    "jewelry_box": {
+      "name": "Jewelry Box",
+      "code": "JWL",
+      "rarity": 3,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 1.5,
+      "min": 150,
+      "max": 240,
+      "shape": "cube",
+      "size": [
+        0.2,
+        0.12,
+        0.14
+      ],
+      "desc": "A locked box of jewellery. Sell at the trader.",
+      "icon": "gold",
+      "salvage": {
+        "leather": 2,
+        "bolt": 1
+      }
+    },
+    "gold_bar": {
+      "name": "Gold Bar",
+      "code": "GLD",
+      "rarity": 4,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 12.5,
+      "min": 550,
+      "max": 800,
+      "shape": "cube",
+      "size": [
+        0.25,
+        0.08,
+        0.12
+      ],
+      "twoHanded": true,
+      "desc": "12.5 kg of gold. Too heavy for the vent.",
+      "icon": "gold"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "code": "DMD",
+      "rarity": 4,
+      "tags": [
+        "valuable"
+      ],
+      "kg": 0.05,
+      "min": 380,
+      "max": 600,
+      "shape": "sphere",
+      "size": [
+        0.03,
+        0.03,
+        0.03
+      ],
+      "desc": "Flawless. The best thing you'll find down here.",
+      "icon": "gold"
+    },
+    "bandage": {
+      "name": "Bandage",
+      "code": "BND",
+      "rarity": 0,
+      "tags": [
+        "medical"
+      ],
+      "kg": 0.1,
+      "min": 8,
+      "max": 15,
+      "shape": "cube",
+      "size": [
+        0.12,
+        0.05,
+        0.12
+      ],
+      "use": "bandage",
+      "useSeconds": 4,
+      "craft": {
+        "cloth": 2
+      },
+      "model": "Assets/ThirdParty/MedkitProps/Prefabs/Bandage.prefab",
+      "desc": "Wrap a wound to stop bleeding.",
+      "icon": "bandage"
+    },
+    "splint": {
+      "name": "Splint",
+      "code": "SPL",
+      "rarity": 1,
+      "tags": [
+        "medical"
+      ],
+      "kg": 0.4,
+      "min": 16,
+      "max": 28,
+      "shape": "cube",
+      "size": [
+        0.06,
+        0.04,
+        0.4
+      ],
+      "use": "splint",
+      "useSeconds": 6,
+      "craft": {
+        "scrap_metal": 1,
+        "cloth": 1,
+        "duct_tape": 1
+      },
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/Splint.prefab",
+      "desc": "Brace a broken limb so you can use it again.",
+      "icon": "bandage"
+    },
+    "painkillers": {
+      "name": "Painkillers",
+      "code": "PKL",
+      "rarity": 1,
+      "tags": [
+        "medical"
+      ],
+      "kg": 0.1,
+      "min": 15,
+      "max": 26,
+      "shape": "cylinder",
+      "size": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "use": "painkillers",
+      "useSeconds": 2.5,
+      "craft": {
+        "chemicals": 1
+      },
+      "craftYield": 2,
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/painkiller.prefab",
+      "desc": "Dulls pain: fractures stop slowing you for a while.",
+      "icon": "medical"
+    },
+    "medkit": {
+      "name": "Medkit",
+      "code": "MED",
+      "rarity": 2,
+      "tags": [
+        "medical"
+      ],
+      "kg": 1.2,
+      "min": 45,
+      "max": 80,
+      "shape": "cube",
+      "size": [
+        0.3,
+        0.14,
+        0.22
+      ],
+      "use": "medkit",
+      "useSeconds": 7,
+      "craft": {
+        "bandage": 2,
+        "painkillers": 1,
+        "chemicals": 1
+      },
+      "model": "Assets/ThirdParty/MedkitProps/Prefabs/Case_01_A.prefab",
+      "maxSize": 0.32,
+      "desc": "Field kit: stops all bleeding and patches you up.",
+      "icon": "medical"
+    },
+    "syringe": {
+      "name": "Syringe",
+      "code": "SYR",
+      "rarity": 1,
+      "tags": [
+        "medical"
+      ],
+      "kg": 0.1,
+      "min": 30,
+      "max": 50,
+      "shape": "cylinder",
+      "size": [
+        0.03,
+        0.08,
+        0.03
+      ],
+      "use": "revive",
+      "useSeconds": 5,
+      "craft": {
+        "chemicals": 1,
+        "plastic": 1,
+        "glue": 1
+      },
+      "solid": true,
+      "model": "Assets/ThirdParty/MedkitProps/Prefabs/Syringe.prefab",
+      "alignZ": true,
+      "desc": "Adrenaline. Gets a downed teammate back on their feet.",
+      "icon": "syringe"
+    },
+    "surgical_kit": {
+      "name": "Surgical Kit",
+      "code": "SRG",
+      "rarity": 3,
+      "tags": [
+        "medical"
+      ],
+      "kg": 1.5,
+      "min": 110,
+      "max": 180,
+      "shape": "cube",
+      "size": [
+        0.28,
+        0.08,
+        0.18
+      ],
+      "use": "surgery",
+      "useSeconds": 15,
+      "craft": {
+        "medkit": 1,
+        "chemicals": 2,
+        "electronics": 1
+      },
+      "desc": "Field surgery: repairs serious limb damage.",
+      "icon": "medical"
+    },
+    "energy_bar": {
+      "name": "Energy Bar",
+      "code": "BAR",
+      "rarity": 0,
+      "tags": [
+        "food"
+      ],
+      "kg": 0.1,
+      "min": 5,
+      "max": 10,
+      "shape": "cube",
+      "size": [
+        0.15,
+        0.03,
+        0.05
+      ],
+      "use": "comfort",
+      "sanity": 5,
+      "heal": 6,
+      "desc": "Quick calories. A little health and calm.",
+      "icon": "food"
+    },
+    "canned_food": {
+      "name": "Canned Food",
+      "code": "CAN",
+      "rarity": 0,
+      "tags": [
+        "food"
+      ],
+      "kg": 0.5,
+      "min": 6,
+      "max": 12,
+      "shape": "cylinder",
+      "size": [
+        0.09,
+        0.06,
+        0.09
+      ],
+      "use": "comfort",
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/canned tuna.prefab",
+      "sanity": 8,
+      "heal": 12,
+      "desc": "Cold beans. Some health and calm.",
+      "icon": "food"
+    },
+    "water": {
+      "name": "Water",
+      "code": "H2O",
+      "rarity": 0,
+      "tags": [
+        "food"
+      ],
+      "kg": 0.6,
+      "min": 6,
+      "max": 12,
+      "shape": "cylinder",
+      "size": [
+        0.07,
+        0.12,
+        0.07
+      ],
+      "use": "comfort",
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/canteen.prefab",
+      "sanity": 6,
+      "heal": 4,
+      "desc": "Clean water. A little health and calm.",
+      "icon": "water"
+    },
+    "soda": {
+      "name": "Soda",
+      "code": "SOD",
+      "rarity": 1,
+      "tags": [
+        "food"
+      ],
+      "kg": 0.4,
+      "min": 15,
+      "max": 22,
+      "shape": "cylinder",
+      "size": [
+        0.06,
+        0.06,
+        0.06
+      ],
+      "use": "comfort",
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/can.prefab",
+      "sanity": 10,
+      "desc": "Flat but sweet. Calms you a little.",
+      "icon": "water"
+    },
+    "mre": {
+      "name": "MRE",
+      "code": "MRE",
+      "rarity": 2,
+      "tags": [
+        "food"
+      ],
+      "kg": 0.6,
+      "min": 40,
+      "max": 65,
+      "shape": "cube",
+      "size": [
+        0.2,
+        0.05,
+        0.12
+      ],
+      "use": "comfort",
+      "sanity": 15,
+      "heal": 20,
+      "desc": "A full ration. Good health and calm.",
+      "icon": "food"
+    },
+    "padded_cap": {
+      "name": "Padded Cap",
+      "code": "CAP",
+      "rarity": 0,
+      "tags": [
+        "gear"
+      ],
+      "kg": 0.45,
+      "min": 8,
+      "max": 14,
+      "shape": "sphere",
+      "size": [
+        0.22,
+        0.1,
+        0.24
+      ],
+      "slot": 1,
+      "armor": {
+        "head": 0.15
+      },
+      "craft": {
+        "cloth": 2,
+        "duct_tape": 1
+      },
+      "desc": "A thick knit cap. Light head protection.",
+      "icon": "helmet",
+      "salvage": {
+        "cloth": 1
+      }
+    },
+    "hard_hat": {
+      "name": "Hard Hat",
+      "code": "HAT",
+      "rarity": 1,
+      "tags": [
+        "gear"
+      ],
+      "kg": 1.2,
+      "min": 18,
+      "max": 32,
+      "shape": "sphere",
+      "size": [
+        0.26,
+        0.16,
+        0.28
+      ],
+      "slot": 1,
+      "armor": {
+        "head": 0.35
+      },
+      "craft": {
+        "plastic": 3,
+        "cloth": 1,
+        "glue": 1
+      },
+      "desc": "Construction helmet. Decent head protection.",
+      "icon": "helmet",
+      "salvage": {
+        "plastic": 2
+      }
+    },
+    "riot_helmet": {
+      "name": "Riot Helmet",
+      "code": "RIO",
+      "rarity": 2,
+      "tags": [
+        "gear"
+      ],
+      "kg": 2.1,
+      "min": 55,
+      "max": 90,
+      "shape": "sphere",
+      "size": [
+        0.28,
+        0.22,
+        0.3
+      ],
+      "slot": 1,
+      "armor": {
+        "head": 0.5
+      },
+      "craft": {
+        "plastic": 3,
+        "scrap_metal": 2,
+        "kevlar": 1,
+        "glue": 1
+      },
+      "desc": "Police riot helmet. Strong head protection.",
+      "icon": "helmet",
+      "salvage": {
+        "plastic": 3,
+        "scrap_metal": 2
+      }
+    },
+    "combat_helmet": {
+      "name": "Combat Helmet",
+      "code": "CHL",
+      "rarity": 3,
+      "tags": [
+        "gear"
+      ],
+      "kg": 2.7,
+      "min": 130,
+      "max": 210,
+      "shape": "sphere",
+      "size": [
+        0.28,
+        0.2,
+        0.3
+      ],
+      "slot": 1,
+      "armor": {
+        "head": 0.65
+      },
+      "pct": {
+        "noise": 0.05
+      },
+      "craft": {
+        "ceramic_plate": 1,
+        "kevlar": 2,
+        "leather": 1,
+        "glue": 2
+      },
+      "desc": "Military helmet. The best head protection, with a mount for a headlamp.",
+      "icon": "helmet",
+      "mount": 1,
+      "salvage": {
+        "kevlar": 1,
+        "glue": 1
+      }
+    },
+    "headlamp": {
+      "name": "Headlamp",
+      "code": "LMP",
+      "rarity": 1,
+      "tags": [
+        "gear"
+      ],
+      "kg": 0.6,
+      "min": 20,
+      "max": 35,
+      "shape": "cube",
+      "size": [
+        0.1,
+        0.06,
+        0.08
+      ],
+      "slot": 1,
+      "light": true,
+      "craft": {
+        "plastic": 2,
+        "batteries": 1,
+        "copper_wire": 1,
+        "cloth": 1
+      },
+      "desc": "Head-mounted light. Keeps your hands free. Mounts on a combat helmet (MOUNT slot).",
+      "icon": "flashlight",
+      "salvage": {
+        "plastic": 2
+      },
+      "beam": {
+        "range": 14.5,
+        "angle": 50,
+        "intensity": 0.68,
+        "flicker": 0
+      }
+    },
+    "padded_jacket": {
+      "name": "Padded Jacket",
+      "code": "JKT",
+      "rarity": 0,
+      "tags": [
+        "gear"
+      ],
+      "kg": 2.25,
+      "min": 9,
+      "max": 15,
+      "shape": "cube",
+      "size": [
+        0.42,
+        0.5,
+        0.1
+      ],
+      "slot": 2,
+      "armor": {
+        "thorax": 0.15,
+        "stomach": 0.1
+      },
+      "craft": {
+        "cloth": 4,
+        "duct_tape": 1
+      },
+      "desc": "Quilted jacket. Light torso protection.",
+      "icon": "vest",
+      "salvage": {
+        "cloth": 1
+      }
+    },
+    "scrap_vest": {
+      "name": "Scrap Plate Vest",
+      "code": "SPV",
+      "rarity": 1,
+      "tags": [
+        "gear"
+      ],
+      "kg": 5.25,
+      "min": 22,
+      "max": 38,
+      "shape": "cube",
+      "size": [
+        0.44,
+        0.5,
+        0.12
+      ],
+      "slot": 2,
+      "armor": {
+        "thorax": 0.3,
+        "stomach": 0.25
+      },
+      "pct": {
+        "walkSpeed": -0.05
+      },
+      "craft": {
+        "scrap_metal": 4,
+        "cloth": 2,
+        "bolt": 2,
+        "duct_tape": 2
+      },
+      "desc": "Scrap plates riveted together. Stops claws, but it's heavy going.",
+      "icon": "vest",
+      "salvage": {
+        "cloth": 1,
+        "bolt": 1
+      }
+    },
+    "vest": {
+      "name": "Police Vest",
+      "code": "PVS",
+      "rarity": 2,
+      "tags": [
+        "gear"
+      ],
+      "kg": 6.0,
+      "min": 55,
+      "max": 90,
+      "shape": "cube",
+      "size": [
+        0.45,
+        0.5,
+        0.12
+      ],
+      "slot": 2,
+      "armor": {
+        "thorax": 0.35,
+        "stomach": 0.3
+      },
+      "pct": {
+        "walkSpeed": -0.05
+      },
+      "craft": {
+        "kevlar": 3,
+        "cloth": 2,
+        "glue": 1
+      },
+      "desc": "Soft armour vest. Good torso protection.",
+      "icon": "vest",
+      "salvage": {
+        "cloth": 2,
+        "glue": 1
+      }
+    },
+    "plate_carrier": {
+      "name": "Plate Carrier",
+      "code": "PLC",
+      "rarity": 3,
+      "tags": [
+        "gear"
+      ],
+      "kg": 9.0,
+      "min": 150,
+      "max": 240,
+      "shape": "cube",
+      "size": [
+        0.46,
+        0.52,
+        0.16
+      ],
+      "slot": 2,
+      "armor": {
+        "thorax": 0.55,
+        "stomach": 0.45
+      },
+      "pct": {
+        "walkSpeed": -0.08,
+        "runSpeed": -0.05
+      },
+      "craft": {
+        "ceramic_plate": 2,
+        "kevlar": 3,
+        "leather": 2,
+        "rope": 1
+      },
+      "desc": "Military plates. The best torso protection; slows you down.",
+      "icon": "vest",
+      "salvage": {
+        "kevlar": 1,
+        "leather": 1
+      }
+    },
+    "gloves": {
+      "name": "Work Gloves",
+      "code": "GLV",
+      "rarity": 0,
+      "tags": [
+        "gear"
+      ],
+      "kg": 0.3,
+      "min": 7,
+      "max": 13,
+      "shape": "cube",
+      "size": [
+        0.16,
+        0.05,
+        0.12
+      ],
+      "slot": 3,
+      "armor": {
+        "arms": 0.15
+      },
+      "pct": {
+        "carryLimit": 0.1
+      },
+      "craft": {
+        "cloth": 3,
+        "duct_tape": 1
+      },
+      "desc": "Work gloves. Light arm protection.",
+      "icon": "vest",
+      "salvage": {
+        "cloth": 1
+      }
+    },
+    "padded_sleeves": {
+      "name": "Padded Sleeves",
+      "code": "PSL",
+      "rarity": 1,
+      "tags": [
+        "gear"
+      ],
+      "kg": 0.9,
+      "min": 18,
+      "max": 30,
+      "shape": "cube",
+      "size": [
+        0.3,
+        0.06,
+        0.12
+      ],
+      "slot": 3,
+      "armor": {
+        "arms": 0.3
+      },
+      "craft": {
+        "leather": 2,
+        "cloth": 2,
+        "duct_tape": 1
+      },
+      "desc": "Padded arm guards. Arm protection.",
+      "icon": "vest",
+      "salvage": {
+        "cloth": 2
+      }
+    },
+    "scavenger_gloves": {
+      "name": "Scavenger's Gloves",
+      "code": "SCV",
+      "rarity": 1,
+      "tags": [
+        "gear"
+      ],
+      "kg": 0.22,
+      "min": 25,
+      "max": 45,
+      "shape": "cube",
+      "size": [
+        0.16,
+        0.05,
+        0.12
+      ],
+      "slot": 3,
+      "armor": {
+        "arms": 0.05
+      },
+      "pct": {
+        "searchSpeed": 0.2
+      },
+      "craft": {
+        "cloth": 2,
+        "duct_tape": 1,
+        "glue": 1
+      },
+      "desc": "Thin and grippy. You search 20% faster, but they'll stop next to nothing.",
+      "icon": "vest",
+      "salvage": {
+        "cloth": 1
+      }
+    },
+    "locksmith_gloves": {
+      "name": "Locksmith's Gloves",
+      "code": "LKS",
+      "rarity": 2,
+      "tags": [
+        "gear"
+      ],
+      "kg": 0.15,
+      "min": 60,
+      "max": 95,
+      "shape": "cube",
+      "size": [
+        0.16,
+        0.05,
+        0.12
+      ],
+      "slot": 3,
+      "flat": {
+        "pickZone": 6
+      },
+      "pct": {
+        "searchSpeed": 0.1
+      },
+      "craft": {
+        "leather": 1,
+        "cloth": 1,
+        "glue": 1
+      },
+      "desc": "Fingertips cut away. A wider pick zone and quicker hands - and no protection at all.",
+      "icon": "vest",
+      "salvage": {
+        "leather": 1
+      }
+    },
+    "tactical_gloves": {
+      "name": "Tactical Gloves",
+      "code": "TGL",
+      "rarity": 2,
+      "tags": [
+        "gear"
+      ],
+      "kg": 0.45,
+      "min": 50,
+      "max": 80,
+      "shape": "cube",
+      "size": [
+        0.16,
+        0.05,
+        0.12
+      ],
+      "slot": 3,
+      "armor": {
+        "arms": 0.3
+      },
+      "pct": {
+        "carryLimit": 0.15
+      },
+      "craft": {
+        "leather": 2,
+        "kevlar": 1,
+        "glue": 1
+      },
+      "desc": "Reinforced gloves. Good arm protection.",
+      "icon": "vest",
+      "salvage": {
+        "leather": 1,
+        "glue": 1
+      }
+    },
+    "sneakers": {
+      "name": "Sneakers",
+      "code": "SNK",
+      "rarity": 0,
+      "tags": [
+        "gear"
+      ],
+      "kg": 0.9,
+      "min": 7,
+      "max": 13,
+      "shape": "cube",
+      "size": [
+        0.12,
+        0.1,
+        0.28
+      ],
+      "slot": 4,
+      "pct": {
+        "noise": -0.1
+      },
+      "craft": {
+        "cloth": 2,
+        "plastic": 2,
+        "duct_tape": 1
+      },
+      "desc": "Soft soles. Quieter footsteps.",
+      "icon": "vest",
+      "salvage": {
+        "plastic": 1
+      }
+    },
+    "runner_boots": {
+      "name": "Runner Boots",
+      "code": "RBT",
+      "rarity": 1,
+      "tags": [
+        "gear"
+      ],
+      "kg": 1.2,
+      "min": 22,
+      "max": 38,
+      "shape": "cube",
+      "size": [
+        0.13,
+        0.12,
+        0.3
+      ],
+      "slot": 4,
+      "armor": {
+        "legs": 0.05
+      },
+      "pct": {
+        "runSpeed": 0.08,
+        "staminaRegen": 0.1
+      },
+      "craft": {
+        "leather": 2,
+        "plastic": 2,
+        "glue": 1
+      },
+      "desc": "Light running boots. Faster sprinting.",
+      "icon": "vest",
+      "salvage": {
+        "plastic": 2
+      }
+    },
+    "quiet_boots": {
+      "name": "Quiet Boots",
+      "code": "QBT",
+      "rarity": 1,
+      "tags": [
+        "gear"
+      ],
+      "kg": 1.5,
+      "min": 20,
+      "max": 36,
+      "shape": "cube",
+      "size": [
+        0.14,
+        0.14,
+        0.3
+      ],
+      "slot": 4,
+      "pct": {
+        "noise": -0.35
+      },
+      "craft": {
+        "leather": 2,
+        "cloth": 2,
+        "rope": 1,
+        "glue": 1
+      },
+      "desc": "Felt-soled boots. Much quieter footsteps.",
+      "icon": "vest",
+      "salvage": {
+        "cloth": 2
+      }
+    },
+    "combat_boots": {
+      "name": "Combat Boots",
+      "code": "CBT",
+      "rarity": 2,
+      "tags": [
+        "gear"
+      ],
+      "kg": 2.1,
+      "min": 50,
+      "max": 85,
+      "shape": "cube",
+      "size": [
+        0.14,
+        0.16,
+        0.31
+      ],
+      "slot": 4,
+      "armor": {
+        "legs": 0.25
+      },
+      "pct": {
+        "noise": 0.1
+      },
+      "craft": {
+        "leather": 3,
+        "kevlar": 1,
+        "bolt": 2,
+        "glue": 1
+      },
+      "desc": "Heavy boots. Leg protection, but loud on concrete.",
+      "icon": "vest",
+      "salvage": {
+        "leather": 1,
+        "bolt": 1
+      }
+    },
+    "sling_bag": {
+      "name": "Sling Bag",
+      "code": "SLG",
+      "rarity": 0,
+      "tags": [
+        "gear"
+      ],
+      "kg": 0.75,
+      "min": 8,
+      "max": 14,
+      "shape": "cube",
+      "size": [
+        0.25,
+        0.3,
+        0.1
+      ],
+      "slot": 5,
+      "flat": {
+        "carryLimit": 1.5
+      },
+      "slots": {
+        "count": 2
+      },
+      "craft": {
+        "cloth": 3,
+        "duct_tape": 1
+      },
+      "desc": "A small shoulder bag. A few extra slots.",
+      "icon": "backpack",
+      "salvage": {
+        "cloth": 1
+      }
+    },
+    "backpack": {
+      "name": "Backpack",
+      "code": "BPK",
+      "rarity": 1,
+      "tags": [
+        "gear"
+      ],
+      "kg": 1.5,
+      "min": 20,
+      "max": 35,
+      "shape": "cube",
+      "size": [
+        0.35,
+        0.45,
+        0.2
+      ],
+      "slot": 5,
+      "flat": {
+        "carryLimit": 3
+      },
+      "pct": {
+        "runSpeed": -0.02
+      },
+      "slots": {
+        "count": 4
+      },
+      "craft": {
+        "cloth": 4,
+        "rope": 1,
+        "duct_tape": 1
+      },
+      "desc": "School backpack. More slots.",
+      "icon": "backpack",
+      "salvage": {
+        "cloth": 2
+      }
+    },
+    "hiking_pack": {
+      "name": "Hiking Pack",
+      "code": "HPK",
+      "rarity": 2,
+      "tags": [
+        "gear"
+      ],
+      "kg": 2.7,
+      "min": 50,
+      "max": 80,
+      "shape": "cube",
+      "size": [
+        0.38,
+        0.55,
+        0.24
+      ],
+      "slot": 5,
+      "flat": {
+        "carryLimit": 4.5
+      },
+      "pct": {
+        "runSpeed": -0.04
+      },
+      "slots": {
+        "count": 8
+      },
+      "craft": {
+        "cloth": 3,
+        "leather": 2,
+        "rope": 2,
+        "bolt": 2
+      },
+      "desc": "Framed hiking pack. Lots of slots.",
+      "icon": "backpack",
+      "salvage": {
+        "cloth": 1,
+        "rope": 1,
+        "bolt": 1
+      }
+    },
+    "rucksack": {
+      "name": "Rucksack",
+      "code": "RCK",
+      "rarity": 3,
+      "tags": [
+        "gear"
+      ],
+      "kg": 3.9,
+      "min": 120,
+      "max": 180,
+      "shape": "cube",
+      "size": [
+        0.42,
+        0.62,
+        0.28
+      ],
+      "slot": 5,
+      "flat": {
+        "carryLimit": 6
+      },
+      "pct": {
+        "runSpeed": -0.07,
+        "noise": 0.1
+      },
+      "slots": {
+        "count": 12
+      },
+      "craft": {
+        "leather": 4,
+        "rope": 2,
+        "kevlar": 2,
+        "bolt": 2
+      },
+      "desc": "Military rucksack. The most slots and carry weight, but bulky and noisy.",
+      "icon": "backpack",
+      "salvage": {
+        "leather": 2,
+        "rope": 1,
+        "bolt": 1
+      }
+    },
+    "flashlight": {
+      "name": "Flashlight",
+      "code": "FLS",
+      "rarity": 0,
+      "tags": [
+        "tool"
+      ],
+      "kg": 0.6,
+      "min": 0,
+      "max": 0,
+      "shape": "cylinder",
+      "size": [
+        0.05,
+        0.05,
+        0.2
+      ],
+      "pool": 0,
+      "light": true,
+      "craft": {
+        "plastic": 2,
+        "batteries": 1,
+        "copper_wire": 1
+      },
+      "slot": 7,
+      "desc": "A solid metal torch. Clips into your LIGHT slot.",
+      "icon": "flashlight",
+      "beam": {
+        "range": 16,
+        "angle": 40,
+        "intensity": 0.6,
+        "flicker": 0.25
+      },
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/flashlight.prefab",
+      "alignZ": true,
+      "flipZ": true,
+      "grip": {
+        "z": -0.1,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "fuel_cylinder": {
+      "name": "Fuel Cylinder",
+      "code": "FUL",
+      "rarity": 0,
+      "tags": [
+        "objective"
+      ],
+      "kg": 1.5,
+      "kgFull": 3,
+      "min": 0,
+      "max": 0,
+      "shape": "cylinder",
+      "size": [
+        0.25,
+        0.32,
+        0.25
+      ],
+      "twoHanded": true,
+      "carryOnly": true,
+      "solid": true,
+      "model": "Assets/Art/Props/FuelCan_DarkGreen.prefab",
+      "maxSize": 0.45,
+      "desc": "Full of diesel. Carry it to the generator and pour it in. Heavy.",
+      "icon": "fuel"
+    },
+    "hatch_key": {
+      "name": "Hatch Key",
+      "code": "KEY",
+      "rarity": 3,
+      "tags": [
+        "key"
+      ],
+      "kg": 0.1,
+      "min": 80,
+      "max": 120,
+      "shape": "cube",
+      "size": [
+        0.03,
+        0.1,
+        0.01
+      ],
+      "use": "hatch",
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/key1.prefab",
+      "desc": "Opens this run's live escape hatch.",
+      "icon": "key"
+    },
+    "knife": {
+      "name": "Knife",
+      "code": "KNF",
+      "rarity": 0,
+      "tags": [
+        "weapon"
+      ],
+      "kg": 0.3,
+      "min": 8,
+      "max": 14,
+      "shape": "cube",
+      "size": [
+        0.035,
+        0.025,
+        0.3
+      ],
+      "solid": true,
+      "melee": {
+        "body": 20,
+        "head": 30,
+        "charge": 1.2,
+        "range": 1.8,
+        "stamina": 5
+      },
+      "slot": 6,
+      "model": "Assets/Polyland/Battle_Knife/Prefabs/2K/2K_Knife_Wood.prefab",
+      "alignZ": true,
+      "desc": "Your starter blade. Quick and quiet. Melee slot.",
+      "icon": "knife",
+      "salvage": {
+        "scrap_metal": 1
+      },
+      "grip": {
+        "z": -0.3,
+        "yaw": 0,
+        "roll": 0,
+        "flip": true
+      }
+    },
+    "crowbar": {
+      "name": "Crowbar",
+      "code": "CRW",
+      "rarity": 0,
+      "tags": [
+        "weapon",
+        "tool",
+        "pry"
+      ],
+      "kg": 1.8,
+      "min": 14,
+      "max": 22,
+      "shape": "cube",
+      "size": [
+        0.04,
+        0.03,
+        0.7
+      ],
+      "solid": true,
+      "melee": {
+        "body": 32,
+        "head": 45,
+        "charge": 1.9,
+        "range": 2.1,
+        "stamina": 9
+      },
+      "model": "Assets/ThirdParty/OldCrowbar/Prefab/Old Crowbar 1K.prefab",
+      "alignZ": true,
+      "maxSize": 0.75,
+      "slot": 6,
+      "desc": "Heavy and slow, it hits hard. Pries any lock open, loudly. Melee slot.",
+      "icon": "crowbar",
+      "salvage": {
+        "scrap_metal": 2
+      },
+      "grip": {
+        "z": 0.3,
+        "yaw": 180,
+        "roll": 0
+      }
+    },
+    "cheap_flashlight": {
+      "name": "Cheap Flashlight",
+      "code": "CFL",
+      "rarity": 0,
+      "tags": [
+        "tool"
+      ],
+      "kg": 0.4,
+      "min": 6,
+      "max": 10,
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/flashlight.prefab",
+      "alignZ": true,
+      "flipZ": true,
+      "light": true,
+      "shape": "cylinder",
+      "size": [
+        0.04,
+        0.04,
+        0.18
+      ],
+      "slot": 7,
+      "desc": "Plastic torch. Clips into your LIGHT slot.",
+      "icon": "flashlight",
+      "salvage": {
+        "plastic": 1
+      },
+      "beam": {
+        "range": 21,
+        "angle": 36,
+        "intensity": 0.68,
+        "flicker": 0.08,
+        "cutPerMin": 0.4,
+        "cutMin": 1.5,
+        "cutMax": 4
+      },
+      "grip": {
+        "z": -0.1,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "screwdriver": {
+      "name": "Screwdriver",
+      "code": "SCD",
+      "rarity": 1,
+      "tags": [
+        "tool"
+      ],
+      "kg": 0.25,
+      "min": 22,
+      "max": 34,
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/screwdriver.prefab",
+      "alignZ": true,
+      "shape": "cylinder",
+      "size": [
+        0.02,
+        0.02,
+        0.2
+      ],
+      "desc": "A proper tool, not a pick. Worth keeping: it sells well, and with Jury-Rig (Mechanic) it pries what a crowbar would.",
+      "icon": "screwdriver",
+      "salvage": {
+        "plastic": 1,
+        "scrap_metal": 1
+      },
+      "grip": {
+        "z": -0.3,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "lockpick": {
+      "name": "Cheap Lockpick",
+      "code": "LKP",
+      "rarity": 0,
+      "tags": [
+        "tool",
+        "lockpick"
+      ],
+      "kg": 0.03,
+      "min": 3,
+      "max": 6,
+      "alignZ": true,
+      "shape": "cylinder",
+      "size": [
+        0.008,
+        0.008,
+        0.12
+      ],
+      "desc": "Picks locks (skill check). Cheap and thin: a botched pick can snap it.",
+      "icon": "screwdriver",
+      "_iconNote": "PLACEHOLDER: reuses the screwdriver icon and a plain shape until a lockpick model / icon exists",
+      "salvage": {
+        "scrap_metal": 1
+      },
+      "grip": {
+        "z": -0.3,
+        "yaw": 0,
+        "roll": 0
+      }
+    },
+    "shock_mine": {
+      "name": "Shock Mine",
+      "code": "SHK",
+      "rarity": 3,
+      "tags": [
+        "apex"
+      ],
+      "kg": 0.9,
+      "min": 0,
+      "max": 0,
+      "model": "Assets/ThirdParty/BattleRoyaleProps/Prefabs/AE_Landmine.prefab",
+      "shape": "cylinder",
+      "size": [
+        0.22,
+        0.08,
+        0.22
+      ],
+      "use": "trap",
+      "pool": 0,
+      "desc": "Use it to set it at your feet. When the crawling Xenosaurid runs over it, the shock knocks it up onto its feet - it can only walk for a few minutes. One use. Only found in the hazard crates that unlock when the power comes on; worthless to the trader.",
+      "icon": "shock_mine"
+    },
+    "flare": {
+      "name": "Flare",
+      "code": "FLR",
+      "rarity": 3,
+      "tags": [
+        "apex"
+      ],
+      "kg": 0.3,
+      "min": 0,
+      "max": 0,
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/FlareAmmo.prefab",
+      "shape": "cylinder",
+      "size": [
+        0.04,
+        0.04,
+        0.16
+      ],
+      "use": "flare",
+      "pool": 0,
+      "desc": "Use it to light it at your feet. For 20 seconds Hollowface won't come within 5 m of it - it leaves anyone in the light alone and backs away. One use. Only found in the hazard crates that unlock when the power comes on; worthless to the trader.",
+      "icon": "flare"
+    },
+    "tactical_flashlight": {
+      "name": "Tactical Flashlight",
+      "code": "TFL",
+      "rarity": 2,
+      "tags": [
+        "tool"
+      ],
+      "kg": 0.7,
+      "min": 45,
+      "max": 70,
+      "desc": "A machined aluminium torch with a tight, bright beam that reaches much further than a cheap light, and it never cuts out.",
+      "shape": "cylinder",
+      "size": [
+        0.045,
+        0.045,
+        0.22
+      ],
+      "model": "Assets/ThirdParty/SurvivalProps/prefabs/flashlight.prefab",
+      "alignZ": true,
+      "flipZ": true,
+      "light": true,
+      "slot": 7,
+      "icon": "flashlight",
+      "beam": {
+        "range": 32,
+        "angle": 28,
+        "intensity": 1.0,
+        "flicker": 0
+      },
+      "grip": {
+        "z": -0.1,
+        "yaw": 0,
+        "roll": 0
+      },
+      "craft": {
+        "electronics": 1,
+        "batteries": 2,
+        "scrap_metal": 2,
+        "copper_wire": 1,
+        "plastic": 1
+      },
+      "salvage": {
+        "electronics": 1,
+        "scrap_metal": 1
+      }
+    },
+    "bow": {
+      "name": "Recurve Bow",
+      "code": "BOW",
+      "rarity": 3,
+      "tags": [
+        "tool",
+        "bow"
+      ],
+      "kg": 1.1,
+      "min": 80,
+      "max": 120,
+      "pool": 0,
+      "desc": "A walnut-and-laminate recurve. Hold it, pull the string back with your other hand (desktop: hold the click), let go to shoot. Draws arrows from your pockets. TESTING: dev-only for now.",
+      "shape": "cube",
+      "size": [
+        0.12,
+        1.59,
+        0.3
+      ],
+      "model": "Assets/Art/Weapons/Bow/Bow_Static.prefab",
+      "maxSize": 1.6,
+      "icon": "knife",
+      "grip": {
+        "z": -0.25,
+        "yaw": 180,
+        "roll": 0
+      },
+      "_bowNote": "BowController: speed lerps speedMin..speedMax with draw^1.2 (m/s), gravity x 9.81, damage damageMin..damageMax with draw^2, x headMul above the husk's 1.45 m. drawSeconds = desktop full draw. grabReach = VR off-hand distance to the nock to grab the string. range = the owner's max shooter-to-hit distance. stickSeconds = how long stuck arrows stay.",
+      "speedMin": 4,
+      "speedMax": 14,
+      "gravity": 0.6,
+      "gravityWeak": 1.4,
+      "gravityStrong": 0.55,
+      "damageMin": 15,
+      "damageMax": 55,
+      "headMul": 1.6,
+      "drawSeconds": 1.0,
+      "minDraw": 0.15,
+      "grabReach": 0.2,
+      "range": 80,
+      "vrShotX": -1,
+      "vrShotY": 0,
+      "vrShotZ": 0,
+      "vrLimbX": 0,
+      "vrLimbY": 0,
+      "vrLimbZ": -1,
+      "vrOffX": -0.03,
+      "vrOffY": 0,
+      "vrOffZ": 0,
+      "_vrNote": "VR hold: the shot axis and limb axis in the held pickup frame, offset (m) in the bow frame from the grip point. Tune live.",
+      "stickSeconds": 20
+    },
+    "arrow": {
+      "name": "Arrow",
+      "code": "ARW",
+      "rarity": 1,
+      "tags": [
+        "ammo"
+      ],
+      "kg": 0,
+      "min": 1,
+      "max": 2,
+      "pool": 0,
+      "stack": 64,
+      "desc": "A cedar arrow with a forged broadhead. The bow takes them from your pockets or backpack. TESTING: weightless, stacks to 64.",
+      "shape": "cylinder",
+      "size": [
+        0.012,
+        0.012,
+        0.81
+      ],
+      "model": "Assets/Art/Weapons/Bow/Arrow_Prop.prefab",
+      "alignZ": true,
+      "maxSize": 0.81,
+      "icon": "material"
+    }
+  },
+  "bleedOutSeconds": 45,
+  "health": {
+    "_note": "Bleeds from hits: none in the raid's first bleedGraceSeconds, and at most one new bleed every bleedCooldownSeconds (the user, 2026-10-31: more arcadey, fewer bleeds).",
+    "bleedGraceSeconds": 300,
+    "bleedCooldownSeconds": 120
+  },
+  "freeHealMaxLevel": 15,
+  "xp": {
+    "rescue": 40,
+    "breakFree": 20,
+    "stun": 20,
+    "stunDrop": 40,
+    "levelBase": 300,
+    "levelStep": 150,
+    "perMinute": 4,
+    "perMinutePowered": 12,
+    "secureRoom": 30,
+    "hazardCrate": 25,
+    "search": 5,
+    "extract": 50,
+    "haulShare": 0.2,
+    "revive": 75,
+    "levelCurve": 22,
+    "earlyLevels": 0,
+    "earlyScale": 0.25,
+    "earlyPower": 3,
+    "_note": "Per level: levelBase + levelStep*(L-1) + levelCurve*(L-1)^2. Raid XP is banked: full on escape, deathShare on death. Tuned 2026-10-24 for a player who dies 1 raid in 4: ~550 XP a raid (time out, x3 per minute once the power's on, searches, picks / pries, kills, fuel, power-on, secure rooms entered, hazard crates, extract + haul) -> level 50 in ~1,880 raids, ~690 hours at 22 min a raid. Level 50 is today's cap, not the final one.",
+    "kill": 15,
+    "pick": 20,
+    "pry": 15,
+    "fuel": 10,
+    "power": 40,
+    "deathShare": 0.5
+  },
+  "skills": {
+    "_note": "SP = level-1 (+ milestone quests) buys trunk nodes. CP from cpLevels (+ milestones) buys class nodes; another class's nodes cost offClassMult x and work in every class. wip nodes show COMING SOON and can't be learned yet. Respec is free below respecFreeUntil, then respecPerLevel x level. Classes are cube classes (Docs/CUBE_CLASSES.md): active = the cube power (C on desktop; VR: raise the cube, double-pull the trigger), rite = the seal rite, color = the cube's glow.",
+    "cpLevels": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "offClassMult": 2,
+    "respecFreeUntil": 10,
+    "respecPerLevel": 5,
+    "classes": [
+      {
+        "id": "veilwalker",
+        "name": "Veilwalker",
+        "unlockLevel": 1,
+        "color": "#A57BE8",
+        "desc": "It never finds you. Everyone starts here.",
+        "passive": {
+          "desc": "Thin Veil (first node): the veil drains slower"
+        },
+        "apex": {
+          "name": "The Veil",
+          "desc": "In the veil it can't see you, and you leave no trail and no footsteps"
+        },
+        "active": {
+          "name": "Veil",
+          "power": "veil",
+          "cost": 0,
+          "cooldown": 2,
+          "seconds": 12,
+          "speed": 0.35,
+          "minCharge": 25,
+          "desc": "Toggle the veil: grey world, 35% faster, no trail or footsteps, it can't see you. Drains charge the whole time (a full cube: 12 s)"
+        },
+        "second": {
+          "name": "Veil Step",
+          "power": "step",
+          "cost": 25,
+          "cooldown": 15,
+          "range": 5,
+          "desc": "Capstone: blink 5 m where you look, through the veil"
+        }
+      },
+      {
+        "id": "keeper",
+        "name": "Keeper",
+        "unlockLevel": 5,
+        "color": "#E8C46A",
+        "desc": "Not this time. You take the hit off a teammate.",
+        "passive": {
+          "desc": "Steady Hands (first node): your cube opens cages for less charge, faster"
+        },
+        "apex": {
+          "name": "Brace",
+          "desc": "A braced teammate shrugs off its next hit"
+        },
+        "active": {
+          "name": "Brace",
+          "power": "brace",
+          "cost": 40,
+          "cooldown": 45,
+          "range": 6,
+          "seconds": 60,
+          "desc": "Aim at a teammate within 6 m: for 60 s the Xenosaurid's next hit doesn't worsen their state (one hit, then it's gone)"
+        },
+        "second": {
+          "name": "Break the Hold",
+          "power": "",
+          "desc": "Capstone: your stun on it while it carries someone works from twice the range, for half the charge"
+        }
+      },
+      {
+        "id": "mender",
+        "name": "Mender",
+        "unlockLevel": 10,
+        "color": "#E8EEF2",
+        "desc": "Hold still. You put people back on their feet.",
+        "passive": {
+          "desc": "Field Medic (first node): medical items work faster, on anyone"
+        },
+        "apex": {
+          "name": "Patch",
+          "desc": "Injured is easy prey - you make them healthy again"
+        },
+        "active": {
+          "name": "Patch",
+          "power": "patch",
+          "cost": 35,
+          "cooldown": 30,
+          "range": 1.5,
+          "seconds": 3,
+          "desc": "Touch an injured teammate and hold 3 s: their bleeding stops and they're healthy again. Stops if either of you is hit or walks off"
+        },
+        "second": {
+          "name": "Field Surgery",
+          "power": "surgery",
+          "cost": 60,
+          "cooldown": 90,
+          "range": 1.5,
+          "seconds": 4,
+          "desc": "Capstone: at a downed teammate, hold 4 s - they're up, injured"
+        }
+      },
+      {
+        "id": "brand",
+        "name": "Brand",
+        "unlockLevel": 15,
+        "color": "#E8603A",
+        "desc": "It runs from you. Your cube stuns hard and often.",
+        "passive": {
+          "desc": "Hard Light (first node): stun from less charge, for less, for longer"
+        },
+        "apex": {
+          "name": "Brand",
+          "desc": "Mark it, slow it, and your next stun is free"
+        },
+        "active": {
+          "name": "Brand",
+          "power": "brand",
+          "cost": 30,
+          "cooldown": 45,
+          "range": 20,
+          "seconds": 20,
+          "slow": 0.2,
+          "desc": "Aim at the Xenosaurid within 20 m: marked for 20 s - the crew sees it through walls, it moves 20% slower, your next stun is free"
+        },
+        "second": {
+          "name": "Flare",
+          "power": "flare",
+          "cost": 60,
+          "cooldown": 60,
+          "range": 3,
+          "desc": "Capstone: a point-blank stun burst, no aiming (3 m around you)"
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "id": "end_lungs",
+        "tree": "trunk",
+        "group": "ENDURANCE",
+        "col": 0,
+        "row": 0,
+        "name": "Big Lungs",
+        "cost": 1,
+        "ranks": 5,
+        "req": [],
+        "desc": "+5% max stamina",
+        "kind": "small",
+        "pct": {
+          "maxStamina": 0.05
+        }
+      },
+      {
+        "id": "end_regen",
+        "tree": "trunk",
+        "group": "ENDURANCE",
+        "col": 0,
+        "row": 1,
+        "name": "Second Wind",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "end_lungs"
+        ],
+        "desc": "+5% stamina regen",
+        "kind": "small",
+        "pct": {
+          "staminaRegen": 0.05
+        }
+      },
+      {
+        "id": "end_stride",
+        "tree": "trunk",
+        "group": "ENDURANCE",
+        "col": 0,
+        "row": 2,
+        "name": "Long Strides",
+        "cost": 1,
+        "ranks": 2,
+        "req": [
+          "end_regen"
+        ],
+        "desc": "+3% walk speed",
+        "kind": "small",
+        "pct": {
+          "walkSpeed": 0.03
+        }
+      },
+      {
+        "id": "end_sprint",
+        "tree": "trunk",
+        "group": "ENDURANCE",
+        "col": 0,
+        "row": 3,
+        "name": "Sprinter",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "end_lungs"
+        ],
+        "desc": "+1.2% sprint speed",
+        "kind": "small",
+        "pct": {
+          "runSpeed": 0.012
+        }
+      },
+      {
+        "id": "end_adrenal",
+        "tree": "trunk",
+        "group": "ENDURANCE",
+        "col": 0,
+        "row": 5,
+        "name": "Adrenal",
+        "cost": 3,
+        "req": [
+          "end_sprint",
+          "end_regen"
+        ],
+        "desc": "+25% stamina regen below 30% health; -10% max stamina",
+        "kind": "keystone",
+        "pct": {
+          "maxStamina": -0.1
+        },
+        "hook": {
+          "adrenal": 1
+        }
+      },
+      {
+        "id": "vit_tough",
+        "tree": "trunk",
+        "group": "VITALITY",
+        "col": 1,
+        "row": 0,
+        "name": "Tough",
+        "cost": 1,
+        "ranks": 5,
+        "req": [],
+        "desc": "+3% max health (every body part)",
+        "kind": "small",
+        "hook": {
+          "maxHp": 0.03
+        }
+      },
+      {
+        "id": "vit_clot",
+        "tree": "trunk",
+        "group": "VITALITY",
+        "col": 1,
+        "row": 1,
+        "name": "Clotting",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "vit_tough"
+        ],
+        "desc": "Bleeds drain 6% slower",
+        "kind": "small",
+        "hook": {
+          "bleedRate": -0.06
+        }
+      },
+      {
+        "id": "vit_limbs",
+        "tree": "trunk",
+        "group": "VITALITY",
+        "col": 1,
+        "row": 2,
+        "name": "Steady Limbs",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "vit_tough"
+        ],
+        "desc": "Broken legs slow you 9% less",
+        "kind": "small",
+        "hook": {
+          "fracturePenalty": -0.09
+        }
+      },
+      {
+        "id": "vit_grit",
+        "tree": "trunk",
+        "group": "VITALITY",
+        "col": 1,
+        "row": 3,
+        "name": "Stubborn",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "vit_tough"
+        ],
+        "desc": "At full rage, an apex that downs you is 10% less likely to finish you (all 5: half as likely)",
+        "kind": "small",
+        "hook": {
+          "executeResist": 0.1
+        }
+      },
+      {
+        "id": "vit_dress",
+        "tree": "trunk",
+        "group": "VITALITY",
+        "col": 1,
+        "row": 4,
+        "name": "Field Dressing",
+        "cost": 2,
+        "req": [
+          "vit_clot"
+        ],
+        "desc": "Medical items heal 8% more",
+        "kind": "notable",
+        "hook": {
+          "medicalHeal": 0.08
+        }
+      },
+      {
+        "id": "vit_last",
+        "tree": "trunk",
+        "group": "VITALITY",
+        "col": 1,
+        "row": 5,
+        "name": "Last Stand",
+        "cost": 3,
+        "req": [
+          "vit_dress",
+          "vit_limbs"
+        ],
+        "desc": "Bleed-out timer +50% when downed; you take +10% damage",
+        "kind": "keystone",
+        "hook": {
+          "bleedOut": 0.5,
+          "damageTaken": 0.1
+        }
+      },
+      {
+        "id": "mind_will",
+        "tree": "trunk",
+        "group": "MIND",
+        "col": 2,
+        "row": 0,
+        "name": "Willpower",
+        "cost": 1,
+        "ranks": 5,
+        "req": [],
+        "desc": "+3 max sanity (more buffer before the bad effects)",
+        "kind": "small",
+        "hook": {
+          "maxSanity": 3
+        }
+      },
+      {
+        "id": "mind_nerves",
+        "tree": "trunk",
+        "group": "MIND",
+        "col": 2,
+        "row": 1,
+        "name": "Nerves",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "mind_will"
+        ],
+        "desc": "Sanity drains 4% slower",
+        "kind": "small",
+        "hook": {
+          "sanityDrain": -0.04
+        }
+      },
+      {
+        "id": "mind_night",
+        "tree": "trunk",
+        "group": "MIND",
+        "col": 2,
+        "row": 2,
+        "name": "Night Eyes",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "mind_will"
+        ],
+        "desc": "The dark drains sanity 6% slower",
+        "kind": "small",
+        "hook": {
+          "darkDrain": -0.06
+        }
+      },
+      {
+        "id": "mind_comfort",
+        "tree": "trunk",
+        "group": "MIND",
+        "col": 2,
+        "row": 3,
+        "name": "Comfort Habit",
+        "cost": 1,
+        "req": [
+          "mind_nerves"
+        ],
+        "desc": "Comfort items restore 15% more",
+        "kind": "small",
+        "hook": {
+          "comfort": 0.15
+        }
+      },
+      {
+        "id": "mind_ground",
+        "tree": "trunk",
+        "group": "MIND",
+        "col": 2,
+        "row": 4,
+        "name": "Grounded",
+        "cost": 2,
+        "req": [
+          "mind_comfort",
+          "mind_night"
+        ],
+        "desc": "False sounds and phantoms start 10 sanity lower",
+        "kind": "notable",
+        "hook": {
+          "hallucinationShift": 10
+        }
+      },
+      {
+        "id": "mind_numb",
+        "tree": "trunk",
+        "group": "MIND",
+        "col": 2,
+        "row": 5,
+        "name": "Numb",
+        "cost": 3,
+        "req": [
+          "mind_ground"
+        ],
+        "desc": "Hits and teammate deaths cost no sanity; comfort items restore 30% less",
+        "kind": "keystone",
+        "hook": {
+          "shockImmune": 1,
+          "comfort": -0.3
+        }
+      },
+      {
+        "id": "hd_search",
+        "tree": "trunk",
+        "group": "HANDLING",
+        "col": 3,
+        "row": 0,
+        "name": "Quick Hands",
+        "cost": 1,
+        "ranks": 5,
+        "req": [],
+        "desc": "Search 6% faster",
+        "kind": "small",
+        "hook": {
+          "searchSpeed": 0.06
+        }
+      },
+      {
+        "id": "hd_zone",
+        "tree": "trunk",
+        "group": "HANDLING",
+        "col": 3,
+        "row": 1,
+        "name": "Light Touch",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "hd_search"
+        ],
+        "desc": "Lockpick zone 2 degrees wider",
+        "kind": "small",
+        "hook": {
+          "pickZone": 2
+        }
+      },
+      {
+        "id": "hd_needle",
+        "tree": "trunk",
+        "group": "HANDLING",
+        "col": 3,
+        "row": 2,
+        "name": "Calm Hands",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "hd_zone"
+        ],
+        "desc": "The lockpick needle moves 5% slower",
+        "kind": "small",
+        "hook": {
+          "needleSpeed": -0.05
+        }
+      },
+      {
+        "id": "hd_snap",
+        "tree": "trunk",
+        "group": "HANDLING",
+        "col": 3,
+        "row": 3,
+        "name": "Careful Picks",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "hd_zone"
+        ],
+        "desc": "Picks break 9% less often",
+        "kind": "small",
+        "hook": {
+          "pickSnap": -0.09
+        }
+      },
+      {
+        "id": "hd_pry",
+        "tree": "trunk",
+        "group": "HANDLING",
+        "col": 3,
+        "row": 4,
+        "name": "Leverage",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "hd_search"
+        ],
+        "desc": "Pry 6% faster",
+        "kind": "small",
+        "hook": {
+          "prySpeed": 0.06
+        }
+      },
+      {
+        "id": "hd_muffle",
+        "tree": "trunk",
+        "group": "HANDLING",
+        "col": 3,
+        "row": 5,
+        "name": "Muffled Pry",
+        "cost": 2,
+        "req": [
+          "hd_pry"
+        ],
+        "desc": "Prying is 30% quieter",
+        "kind": "notable",
+        "hook": {
+          "pryNoise": -0.3
+        }
+      },
+      {
+        "id": "hd_brute",
+        "tree": "trunk",
+        "group": "HANDLING",
+        "col": 3,
+        "row": 6,
+        "name": "Brute Entry",
+        "cost": 3,
+        "req": [
+          "hd_pry",
+          "hd_snap"
+        ],
+        "desc": "Pry 35% faster, but 30% louder",
+        "kind": "keystone",
+        "hook": {
+          "prySpeed": 0.35,
+          "pryNoise": 0.3
+        }
+      },
+      {
+        "id": "med_hands",
+        "tree": "trunk",
+        "group": "RESCUE",
+        "col": 4,
+        "row": 0,
+        "name": "Field Medic",
+        "cost": 1,
+        "ranks": 5,
+        "req": [],
+        "desc": "Use medical items 6% faster",
+        "kind": "small",
+        "hook": {
+          "medSpeed": 0.06
+        }
+      },
+      {
+        "id": "med_revive",
+        "tree": "trunk",
+        "group": "RESCUE",
+        "col": 4,
+        "row": 1,
+        "name": "Quick Shot",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "med_hands"
+        ],
+        "desc": "Revive with a syringe 6% faster",
+        "kind": "small",
+        "hook": {
+          "reviveSpeed": 0.06
+        }
+      },
+      {
+        "id": "med_drag",
+        "tree": "trunk",
+        "group": "RESCUE",
+        "col": 4,
+        "row": 2,
+        "name": "Rescue Drag",
+        "cost": 1,
+        "ranks": 5,
+        "req": [
+          "med_hands"
+        ],
+        "desc": "Drag a downed teammate 15% faster (all 5: nearly a walk)",
+        "kind": "small",
+        "hook": {
+          "dragSpeed": 0.15
+        }
+      },
+      {
+        "id": "fc_back",
+        "tree": "trunk",
+        "group": "FIELDCRAFT",
+        "col": 5,
+        "row": 0,
+        "name": "Strong Back",
+        "cost": 1,
+        "ranks": 5,
+        "req": [],
+        "desc": "+1 kg carry limit",
+        "kind": "small",
+        "flat": {
+          "carryLimit": 1.0
+        }
+      },
+      {
+        "id": "fc_soft",
+        "tree": "trunk",
+        "group": "FIELDCRAFT",
+        "col": 5,
+        "row": 1,
+        "name": "Soft Step",
+        "cost": 1,
+        "ranks": 5,
+        "req": [],
+        "desc": "3% quieter",
+        "kind": "small",
+        "pct": {
+          "noise": -0.03
+        }
+      },
+      {
+        "id": "fc_pockets",
+        "tree": "trunk",
+        "group": "FIELDCRAFT",
+        "col": 5,
+        "row": 3,
+        "name": "Deep Pockets",
+        "cost": 2,
+        "req": [
+          "fc_back"
+        ],
+        "desc": "+1 pocket",
+        "kind": "notable",
+        "hook": {
+          "pockets": 1
+        },
+        "wip": true
+      },
+      {
+        "id": "fc_secure",
+        "tree": "trunk",
+        "group": "FIELDCRAFT",
+        "col": 5,
+        "row": 4,
+        "name": "Second Secure Slot",
+        "cost": 3,
+        "req": [
+          "fc_pockets"
+        ],
+        "desc": "A second secure slot (kept when you die)",
+        "kind": "notable",
+        "hook": {
+          "secureSlots": 1
+        },
+        "wip": true
+      },
+      {
+        "id": "fc_mule",
+        "tree": "trunk",
+        "group": "FIELDCRAFT",
+        "col": 5,
+        "row": 5,
+        "name": "Pack Mule",
+        "cost": 3,
+        "req": [
+          "fc_back"
+        ],
+        "desc": "+5 kg carry limit, but 15% louder",
+        "kind": "keystone",
+        "pct": {
+          "noise": 0.15
+        },
+        "flat": {
+          "carryLimit": 5
+        }
+      },
+      {
+        "id": "fc_silent",
+        "tree": "trunk",
+        "group": "FIELDCRAFT",
+        "col": 5,
+        "row": 6,
+        "name": "Silent Running",
+        "cost": 3,
+        "req": [
+          "fc_soft"
+        ],
+        "desc": "20% quieter, but 8% slower sprint",
+        "kind": "keystone",
+        "pct": {
+          "noise": -0.2,
+          "runSpeed": -0.08
+        }
+      },
+      {
+        "id": "end_shake",
+        "tree": "trunk",
+        "group": "ENDURANCE",
+        "col": 0,
+        "row": 4,
+        "name": "Shake Loose",
+        "cost": 1,
+        "ranks": 3,
+        "req": [
+          "end_sprint"
+        ],
+        "desc": "10% fewer presses to break free (the tail, a cage)",
+        "kind": "small",
+        "hook": {
+          "breakFree": 0.1
+        }
+      },
+      {
+        "id": "res_pick",
+        "tree": "trunk",
+        "group": "RESCUE",
+        "col": 4,
+        "row": 3,
+        "name": "Quick Pick",
+        "cost": 1,
+        "req": [
+          "med_hands"
+        ],
+        "desc": "Lockpicking a cage 15% faster",
+        "kind": "small",
+        "hook": {
+          "cagePick": 0.15
+        }
+      },
+      {
+        "id": "res_hush",
+        "tree": "trunk",
+        "group": "RESCUE",
+        "col": 4,
+        "row": 4,
+        "name": "Hush",
+        "cost": 2,
+        "req": [
+          "res_pick"
+        ],
+        "desc": "Lockpicking a cage makes no noise",
+        "kind": "notable",
+        "hook": {
+          "cagePickQuiet": 1
+        }
+      },
+      {
+        "id": "vw_thin",
+        "tree": "veilwalker",
+        "col": 1,
+        "row": 0,
+        "name": "Thin Veil",
+        "cost": 1,
+        "rankCost": true,
+        "req": [],
+        "desc": "The veil drains 6% slower per rank (max -30%)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "veilDrain": -0.06
+        }
+      },
+      {
+        "id": "vw_after",
+        "tree": "veilwalker",
+        "col": 0,
+        "row": 1,
+        "name": "Afterimage",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "vw_thin"
+        ],
+        "desc": "Stepping out of the veil: +6% speed for 3 s per rank (max +30%; 20 s cooldown)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "veilBurst": 0.06
+        }
+      },
+      {
+        "id": "vw_swift",
+        "tree": "veilwalker",
+        "col": 1,
+        "row": 1,
+        "name": "Swift Veil",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "vw_thin"
+        ],
+        "desc": "+3% speed in the veil per rank (max +15%)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "veilSpeed": 0.03
+        }
+      },
+      {
+        "id": "vw_breath",
+        "tree": "veilwalker",
+        "col": 2,
+        "row": 1,
+        "name": "Deep Breath",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "vw_thin"
+        ],
+        "desc": "Entering the veil needs 4% less charge per rank (25% -> 5%)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "veilEntry": -4
+        }
+      },
+      {
+        "id": "vw_step",
+        "tree": "veilwalker",
+        "col": 1,
+        "row": 2,
+        "name": "Veil Step",
+        "cost": 4,
+        "rankCost": true,
+        "req": [
+          "vw_thin",
+          "vw_after",
+          "vw_swift",
+          "vw_breath"
+        ],
+        "desc": "A second skill (Z / VR: right trigger twice): blink 5 m where you look, through the veil. 25% charge, 15 s cooldown",
+        "kind": "capstone",
+        "hook": {
+          "veilStep": 1
+        },
+        "reqRank": 3
+      },
+      {
+        "id": "kp_hands",
+        "tree": "keeper",
+        "col": 1,
+        "row": 0,
+        "name": "Steady Hands",
+        "cost": 1,
+        "rankCost": true,
+        "req": [],
+        "desc": "Your cube opens a cage for 4% less charge and 6% faster per rank (max 40% charge, 2.1 s)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "cageCost": -4,
+          "cageSpeed": 0.08
+        }
+      },
+      {
+        "id": "kp_quick",
+        "tree": "keeper",
+        "col": 0,
+        "row": 1,
+        "name": "Quick Brace",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "kp_hands"
+        ],
+        "desc": "Brace's cooldown 6% shorter per rank (max -30%)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "braceCooldown": -0.06
+        }
+      },
+      {
+        "id": "kp_wide",
+        "tree": "keeper",
+        "col": 1,
+        "row": 1,
+        "name": "Wide Brace",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "kp_hands"
+        ],
+        "desc": "Brace reaches 1 m further per rank (max +5 m)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "braceRange": 1
+        }
+      },
+      {
+        "id": "kp_light",
+        "tree": "keeper",
+        "col": 2,
+        "row": 1,
+        "name": "Light Brace",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "kp_hands"
+        ],
+        "desc": "Brace costs 4% less per rank (max 20% less)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "braceCost": -4
+        }
+      },
+      {
+        "id": "kp_hold",
+        "tree": "keeper",
+        "col": 1,
+        "row": 2,
+        "name": "Break the Hold",
+        "cost": 4,
+        "rankCost": true,
+        "req": [
+          "kp_hands",
+          "kp_quick",
+          "kp_wide",
+          "kp_light"
+        ],
+        "desc": "Your stun on it while it carries someone: twice the range, half the charge",
+        "kind": "capstone",
+        "hook": {
+          "breakHold": 1
+        },
+        "reqRank": 3
+      },
+      {
+        "id": "md_medic",
+        "tree": "mender",
+        "col": 1,
+        "row": 0,
+        "name": "Field Medic",
+        "cost": 1,
+        "rankCost": true,
+        "req": [],
+        "desc": "Medical items work 6% faster per rank, on anyone (max +30%)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "medSpeed": 0.06
+        }
+      },
+      {
+        "id": "md_quick",
+        "tree": "mender",
+        "col": 0,
+        "row": 1,
+        "name": "Quick Patch",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "md_medic"
+        ],
+        "desc": "Patch takes 0.3 s less per rank (3 s -> 1.5 s)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "patchTime": -0.3
+        }
+      },
+      {
+        "id": "md_light",
+        "tree": "mender",
+        "col": 1,
+        "row": 1,
+        "name": "Light Patch",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "md_medic"
+        ],
+        "desc": "Patch costs 3% less per rank (max 15% less)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "patchCost": -3
+        }
+      },
+      {
+        "id": "md_clean",
+        "tree": "mender",
+        "col": 2,
+        "row": 1,
+        "name": "Clean Dressing",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "md_medic"
+        ],
+        "desc": "A patched teammate can't start bleeding again for 6 s per rank (max 30 s)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "patchClean": 6
+        }
+      },
+      {
+        "id": "md_surgery",
+        "tree": "mender",
+        "col": 1,
+        "row": 2,
+        "name": "Field Surgery",
+        "cost": 4,
+        "rankCost": true,
+        "req": [
+          "md_medic",
+          "md_quick",
+          "md_light",
+          "md_clean"
+        ],
+        "desc": "A second skill (Z / VR: right trigger twice): at a downed teammate, hold 4 s - they're up, injured. 60% charge, 90 s cooldown",
+        "kind": "capstone",
+        "hook": {
+          "fieldSurgery": 1
+        },
+        "reqRank": 3
+      },
+      {
+        "id": "br_hard",
+        "tree": "brand",
+        "col": 1,
+        "row": 0,
+        "name": "Hard Light",
+        "cost": 1,
+        "rankCost": true,
+        "req": [],
+        "desc": "Stun from 4% less charge, for 2% less, 0.6 s longer per rank (max: from 60%, for 30%, 9 s)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "stunMinCharge": -4,
+          "stunCost": -2,
+          "stunTime": 0.6
+        }
+      },
+      {
+        "id": "br_long",
+        "tree": "brand",
+        "col": 0,
+        "row": 1,
+        "name": "Long Brand",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "br_hard"
+        ],
+        "desc": "Brand lasts 2 s longer per rank (max +10 s)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "brandTime": 2
+        }
+      },
+      {
+        "id": "br_heavy",
+        "tree": "brand",
+        "col": 1,
+        "row": 1,
+        "name": "Heavy Brand",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "br_hard"
+        ],
+        "desc": "The branded Xenosaurid is 2% slower again per rank (max +10%)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "brandSlow": 0.02
+        }
+      },
+      {
+        "id": "br_reach",
+        "tree": "brand",
+        "col": 2,
+        "row": 1,
+        "name": "Reach",
+        "cost": 1,
+        "rankCost": true,
+        "req": [
+          "br_hard"
+        ],
+        "desc": "Stun range +0.6 m and +2 degrees per rank (max +3 m, +10 degrees)",
+        "kind": "small",
+        "ranks": 5,
+        "hook": {
+          "stunRange": 0.6,
+          "stunAngle": 2
+        }
+      },
+      {
+        "id": "br_flare",
+        "tree": "brand",
+        "col": 1,
+        "row": 2,
+        "name": "Flare",
+        "cost": 4,
+        "rankCost": true,
+        "req": [
+          "br_hard",
+          "br_long",
+          "br_heavy",
+          "br_reach"
+        ],
+        "desc": "A second skill (Z / VR: right trigger twice): a point-blank stun burst, no aiming (3 m). 60% charge, 60 s cooldown",
+        "kind": "capstone",
+        "hook": {
+          "brandFlare": 1
+        },
+        "reqRank": 3
+      }
+    ]
+  },
+  "quests": {
+    "_note": "Docs/QUESTS.md v1. Accept up to maxActive at the contract boards; raid progress is banked only on escape. escape objectives: exit (any/dock/vent/hatch/road), powered (any/true/false), zones[] (+zonesAfterPower), carrying (item found this raid), haul (found value), minSanity, noHit. kill: shared within shareRange unless own; weapon any/knife/crowbar.",
+    "maxActive": 5,
+    "shareRange": 15,
+    "contracts": {
+      "_note": "Daily contracts (QUESTS.md sec. 4): one per giver below, rolled per player at their level band (bands = min level of each band), re-rolled at 00:00 UTC unless in progress. Don't use a quest slot. Per-band arrays in objective pick that band's value; 0 = not offered at that band. pick: a random choice per roll ({PICK} in text); {N} = the count. coop: only rolled with someone else in the instance.",
+      "givers": [
+        "ninth",
+        "net",
+        "ostler"
+      ],
+      "bands": [
+        1,
+        8,
+        15
+      ],
+      "rewards": [
+        {
+          "money": [
+            55,
+            85
+          ],
+          "xp": 60
+        },
+        {
+          "money": [
+            100,
+            140
+          ],
+          "xp": 90
+        },
+        {
+          "money": [
+            140,
+            210
+          ],
+          "xp": 120
+        }
+      ],
+      "templates": [
+        {
+          "id": "d_dell_cull",
+          "giver": "ninth",
+          "npc": "DELL",
+          "title": "Thin the Herd",
+          "text": "Dell here. Too many of them on the lot again. Put {N} down - doesn't matter whose swing does it.",
+          "done": "Quieter out there. Good.",
+          "objective": {
+            "type": "kill",
+            "count": [
+              10,
+              15,
+              25
+            ]
+          }
+        },
+        {
+          "id": "d_dell_bait",
+          "giver": "ninth",
+          "npc": "DELL",
+          "title": "Fresh Bait",
+          "text": "The traps need bait. Bring me {N} Spoiled Meat. Something's been coming up the hill at night.",
+          "done": "That'll stink up the perimeter nicely.",
+          "objective": {
+            "type": "handIn",
+            "item": "rotten_meat",
+            "count": [
+              2,
+              3,
+              4
+            ]
+          }
+        },
+        {
+          "id": "d_dell_cage",
+          "giver": "ninth",
+          "npc": "DELL",
+          "title": "Nobody Stays In",
+          "text": "Somebody always ends up in one of those cages. Get them out. {N}. I don't care how, just get them home.",
+          "done": "Everybody home. That's the only number I keep.",
+          "objective": {
+            "type": "rescue",
+            "how": "any",
+            "count": [
+              1,
+              1,
+              2
+            ]
+          },
+          "coop": true
+        },
+        {
+          "id": "d_dell_flinch",
+          "giver": "ninth",
+          "npc": "DELL",
+          "title": "Back It Off",
+          "text": "Longskull flinches. Make it, {N} times, and come home.",
+          "done": "Good. It remembers who stood up to it. So do I.",
+          "objective": {
+            "type": "apexStun",
+            "how": "any",
+            "count": [
+              1,
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "id": "d_dell_clean",
+          "giver": "ninth",
+          "npc": "DELL",
+          "title": "Out of Reach",
+          "text": "Come home {N} times without a cage on you. Watch the ceilings.",
+          "done": "Clean. Keep doing that.",
+          "objective": {
+            "type": "escape",
+            "uncaught": true,
+            "count": [
+              1,
+              2,
+              2
+            ]
+          }
+        },
+        {
+          "id": "d_doc_samples",
+          "giver": "ninth",
+          "npc": "DOC HALLORAN",
+          "title": "Tissue Run",
+          "text": "{N} resin samples, sealed. I'm not asking which cage you scraped them off.",
+          "done": "Into the cold box they go. Thank you.",
+          "objective": {
+            "type": "handIn",
+            "item": "husk_sample",
+            "count": [
+              0,
+              1,
+              2
+            ]
+          },
+          "moneyMult": 1.3
+        },
+        {
+          "id": "d_doc_patch",
+          "giver": "ninth",
+          "npc": "DOC HALLORAN",
+          "title": "Patch Them Up",
+          "text": "Bandage your mates, splint them, whatever it takes. {N} treatments on someone who isn't you. I want to see the habit.",
+          "done": "That's the job. That's the whole job.",
+          "objective": {
+            "type": "medicalOther",
+            "count": [
+              2,
+              3,
+              4
+            ]
+          },
+          "coop": true
+        },
+        {
+          "id": "d_gus_parts",
+          "giver": "ninth",
+          "npc": "GUS",
+          "title": "Workbench Shortfall",
+          "text": "Gus. I'm out of {PICK}. Need {N}. Don't ask what for.",
+          "done": "Perfect. Now get out of my light.",
+          "objective": {
+            "type": "handIn",
+            "count": [
+              1,
+              2,
+              3
+            ]
+          },
+          "pick": {
+            "item": [
+              "duct_tape",
+              "copper_wire",
+              "leather",
+              "rope",
+              "glue",
+              "batteries"
+            ]
+          }
+        },
+        {
+          "id": "d_gus_locks",
+          "giver": "ninth",
+          "npc": "GUS",
+          "title": "Practice Makes",
+          "text": "Locks don't open themselves. Open {N} - pick them or pry them, I don't care.",
+          "done": "Told you. It's all in the wrist.",
+          "objective": {
+            "type": "unlock",
+            "method": "any",
+            "count": [
+              3,
+              5,
+              8
+            ]
+          }
+        },
+        {
+          "id": "d_gus_cage",
+          "giver": "ninth",
+          "npc": "GUS",
+          "title": "Quiet Hands",
+          "text": "A cage is a lock with a person behind it. Pick one open for a mate, {N}. Quietly.",
+          "done": "See? It's all in the wrist. Same as I said.",
+          "objective": {
+            "type": "rescue",
+            "how": "pick",
+            "count": [
+              1,
+              1,
+              1
+            ]
+          },
+          "coop": true
+        },
+        {
+          "id": "d_ines_steady",
+          "giver": "ninth",
+          "npc": "INES",
+          "title": "Keep Your Head",
+          "text": "Come back with your head on straight, {N} runs in a row if you can. Sanity {SANITY}+ when you walk in.",
+          "done": "See? You can do it.",
+          "objective": {
+            "type": "escape",
+            "minSanity": [
+              50,
+              60,
+              70
+            ],
+            "count": [
+              2,
+              2,
+              2
+            ]
+          }
+        },
+        {
+          "id": "d_net_fuel",
+          "giver": "net",
+          "npc": "WREN",
+          "title": "Kit Work",
+          "text": "ANGEL NINE, YOUR KIT HAS WORK AT RIVERSIDE. FEED {N} INTO THE SEALS. OUT.",
+          "done": "LOGGED. OUT.",
+          "objective": {
+            "type": "chargeFed",
+            "count": [
+              2,
+              3,
+              4
+            ]
+          }
+        },
+        {
+          "id": "d_net_power",
+          "giver": "net",
+          "npc": "WREN",
+          "title": "Lights On",
+          "text": "ANGEL NINE, SEAL RIVERSIDE UP AND GET OUT ALIVE. {N} TIMES. OUT.",
+          "done": "POWER CONFIRMED. OUT.",
+          "objective": {
+            "type": "escape",
+            "powered": "true",
+            "count": [
+              1,
+              2,
+              2
+            ]
+          }
+        },
+        {
+          "id": "d_net_exit",
+          "giver": "net",
+          "npc": "WREN",
+          "title": "Route Check",
+          "text": "ANGEL NINE, CONFIRM THE ROUTE. LEAVE BY {PICK}, {N} TIMES. OUT.",
+          "done": "ROUTE CONFIRMED. OUT.",
+          "objective": {
+            "type": "escape",
+            "count": [
+              1,
+              2,
+              2
+            ]
+          },
+          "pick": {
+            "exit": [
+              "dock",
+              "vent",
+              "road"
+            ]
+          }
+        },
+        {
+          "id": "d_net_sweep",
+          "giver": "net",
+          "npc": "WREN",
+          "title": "Powered Sweep",
+          "text": "ANGEL NINE, WITH THE LIGHTS ON, SWEEP {N} CONTAINERS. EVERY DRAWER. OUT.",
+          "done": "SWEEP LOGGED. OUT.",
+          "objective": {
+            "type": "search",
+            "container": "any",
+            "afterPower": true,
+            "count": [
+              6,
+              10,
+              15
+            ]
+          }
+        },
+        {
+          "id": "d_ost_scrap",
+          "giver": "ostler",
+          "npc": "VIC OSTLER",
+          "title": "Bulk Order",
+          "text": "Vic. I need {N} {PICK}. Volume, friend. Volume.",
+          "done": "Pleasure doing business.",
+          "objective": {
+            "type": "handIn",
+            "count": [
+              4,
+              6,
+              8
+            ]
+          },
+          "pick": {
+            "item": [
+              "scrap_metal",
+              "bolt",
+              "cloth",
+              "plastic",
+              "bottle"
+            ]
+          }
+        },
+        {
+          "id": "d_ost_haul",
+          "giver": "ostler",
+          "npc": "VIC OSTLER",
+          "title": "Make It Worth It",
+          "text": "Walk out with ${HAUL} of loot - found on the run, not what you packed. Show me you can carry.",
+          "done": "Now that's a haul.",
+          "objective": {
+            "type": "escape",
+            "haul": [
+              200,
+              350,
+              500
+            ],
+            "count": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "d_ost_sell",
+          "giver": "ostler",
+          "npc": "VIC OSTLER",
+          "title": "Liquidity",
+          "text": "Sell me ${N} of shiny things. Quick-sell is fine, I'm not picky.",
+          "done": "Cash moves, friend.",
+          "objective": {
+            "type": "quickSell",
+            "count": [
+              150,
+              300,
+              500
+            ]
+          }
+        }
+      ]
+    },
+    "givers": [
+      {
+        "id": "ninth",
+        "name": "ANGEL",
+        "contact": "THE WARDEN",
+        "desc": "Hillside's crew. The Warden, Doc, Rourke, Gus, Ines and Dell post work here."
+      },
+      {
+        "id": "net",
+        "name": "SURVIVOR NET",
+        "contact": "WREN",
+        "desc": "WREN, on the radio. Power, exits, site intel.",
+        "radio": true
+      },
+      {
+        "id": "ostler",
+        "name": "OSTLER'S CONVOY",
+        "contact": "VIC OSTLER",
+        "desc": "Vic Ostler. Shiny things and big hauls. No questions."
+      },
+      {
+        "id": "continuity",
+        "name": "CONTINUITY",
+        "contact": "GREYLINE",
+        "desc": "A Continuity frequency, relayed through WREN's set. Pays best.",
+        "radio": true,
+        "hiddenUntilAvailable": true
+      }
+    ],
+    "list": [
+      {
+        "id": "h_first_haul",
+        "giver": "ninth",
+        "npc": "THE WARDEN",
+        "tier": 1,
+        "title": "First Haul",
+        "requires": [],
+        "level": 1,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 1
+          }
+        ],
+        "text": "Everyone gets one free run; that's been the rule since the Unsealing started. Go in, grab what you can carry, come back. Coming back is the part I care about.",
+        "done": "You came back. That puts you ahead of half the people who've stood where you're standing.",
+        "rewards": {
+          "money": 55,
+          "xp": 150,
+          "items": {
+            "sling_bag": 1,
+            "bandage": 2
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_first_aid",
+        "giver": "ninth",
+        "npc": "DOC HALLORAN",
+        "tier": 1,
+        "title": "First Aid",
+        "requires": [
+          "h_first_haul"
+        ],
+        "level": 2,
+        "objectives": [
+          {
+            "type": "medical",
+            "count": 5
+          },
+          {
+            "type": "escape",
+            "count": 3
+          }
+        ],
+        "text": "I can't send the good stuff out with people who bleed on it. Patch yourself up out there a few times. Show me you can keep your own blood in.",
+        "done": "Fine. Rourke will let you have painkillers and splints. Don't make me regret it.",
+        "rewards": {
+          "money": 85,
+          "xp": 220,
+          "unlock": "First Aid",
+          "items": {
+            "bandage": 3,
+            "splint": 1
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_scavenger",
+        "giver": "ninth",
+        "npc": "TESS ROURKE",
+        "tier": 1,
+        "title": "Scavenger",
+        "requires": [
+          "h_first_haul"
+        ],
+        "level": 3,
+        "objectives": [
+          {
+            "type": "search",
+            "count": 60
+          },
+          {
+            "type": "handIn",
+            "item": "rope",
+            "count": 2
+          },
+          {
+            "type": "handIn",
+            "item": "duct_tape",
+            "count": 1
+          }
+        ],
+        "text": "I don't sell packs to tourists. Work a site properly, every locker and crate, and bring me rope and tape. I'll stitch you a backpack for the counter.",
+        "done": "Sixty containers. You're on the list. Packs are on the shelf when you've got the level.",
+        "rewards": {
+          "money": 125,
+          "xp": 300,
+          "unlock": "Scavenger",
+          "items": {
+            "backpack": 1
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_tools",
+        "giver": "ninth",
+        "npc": "GUS PELL",
+        "tier": 1,
+        "title": "Tools of the Trade",
+        "requires": [
+          "h_first_haul"
+        ],
+        "level": 1,
+        "objectives": [
+          {
+            "type": "unlock",
+            "count": 5,
+            "method": "pick"
+          },
+          {
+            "type": "unlock",
+            "count": 3,
+            "method": "pry"
+          }
+        ],
+        "text": "Fail-secure. Power dies, the locks stay shut. The staff locks are just locks. Learn the lockpick, learn the bar, and learn which one's quieter.",
+        "done": "Keep the spare driver. They snap. You'll find out.",
+        "rewards": {
+          "money": 85,
+          "xp": 220,
+          "items": {
+            "screwdriver": 1,
+            "crowbar": 1
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_hard_head",
+        "giver": "ninth",
+        "npc": "MARCUS DELL",
+        "tier": 1,
+        "title": "Hard Head",
+        "requires": [
+          "h_first_aid"
+        ],
+        "level": 4,
+        "objectives": [
+          {
+            "type": "hitTaken",
+            "count": 15
+          },
+          {
+            "type": "handIn",
+            "item": "plastic",
+            "count": 3
+          },
+          {
+            "type": "handIn",
+            "item": "glue",
+            "count": 1
+          }
+        ],
+        "text": "Everybody gets hit. The ones who come back are the ones who got hit and kept moving. Take some, live through it, and get me plastic and glue for helmets.",
+        "done": "Hard hats are on the board. Wear one.",
+        "rewards": {
+          "money": 110,
+          "xp": 300,
+          "unlock": "Hard Head",
+          "items": {
+            "hard_hat": 1
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_shake_off",
+        "giver": "ninth",
+        "npc": "MARCUS DELL",
+        "tier": 1,
+        "title": "Shake It Off",
+        "requires": [
+          "h_first_aid"
+        ],
+        "level": 4,
+        "objectives": [
+          {
+            "type": "breakFree",
+            "count": 3,
+            "from": "tail"
+          },
+          {
+            "type": "handIn",
+            "item": "plastic",
+            "count": 3
+          },
+          {
+            "type": "handIn",
+            "item": "glue",
+            "count": 1
+          }
+        ],
+        "text": "Longskull doesn't want you dead. Not the first time. It wants you somewhere it can come back to. Get out of its tail three times, and get me plastic and glue for helmets.",
+        "done": "Hard hats are on the board. Wear one. It won't stop the tail, but it'll stop the wall.",
+        "rewards": {
+          "money": 110,
+          "xp": 300,
+          "unlock": "Hard Head",
+          "items": {
+            "hard_hat": 1
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_riot_control",
+        "giver": "ninth",
+        "npc": "MARCUS DELL",
+        "tier": 1,
+        "title": "Riot Control",
+        "requires": [
+          "h_tools"
+        ],
+        "level": 5,
+        "objectives": [
+          {
+            "type": "kill",
+            "count": 50
+          },
+          {
+            "type": "kill",
+            "count": 15,
+            "own": true,
+            "weapon": "crowbar"
+          }
+        ],
+        "text": "Thin them out. Up close, with the bar, so you know what it takes. And stay out of the dark corners in the ED.",
+        "done": "Vests and sleeves are released. And if you hear about the Hollow Man, the thing that takes your arms, it's not a story. Keep your hands where your mates can see them.",
+        "rewards": {
+          "money": 210,
+          "xp": 450,
+          "unlock": "Riot Control",
+          "items": {
+            "scrap_vest": 1,
+            "padded_sleeves": 1
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_flinch",
+        "giver": "ninth",
+        "npc": "MARCUS DELL",
+        "tier": 1,
+        "title": "Make It Flinch",
+        "requires": [
+          "h_tools"
+        ],
+        "level": 5,
+        "objectives": [
+          {
+            "type": "apexStun",
+            "count": 3,
+            "how": "any"
+          },
+          {
+            "type": "escape",
+            "count": 3,
+            "uncaught": true
+          }
+        ],
+        "text": "You can't kill Longskull. Nobody has. But it flinches, and when it flinches it lets go. Make it flinch three times. And come home three runs without a cage on you.",
+        "done": "Vests and sleeves are released. And if you hear about the Hollow Man, the thing that takes your arms, it's not a story. Keep your hands where your mates can see them.",
+        "rewards": {
+          "money": 210,
+          "xp": 450,
+          "unlock": "Riot Control",
+          "items": {
+            "scrap_vest": 1,
+            "padded_sleeves": 1
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_mess_stock",
+        "giver": "ninth",
+        "npc": "INES MOLINA",
+        "tier": 1,
+        "title": "Mess Stock",
+        "requires": [
+          "h_scavenger"
+        ],
+        "level": 1,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "soda",
+            "count": 3
+          },
+          {
+            "type": "handIn",
+            "item": "mre",
+            "count": 1
+          }
+        ],
+        "text": "Thirty people eat beans every night. Bring me something with sugar in it, and one of those army meals, and I'll make it a night.",
+        "done": "You should've seen their faces. Come by for a hot plate, any time.",
+        "rewards": {
+          "money": 155,
+          "xp": 220,
+          "items": {
+            "canned_food": 2,
+            "water": 2
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_bait",
+        "giver": "ninth",
+        "npc": "MARCUS DELL",
+        "tier": 1,
+        "title": "Fresh Bait",
+        "requires": [
+          "h_first_haul"
+        ],
+        "level": 1,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "rotten_meat",
+            "count": 3
+          }
+        ],
+        "text": "Something's started coming up the hill at night. The yard traps need bait, and spoiled meat out of the cold stores does the job. Bring me three. Don't let Ines see it.",
+        "done": "Perimeter's baited. Wash your hands. Twice.",
+        "rewards": {
+          "money": 55,
+          "xp": 150,
+          "items": {
+            "bottle": 3
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_tissue",
+        "giver": "ninth",
+        "npc": "DOC HALLORAN",
+        "tier": 1,
+        "title": "Keep It Cold",
+        "requires": [
+          "h_first_haul"
+        ],
+        "level": 4,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "husk_sample",
+            "count": 2
+          }
+        ],
+        "text": "Every one of us has been scratched. Nobody here turned. I want to know why. Those cages are seal stone with something grown over them. Scrape the resin off the bars, or off the vent rims, into a jar, and keep it cold if you can.",
+        "done": "Two samples. It's a start. Bring more when you find them.",
+        "rewards": {
+          "money": 170,
+          "xp": 380,
+          "items": {
+            "painkillers": 2,
+            "syringe": 1
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_steady_mind",
+        "giver": "ninth",
+        "npc": "INES MOLINA",
+        "tier": 1,
+        "title": "Steady Mind",
+        "requires": [
+          "h_first_haul"
+        ],
+        "level": 1,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 3,
+            "minSanity": 60
+          }
+        ],
+        "text": "I can see it on people when they come back, the ones who were alone in the dark. Come back to me with your head on straight a few times. Stick together, take a smoke, keep your light on.",
+        "done": "That's better. That's a face I can feed.",
+        "rewards": {
+          "money": 85,
+          "xp": 220,
+          "items": {
+            "mre": 2,
+            "cigarettes": 2
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "h_fuel_run",
+        "giver": "ninth",
+        "npc": "GUS PELL",
+        "tier": 1,
+        "title": "Power Run",
+        "requires": [
+          "h_tools"
+        ],
+        "level": 1,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 2,
+            "powered": "true"
+          }
+        ],
+        "text": "The site's gennies wake when the building does. Don't ask me how; I just know the lights come on and the locks let go. Get it lit and come home, twice. And no, the blast door at the end of the tunnel isn't on the same circuit. Nothing opens that.",
+        "done": "Take a proper torch. The cheap ones die when you need them.",
+        "rewards": {
+          "money": 85,
+          "xp": 220,
+          "items": {
+            "flashlight": 1,
+            "batteries": 2
+          }
+        },
+        "standing": {
+          "ninth": 1
+        }
+      },
+      {
+        "id": "s_lights_on",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 1,
+        "title": "Lights On",
+        "requires": [
+          "h_first_haul"
+        ],
+        "level": 1,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 1,
+            "powered": "true"
+          }
+        ],
+        "text": "ANGEL NINE, RIVERSIDE IS DARK. SEAL IT UP, WAKE IT, GET OUT. OUT.",
+        "done": "RIVERSIDE SHOWING POWER ON THE NET. NICE WORK. OUT.",
+        "rewards": {
+          "money": 70,
+          "xp": 220,
+          "items": {
+            "headlamp": 1
+          }
+        },
+        "standing": {
+          "net": 1
+        }
+      },
+      {
+        "id": "s_kit_check",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 1,
+        "title": "Kit Check",
+        "requires": [
+          "s_lights_on"
+        ],
+        "level": 1,
+        "objectives": [
+          {
+            "type": "chargeDrawn",
+            "count": 6
+          },
+          {
+            "type": "sealClosed",
+            "count": 4
+          }
+        ],
+        "text": "ANGEL NINE, YOUR KIT KNOWS THE WAY. DRAW, CARRY, FEED. CLOSE FOUR. DON'T TELL ME HOW. OUT.",
+        "done": "FOUR LOGGED. RIVERSIDE GOES QUIETER EVERY TIME. THAT'S ALL I WANT TO KNOW. OUT.",
+        "rewards": {
+          "money": 85,
+          "xp": 260,
+          "items": {
+            "batteries": 2,
+            "bandage": 2
+          }
+        },
+        "standing": {
+          "net": 1
+        }
+      },
+      {
+        "id": "s_ways_out",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 1,
+        "title": "Ways Out",
+        "requires": [
+          "s_lights_on"
+        ],
+        "level": 3,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 1,
+            "exit": "dock"
+          },
+          {
+            "type": "escape",
+            "count": 1,
+            "exit": "vent"
+          },
+          {
+            "type": "escape",
+            "count": 1,
+            "exit": "road"
+          }
+        ],
+        "text": "NEED CONFIRMED EXITS AT RIVERSIDE. DOCK, VENT, PICKUP. ONE EACH. THE TRUCK DOESN'T WAIT. OUT.",
+        "done": "THREE EXITS LOGGED. SHARING WITH THE NET. OUT.",
+        "rewards": {
+          "money": 170,
+          "xp": 380,
+          "items": {
+            "hatch_key": 1
+          }
+        },
+        "standing": {
+          "net": 1
+        }
+      },
+      {
+        "id": "s_deep_survey",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 1,
+        "title": "Deep Survey",
+        "requires": [
+          "s_lights_on"
+        ],
+        "level": 5,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 1,
+            "zones": [
+              "rad_treatment"
+            ]
+          }
+        ],
+        "text": "NOBODY HAS LOGGED THE RADIATION BUNKER AT THE BACK OF RIVERSIDE. LEAD WALLS, NO WINDOWS. REACH IT. TELL ME IT'S THERE. OUT.",
+        "done": "BUNKER CONFIRMED. DOOR STILL ON ITS HINGES. NOTED. OUT.",
+        "rewards": {
+          "money": 110,
+          "xp": 300,
+          "items": {
+            "runner_boots": 1
+          }
+        },
+        "standing": {
+          "net": 1
+        }
+      },
+      {
+        "id": "o_no_questions",
+        "giver": "ostler",
+        "npc": "VIC OSTLER",
+        "tier": 1,
+        "title": "No Questions Asked",
+        "requires": [
+          "h_first_haul"
+        ],
+        "level": 2,
+        "objectives": [
+          {
+            "type": "quickSell",
+            "count": 250
+          }
+        ],
+        "text": "Watches, rings, coins. Bring me shiny and I pay cash, better than anyone on the road. Don't ask me where it goes; I won't lie, so I won't answer.",
+        "done": "Pleasure doing business. Come back when your pockets are heavy.",
+        "rewards": {
+          "money": 40,
+          "xp": 150,
+          "items": {
+            "padded_jacket": 1
+          }
+        },
+        "standing": {
+          "ostler": 1
+        }
+      },
+      {
+        "id": "h_hands_free",
+        "giver": "ninth",
+        "npc": "GUS PELL",
+        "tier": 2,
+        "title": "Hands Free",
+        "requires": [
+          "h_scavenger"
+        ],
+        "level": 7,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "batteries",
+            "count": 2
+          },
+          {
+            "type": "handIn",
+            "item": "copper_wire",
+            "count": 2
+          },
+          {
+            "type": "handIn",
+            "item": "electronics",
+            "count": 1
+          }
+        ],
+        "text": "Headlamps. You need both hands in there. Get me batteries, wire and a board out of anything electrical.",
+        "done": "Rourke has headlamps on the counter now.",
+        "rewards": {
+          "money": 350,
+          "xp": 450,
+          "unlock": "Hands Free",
+          "items": {
+            "headlamp": 1
+          }
+        },
+        "standing": {
+          "ninth": 2
+        }
+      },
+      {
+        "id": "h_quiet_feet",
+        "giver": "ninth",
+        "npc": "TESS ROURKE",
+        "tier": 2,
+        "title": "Quiet Feet",
+        "requires": [
+          "h_scavenger"
+        ],
+        "level": 9,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 5,
+            "noHit": true
+          },
+          {
+            "type": "handIn",
+            "item": "leather",
+            "count": 2
+          },
+          {
+            "type": "handIn",
+            "item": "rope",
+            "count": 1
+          }
+        ],
+        "text": "Noise gets people killed. Come back clean five times, without a scratch, and bring leather and rope. I'll get boots made.",
+        "done": "Quiet boots and runners, on the counter. Pick your trade-off.",
+        "rewards": {
+          "money": 280,
+          "xp": 520,
+          "unlock": "Quiet Feet",
+          "items": {
+            "quiet_boots": 1
+          }
+        },
+        "standing": {
+          "ninth": 2
+        }
+      },
+      {
+        "id": "h_lockbreaker",
+        "giver": "ninth",
+        "npc": "GUS PELL",
+        "tier": 2,
+        "title": "Every Lock in Harrow",
+        "requires": [
+          "h_tools"
+        ],
+        "level": 9,
+        "objectives": [
+          {
+            "type": "unlock",
+            "count": 40
+          },
+          {
+            "type": "unlock",
+            "count": 15,
+            "method": "pick"
+          },
+          {
+            "type": "unlock",
+            "count": 10,
+            "method": "pry"
+          }
+        ],
+        "text": "The best stock was locked away first. Drug cabinets, lockers, the doctors' desks. Open forty, pick some, break some, and you'll know every lock in Harrow.",
+        "done": "Found a pair of tac gloves in the last lot. They're yours.",
+        "rewards": {
+          "money": 350,
+          "xp": 680,
+          "items": {
+            "tactical_gloves": 1,
+            "locksmith_gloves": 1
+          }
+        },
+        "standing": {
+          "ninth": 2
+        }
+      },
+      {
+        "id": "h_field_medic",
+        "giver": "ninth",
+        "npc": "DOC HALLORAN",
+        "tier": 2,
+        "title": "Field Medic",
+        "requires": [
+          "h_tissue"
+        ],
+        "level": 8,
+        "objectives": [
+          {
+            "type": "revive",
+            "count": 5
+          },
+          {
+            "type": "medicalOther",
+            "count": 10
+          }
+        ],
+        "text": "A syringe is worth more than a gold bar if it's your mate on the floor. Get them up. Patch them up. I want numbers.",
+        "done": "Here, two syringes. Use them on someone who'd do the same.",
+        "rewards": {
+          "money": 420,
+          "xp": 600,
+          "items": {
+            "syringe": 2,
+            "medkit": 1
+          }
+        },
+        "standing": {
+          "ninth": 2
+        },
+        "coop": true
+      },
+      {
+        "id": "h_culture",
+        "giver": "ninth",
+        "npc": "DOC HALLORAN",
+        "tier": 2,
+        "title": "Two Isn't a Pattern",
+        "requires": [
+          "h_tissue"
+        ],
+        "level": 10,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "husk_sample",
+            "count": 6
+          },
+          {
+            "type": "handIn",
+            "item": "chemicals",
+            "count": 2
+          }
+        ],
+        "text": "Two isn't a pattern. Six is. And I need chemicals to keep them.",
+        "done": "They're not all the same. The older ones are different. Here, medkits; you've earned the good shelf.",
+        "rewards": {
+          "money": 560,
+          "xp": 820,
+          "items": {
+            "medkit": 2,
+            "surgical_kit": 1
+          }
+        },
+        "standing": {
+          "ninth": 2
+        }
+      },
+      {
+        "id": "h_dark_hours",
+        "giver": "ninth",
+        "npc": "DOC HALLORAN",
+        "tier": 2,
+        "title": "Dark Hours",
+        "requires": [
+          "h_steady_mind"
+        ],
+        "level": 9,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 3,
+            "powered": "false",
+            "minSanity": 50
+          }
+        ],
+        "text": "No power, no lights, the pickup only. Come back with your head still yours, three times. I need to know what the dark does.",
+        "done": "The ones who spend the longest inside are the ones hearing things. I don't think it's nerves. I think it's the first stage. Don't tell Ines I said that. Take this - it's a proper light. The trader will sell you more now.",
+        "rewards": {
+          "money": 490,
+          "xp": 520,
+          "items": {
+            "mre": 2,
+            "painkillers": 2,
+            "tactical_flashlight": 1
+          },
+          "unlock": "Dark Hours"
+        },
+        "standing": {
+          "ninth": 2
+        }
+      },
+      {
+        "id": "s_spare_key",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 2,
+        "title": "Spare Key",
+        "requires": [
+          "s_ways_out"
+        ],
+        "level": 8,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 8,
+            "powered": "true"
+          }
+        ],
+        "text": "KEEP RIVERSIDE BREATHING. EIGHT POWER-UPS, EIGHT RETURNS. THERE'S SOMETHING IN IT FOR YOU. OUT.",
+        "done": "SPARE HATCH KEY, ONE OF THE RECALLED ONES. THE HATCH KEEPS IT ONCE YOU TURN IT. SPEND IT WELL. OUT.",
+        "rewards": {
+          "money": 280,
+          "xp": 520,
+          "items": {
+            "hatch_key": 1,
+            "hiking_pack": 1
+          }
+        },
+        "standing": {
+          "net": 2
+        }
+      },
+      {
+        "id": "s_hatch",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 2,
+        "title": "Down the Hatch",
+        "requires": [
+          "s_spare_key"
+        ],
+        "level": 1,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 1,
+            "exit": "hatch"
+          }
+        ],
+        "text": "RIVERSIDE HAS ONE CLEAR HATCH: THE FLOOR DRAIN IN PLUMBING. USE THE KEY. OUT.",
+        "done": "HATCH ROUTE CONFIRMED. YOU'RE ONE OF A FEW. OUT.",
+        "rewards": {
+          "money": 350,
+          "xp": 450,
+          "sp": 1,
+          "items": {
+            "hatch_key": 1
+          }
+        },
+        "standing": {
+          "net": 2
+        }
+      },
+      {
+        "id": "s_sealed_rooms",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 2,
+        "title": "Stock Take",
+        "requires": [
+          "s_spare_key"
+        ],
+        "level": 10,
+        "objectives": [
+          {
+            "type": "search",
+            "count": 20,
+            "container": "medcab",
+            "afterPower": true
+          }
+        ],
+        "text": "WITH THE LIGHTS ON, TAKE STOCK OF RIVERSIDE'S MEDICAL CABINETS. TWENTY. EVERY SHELF. THE NET NEEDS TO KNOW WHAT'S LEFT. OUT.",
+        "done": "INVENTORY RECEIVED. FOUND A RIOT HELMET IN THE TALLY. IT'S YOURS. OUT.",
+        "rewards": {
+          "money": 420,
+          "xp": 680,
+          "items": {
+            "riot_helmet": 1,
+            "vest": 1
+          }
+        },
+        "standing": {
+          "net": 2
+        }
+      },
+      {
+        "id": "s_ledger",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 2,
+        "title": "Names in the Ledger",
+        "requires": [
+          "s_lights_on"
+        ],
+        "level": 8,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 3,
+            "zones": [
+              "medical_records"
+            ]
+          }
+        ],
+        "text": "RIVERSIDE MEDICAL RECORDS HELD THE ADMISSIONS. EVERY PATIENT ON THE WARDS WHEN THEY SEALED IT. TAKE A PENCIL, COPY WHAT YOU CAN, GET OUT. THREE RUNS. PEOPLE ARE STILL LOOKING. ...SO AM I. OUT.",
+        "done": "NAMES ARE ON THE NET. FAMILIES ARE CALLING IN. HE WASN'T ON YOUR PAGES. KEEP LOOKING, WOULD YOU. OUT.",
+        "rewards": {
+          "money": 350,
+          "xp": 520,
+          "items": {
+            "scavenger_gloves": 1
+          }
+        },
+        "standing": {
+          "net": 2
+        }
+      },
+      {
+        "id": "h_promise",
+        "giver": "ninth",
+        "npc": "INES MOLINA",
+        "tier": 2,
+        "title": "Somebody's Promise",
+        "requires": [
+          "h_mess_stock"
+        ],
+        "level": 8,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "wedding_ring",
+            "count": 1
+          }
+        ],
+        "text": "WREN read me a list off the Net. Families of Riverside patients, asking for anything that came out. A ring, mostly. Something to bury. If you find one, bring it to me. Or don't; I know what Vic pays.",
+        "done": "",
+        "choices": [
+          {
+            "button": "GIVE IT TO INES",
+            "npc": "INES MOLINA",
+            "rewards": {
+              "xp": 380,
+              "sanity": 100
+            },
+            "standing": {
+              "ninth": 2
+            },
+            "done": "Her name was on WREN's list. I'll see it gets to her. Sit down, I'll make you a plate."
+          },
+          {
+            "button": "SELL IT TO OSTLER",
+            "npc": "VIC OSTLER",
+            "rewards": {
+              "money": 250,
+              "xp": 220
+            },
+            "standing": {
+              "ostler": 2
+            },
+            "done": "Good gold, that. Here's a bit over, for the sentiment. I don't ask, you don't tell."
+          }
+        ],
+        "standing": {}
+      },
+      {
+        "id": "o_fence",
+        "giver": "ostler",
+        "npc": "VIC OSTLER",
+        "tier": 2,
+        "title": "A Matched Set",
+        "requires": [
+          "o_no_questions"
+        ],
+        "level": 8,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "wedding_ring",
+            "count": 1
+          },
+          {
+            "type": "handIn",
+            "item": "vintage_camera",
+            "count": 1
+          },
+          {
+            "type": "handIn",
+            "item": "gold_chain",
+            "count": 1
+          }
+        ],
+        "text": "I've got a buyer who wants a set: a ring, a camera, a gold chain. Not sold, handed over. He pays a premium for the set.",
+        "done": "Your cut. And no, he's not from round here.",
+        "rewards": {
+          "money": 770,
+          "xp": 600,
+          "items": {
+            "combat_boots": 1
+          }
+        },
+        "standing": {
+          "ostler": 2
+        }
+      },
+      {
+        "id": "o_heavy_lift",
+        "giver": "ostler",
+        "npc": "VIC OSTLER",
+        "tier": 3,
+        "title": "Heavy Lift",
+        "requires": [
+          "o_no_questions",
+          "s_ways_out"
+        ],
+        "level": 15,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 1,
+            "exit": "dock",
+            "carrying": "gold_bar"
+          }
+        ],
+        "text": "Somebody kept gold at Riverside. The patients' property safe, the director's, who knows. Bring a bar out the front door, the dock. The vent won't take it.",
+        "done": "Keep the bar, sell it to me later. I just wanted to know it could be done.",
+        "rewards": {
+          "money": 350,
+          "xp": 450,
+          "items": {
+            "rucksack": 1
+          }
+        },
+        "standing": {
+          "ostler": 3
+        }
+      },
+      {
+        "id": "o_big_score",
+        "giver": "ostler",
+        "npc": "VIC OSTLER",
+        "tier": 2,
+        "title": "Big Score",
+        "requires": [
+          "o_fence"
+        ],
+        "level": 11,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 1,
+            "haul": 600
+          }
+        ],
+        "text": "One run. One big run. Six hundred in your bags, all from the inside.",
+        "done": "That's a run people hear about. Here's a little extra so they hear about me too.",
+        "rewards": {
+          "money": 490,
+          "xp": 680,
+          "sp": 1,
+          "items": {
+            "hiking_pack": 1
+          }
+        },
+        "standing": {
+          "ostler": 2
+        }
+      },
+      {
+        "id": "c_courier",
+        "giver": "continuity",
+        "npc": "GREYLINE",
+        "tier": 2,
+        "title": "Routine Collection",
+        "requires": [
+          "h_tissue"
+        ],
+        "level": 10,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "husk_sample",
+            "count": 2
+          }
+        ],
+        "text": "GOOD AFTERNOON. THIS IS GREYLINE, FIELD OFFICER LENNARD. CONTINUITY WILL COMPENSATE YOU FOR RESIN SAMPLES. TWO. THE PRICE IS GENEROUS. {DATE}.",
+        "done": "RECEIPT ACKNOWLEDGED. YOUR COOPERATION HAS BEEN NOTED. GREYLINE.",
+        "rewards": {
+          "money": 490,
+          "xp": 220,
+          "items": {
+            "medkit": 1
+          }
+        },
+        "standing": {
+          "continuity": 2,
+          "ninth": -1,
+          "net": -1
+        }
+      },
+      {
+        "id": "c_custody",
+        "giver": "continuity",
+        "npc": "GREYLINE",
+        "tier": 2,
+        "title": "Chain of Custody",
+        "requires": [
+          "c_courier"
+        ],
+        "level": 12,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "husk_sample",
+            "count": 4
+          }
+        ],
+        "text": "FOUR FURTHER SAMPLES. PLEASE ALSO CONFIRM THE NAMES OF THE CREW PRESENT AT COLLECTION, FOR CHAIN OF CUSTODY. ROUTINE. GREYLINE.",
+        "done": "THANK YOU. THE MEDICAL SUPPLIES ARE ISSUED WITH CONTINUITY'S COMPLIMENTS. WE WILL BE IN TOUCH WITH THE CREW LISTED. GREYLINE.",
+        "rewards": {
+          "money": 980,
+          "xp": 450,
+          "items": {
+            "syringe": 2,
+            "medkit": 1
+          }
+        },
+        "standing": {
+          "continuity": 2,
+          "ninth": -2,
+          "net": -1
+        }
+      },
+      {
+        "id": "h_supply_line",
+        "giver": "ninth",
+        "npc": "TESS ROURKE",
+        "tier": 3,
+        "title": "Supply Line",
+        "requires": [
+          "h_lockbreaker"
+        ],
+        "level": 15,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "ceramic_plate",
+            "count": 1
+          },
+          {
+            "type": "handIn",
+            "item": "kevlar",
+            "count": 2
+          },
+          {
+            "type": "handIn",
+            "item": "electronics",
+            "count": 2
+          },
+          {
+            "type": "handIn",
+            "item": "toolbox",
+            "count": 1
+          }
+        ],
+        "text": "If we're going to arm this place properly, I need armour inserts, Kevlar, boards and a full toolbox. Then I can show you how to build a riot helmet yourself.",
+        "done": "The pattern's yours. Ask Gus for bench time when the benches are up.",
+        "rewards": {
+          "money": 630,
+          "xp": 1500,
+          "blueprint": "riot_helmet",
+          "items": {
+            "plate_carrier": 1
+          }
+        },
+        "standing": {
+          "ninth": 3
+        }
+      },
+      {
+        "id": "h_exterminator",
+        "giver": "ninth",
+        "npc": "MARCUS DELL",
+        "tier": 3,
+        "title": "Four Hundred",
+        "requires": [
+          "h_riot_control"
+        ],
+        "level": 15,
+        "objectives": [
+          {
+            "type": "kill",
+            "count": 400
+          },
+          {
+            "type": "kill",
+            "count": 100,
+            "own": true
+          }
+        ],
+        "text": "Four hundred. That's how many beds Riverside had. I'm not saying it's the same ones. I'm saying it's a number.",
+        "done": "You want to know how my crew died in the ED? Grey coveralls. Respirator harness. It came round behind us. That's all you get.",
+        "rewards": {
+          "money": 490,
+          "xp": 1200,
+          "sp": 1,
+          "items": {
+            "combat_helmet": 1
+          }
+        },
+        "standing": {
+          "ninth": 3
+        }
+      },
+      {
+        "id": "h_still_standing",
+        "giver": "ninth",
+        "npc": "MARCUS DELL",
+        "tier": 3,
+        "title": "Still Standing",
+        "requires": [
+          "h_flinch"
+        ],
+        "level": 15,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 40,
+            "uncaught": true
+          },
+          {
+            "type": "apexStun",
+            "count": 25,
+            "how": "any"
+          },
+          {
+            "type": "breakFree",
+            "count": 10,
+            "from": "tail"
+          }
+        ],
+        "text": "Four hundred beds at Riverside, and Longskull keeps its own count in there. Forty runs home without a cage. Make it flinch when it comes. Get out of its tail when it gets you anyway.",
+        "done": "You want to know how my crew died in the ED? Grey coveralls. Respirator harness. It came round behind us. That's all you get.",
+        "rewards": {
+          "money": 490,
+          "xp": 1200,
+          "sp": 1,
+          "items": {
+            "combat_helmet": 1
+          }
+        },
+        "standing": {
+          "ninth": 3
+        }
+      },
+      {
+        "id": "h_lifeline",
+        "giver": "ninth",
+        "npc": "DOC HALLORAN",
+        "tier": 3,
+        "title": "Get Them Up",
+        "requires": [
+          "h_field_medic"
+        ],
+        "level": 15,
+        "objectives": [
+          {
+            "type": "revive",
+            "count": 20
+          }
+        ],
+        "text": "Twenty. Twenty people who'd be on a list if it weren't for you.",
+        "done": "Hillside's alive because of people like you. I mean that literally.",
+        "rewards": {
+          "money": 350,
+          "xp": 1200,
+          "cp": 1,
+          "items": {
+            "surgical_kit": 2,
+            "syringe": 3
+          }
+        },
+        "standing": {
+          "ninth": 3
+        },
+        "coop": true
+      },
+      {
+        "id": "h_breakthrough",
+        "giver": "ninth",
+        "npc": "DOC HALLORAN",
+        "tier": 3,
+        "title": "Stop Asking",
+        "requires": [
+          "h_culture"
+        ],
+        "level": 18,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "husk_sample",
+            "count": 15
+          },
+          {
+            "type": "handIn",
+            "item": "chemicals",
+            "count": 4
+          },
+          {
+            "type": "handIn",
+            "item": "surgical_kit",
+            "count": 1
+          }
+        ],
+        "text": "Fifteen more, the chemicals to fix them, and a surgical kit to cut them properly. Then I'll have an answer, or I'll stop asking.",
+        "done": "Low dose. All of us. That's why nobody here turned: we're carrying it, just not enough. Continuity knows. That's why they want the names. Here's the syringe recipe. We'll need a lot of them.",
+        "rewards": {
+          "money": 910,
+          "xp": 1800,
+          "cp": 1,
+          "blueprint": "syringe",
+          "items": {
+            "syringe": 2
+          }
+        },
+        "standing": {
+          "ninth": 3
+        }
+      },
+      {
+        "id": "s_grand_tour",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 3,
+        "title": "Grand Tour",
+        "requires": [
+          "s_deep_survey"
+        ],
+        "level": 15,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 1,
+            "zones": [
+              "trauma_room",
+              "pharmacy",
+              "operating_room",
+              "chapel"
+            ]
+          }
+        ],
+        "text": "FULL WALK OF RIVERSIDE. TRAUMA ROOM, PHARMACY, SURGERY, THE CHAPEL. ONE RUN. WALK SOFT. SOMETHING IN THERE LISTENS. OUT.",
+        "done": "FULL MAP ON THE NET. THE HUSH WON'T WORK RIVERSIDE. THEY SAY SOMETHING IN THERE IS LISTENING. NEITHER SHOULD YOU. OUT.",
+        "rewards": {
+          "money": 350,
+          "xp": 900,
+          "items": {
+            "combat_boots": 1,
+            "rucksack": 1
+          }
+        },
+        "standing": {
+          "net": 3
+        }
+      },
+      {
+        "id": "s_relay",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 3,
+        "title": "The Relay",
+        "requires": [
+          "s_hatch"
+        ],
+        "level": 17,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "electronics",
+            "count": 4
+          },
+          {
+            "type": "handIn",
+            "item": "copper_wire",
+            "count": 4
+          },
+          {
+            "type": "handIn",
+            "item": "batteries",
+            "count": 2
+          },
+          {
+            "type": "escape",
+            "count": 3,
+            "exit": "road"
+          }
+        ],
+        "text": "HILLSIDE RELAY IS FAILING. BOARDS, WIRE, BATTERIES. THEN RIDE THE PICKUP OUT THREE TIMES SO THE DRIVER CAN CHECK THE LINE FROM THE STREET. OUT.",
+        "done": "RELAY HOLDING. YOU JUST KEPT THREE OUTPOSTS ON THE AIR. MERIDIAN SENDS A PACK PATTERN. OUT.",
+        "rewards": {
+          "money": 560,
+          "xp": 1200,
+          "sp": 1,
+          "blueprint": "hiking_pack",
+          "items": {
+            "rucksack": 1
+          }
+        },
+        "standing": {
+          "net": 3
+        }
+      },
+      {
+        "id": "s_keeper",
+        "giver": "net",
+        "npc": "WREN",
+        "tier": 3,
+        "title": "Keeper of the Depot",
+        "requires": [
+          "s_spare_key"
+        ],
+        "level": 15,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 30,
+            "powered": "true"
+          }
+        ],
+        "text": "RIVERSIDE IS THE NET'S BEST SOURCE SINCE THE UNSEALING STARTED. KEEP IT LIT. THIRTY MORE. OUT.",
+        "done": "THIRTY LOGGED. GUS SAYS HE'S BEEN LISTENING. HE SAYS IF THE BLAST DOOR EVER OPENS, IT WILL TAKE A SECOND GENERATOR BIGGER THAN RIVERSIDE'S. OUT.",
+        "rewards": {
+          "money": 490,
+          "xp": 1350,
+          "cp": 1,
+          "items": {
+            "plate_carrier": 1
+          }
+        },
+        "standing": {
+          "net": 3
+        }
+      },
+      {
+        "id": "o_kingpin",
+        "giver": "ostler",
+        "npc": "VIC OSTLER",
+        "tier": 3,
+        "title": "Seen It Twice",
+        "requires": [
+          "o_big_score"
+        ],
+        "level": 18,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 1,
+            "haul": 1100
+          }
+        ],
+        "text": "Eleven hundred in one run. I've seen it done twice.",
+        "done": "Three. The truck goes toward the green zone next week; this lot rides with it. Don't look at me like that.",
+        "rewards": {
+          "money": 560,
+          "xp": 1500,
+          "cp": 1,
+          "items": {
+            "combat_helmet": 1,
+            "plate_carrier": 1
+          }
+        },
+        "standing": {
+          "ostler": 3
+        }
+      },
+      {
+        "id": "c_records",
+        "giver": "continuity",
+        "npc": "GREYLINE",
+        "tier": 3,
+        "title": "Records Retention",
+        "requires": [
+          "c_custody"
+        ],
+        "level": 15,
+        "objectives": [
+          {
+            "type": "escape",
+            "count": 1,
+            "zones": [
+              "director",
+              "security_office"
+            ]
+          }
+        ],
+        "text": "RIVERSIDE GENERAL: THE DIRECTOR'S OFFICE AND THE SECURITY OFFICE. CONFIRM THE FILES ARE INTACT AND THE LOCKDOWN PANEL IS UNTOUCHED. DO NOT READ THEM. GREYLINE.",
+        "done": "CONFIRMED. FOR YOUR INFORMATION, THE SEAL ORDER CARRIES A COUNTY COUNTERSIGNATURE. MS ADAIR WILL REMEMBER. GREYLINE.",
+        "rewards": {
+          "money": 1260,
+          "xp": 900,
+          "items": {
+            "vest": 1
+          }
+        },
+        "standing": {
+          "continuity": 3,
+          "ninth": -2,
+          "net": -2
+        }
+      },
+      {
+        "id": "c_sensitive",
+        "giver": "continuity",
+        "npc": "GREYLINE",
+        "tier": 3,
+        "title": "Sensitive Material",
+        "requires": [
+          "c_records"
+        ],
+        "level": 18,
+        "objectives": [
+          {
+            "type": "handIn",
+            "item": "husk_sample",
+            "count": 6
+          },
+          {
+            "type": "escape",
+            "count": 1,
+            "exit": "dock",
+            "zones": [
+              "lab_storage"
+            ],
+            "zonesAfterPower": true
+          }
+        ],
+        "text": "SIX FURTHER SAMPLES. AND WITH THE SITE POWERED, CONFIRM RIVERSIDE'S LAB COLD STORE: ITS DOOR, ITS SEAL, ITS CONDITION. FORM CD-14 REFERS. GREYLINE.",
+        "done": "THE COLD STORE WAS REQUISITIONED IN YEAR ZERO FOR SENSITIVE MATERIAL, CONDITION GREY. IT IS CONTINUITY PROPERTY. PLEASE ACCEPT THIS MEDICAL PATTERN WITH OUR THANKS. GREYLINE.",
+        "rewards": {
+          "money": 1680,
+          "xp": 1350,
+          "blueprint": "medkit",
+          "items": {
+            "surgical_kit": 1
+          }
+        },
+        "standing": {
+          "continuity": 3,
+          "ninth": -3,
+          "net": -2
+        }
+      }
+    ]
+  },
+  "rarity": {
+    "names": [
+      "Common",
+      "Uncommon",
+      "Rare",
+      "Epic",
+      "Legendary"
+    ],
+    "weights": [
+      70,
+      24,
+      4.8,
+      1.0,
+      0.2
+    ]
+  },
+  "poolSize": 200,
+  "medUse": {
+    "defaultSeconds": 3,
+    "cancelSpeed": 3.0,
+    "reach": 2.5,
+    "selfReviveMult": 2,
+    "comfortBase": 1.5,
+    "comfortPerSanity": 0.04,
+    "comfortPerHeal": 0.05,
+    "comfortMax": 6,
+    "_note": "Medical items take time (MedUse): items.<id>.useSeconds (else defaultSeconds), divided by 1 + the medSpeed skill hook. A bar shows on your HUD; it stops if you move faster than cancelSpeed (a walk is fine, a run isn't), go down, lose the item, or get more than reach metres from the teammate you're treating."
+  },
+  "apex": {
+    "wakeSeconds": 180,
+    "wakeMaxSeconds": 300,
+    "chaseSpeed": 1.8,
+    "wanderSpeed": 0.6,
+    "angerMinutes": 4,
+    "angerMaxBoost": 1.8,
+    "angerDropOnDown": 0.5,
+    "executeChance": 0.5,
+    "angerDropOnHit": 0.05,
+    "secondChance": 0.5,
+    "flareRadius": 5,
+    "flareSeconds": 20,
+    "crawlChaseSpeed": 2.4,
+    "crawlMaxSpeed": 3.2,
+    "crawlWanderSpeed": 0.9,
+    "standChaseSpeed": 1.7,
+    "standWanderSpeed": 1.1,
+    "standAngerShare": 0.25,
+    "standMinSeconds": 120,
+    "standMaxSeconds": 180,
+    "standChaseMin": 30,
+    "standChaseMax": 50,
+    "staggerSeconds": 3,
+    "mineRadius": 1.6,
+    "runClipSpeed": 3.4,
+    "walkClipSpeed": 1.2,
+    "whipMinRange": 2.5,
+    "whipMaxRange": 6.5,
+    "whipWindup": 2.5,
+    "whipClipStrike": 0.9,
+    "whipRecover": 0.8,
+    "whipMoveScale": 1,
+    "meleeFront": 1.0,
+    "meleeReach": 1.0,
+    "swingMoveScale": 0.5,
+    "whipCooldown": 7,
+    "whipLag": 0.6,
+    "whipTurnRate": 200,
+    "whipLength": 6.5,
+    "whipWidth": 1.0,
+    "whipDamageMin": 22,
+    "whipDamageMax": 34,
+    "whipBleedChance": 0.5,
+    "whipFractureChance": 0.35,
+    "_formsNote": "Xenosaurid (Apex2) only. CRAWL: chases at crawlChaseSpeed x anger boost, never above crawlMaxSpeed (= a sprint); anger builds only while crawling. A shock mine it crawls over (within mineRadius) staggers it for staggerSeconds and stands it up: chase at standChaseSpeed (a walk) + standAngerShare of the anger boost. It drops back to a crawl after standMin..MaxSeconds, or once it has chased for standChaseMin..Max seconds in total while standing. TAIL WHIP: when its target is whipMinRange..whipMaxRange away and in sight: a cue + whipWindup seconds turning after where you were whipLag seconds ago (whipTurnRate deg/s), then a straight strike whipLength long, whipWidth wide; whipCooldown between whips.",
+    "_note": "Player walk 2.0, sprint 4.5. The apex starts a bit slower than a walk; anger builds 0..1 over angerMinutes of being out and adds up to angerMaxBoost (x1.8 = about 5 m/s chase at full: it outruns a sprint, so a long raid ends with someone caught). Downing someone it just hit drops anger by angerDropOnDown, each hit by angerDropOnHit. Each raid wakes one apex: secondChance = odds it is the Xenosaurid (Apex2) instead of Hollowface.",
+    "execEyeHeight": 1.7,
+    "execSeatUp": 0,
+    "execSeatForward": 0,
+    "execCenter": 0,
+    "crawlClipSpeed": 0.55,
+    "_crawlClipsNote": "Crawl form clips (Blender, 2026-10-25): Crawl = the slow stalk, authored at crawlClipSpeed m/s (wandering plays it at speed / crawlClipSpeed, 1-2.5x); CrawlChase = the scuttle, authored at runClipSpeed. Execute = one 5 s clip (grab 0.55 s, strike 3.45 s, let go 3.97 s), the seat follows its throat point at the held player's own eye height.",
+    "xenosaurid": {
+      "executeChance": 0.5,
+      "hitRecoverSeconds": 3,
+      "hitRecoverSpeed": 0.35,
+      "chaseRampMax": 1.4,
+      "chaseRampSeconds": 25,
+      "climbAfterLostSeconds": 3
+    },
+    "hollowface": {
+      "_note": "Hollowface v2, the stalker (Docs/HOLLOWFACE.md). STALK below huntAt: sneaks, keeps stalkMin..stalkMax m away, peeks from HFPeek markers (peekMin..peekMax s); only swipes when cornered (corneredRange, corneredDamage x). A flashlight on it while stalking: it flees fleeSeconds at skitterSpeed and gains lightCatchAnger + lightAnger per second lit. Loud noises: noiseAnger x radius/14 (max noiseAngerMax). Stared at while peeking for stareSeconds: stareAnger and it ducks out. HUNT at huntAt (or the squeeze): flashlights ignored, skitterSpeed x (1 + (anger - huntAt) x huntBoost), hits x huntDamage, a down rolls executeChance; huntLoseSeconds with nobody sensed -> anger afterHuntAnger, back to stalking. VISION: it only knows where you are from sight (sightRange m, sightCone deg; hunting huntSightRange / huntSightCone; peeking it looks out from its leaning face) or hearing; it works from your last known spot, goes there when the trail is 6 s cold, then roams. Nobody sensed for driftSeconds while stalking: a vague pull toward the nearest player (+- driftBlur m). It only peeks from a marker where the wall hides its body from you and its face sees you; if you leave its view for peekLostSeconds it ducks back.",
+      "executeChance": 0.75,
+      "angerMinutes": 14,
+      "huntAt": 0.7,
+      "huntBoost": 1.0,
+      "huntDamage": 1.3,
+      "huntLoseSeconds": 25,
+      "afterHuntAnger": 0.55,
+      "stalkMin": 8,
+      "stalkMax": 20,
+      "relocateSpeed": 1.0,
+      "peekMin": 3,
+      "peekMax": 7,
+      "peekCooldown": 4,
+      "peekMinRange": 6,
+      "peekMaxRange": 25,
+      "corneredRange": 1.2,
+      "corneredDamage": 0.5,
+      "skitterSpeed": 3.6,
+      "fleeSeconds": 4,
+      "fleeDistance": 14,
+      "lightRange": 18,
+      "lightAngle": 22,
+      "lightCatchAnger": 0.05,
+      "lightAnger": 0.06,
+      "noiseAnger": 0.02,
+      "noiseAngerMax": 0.05,
+      "stareSeconds": 1.5,
+      "stareAnger": 0.04,
+      "sightRange": 22,
+      "sightCone": 110,
+      "huntSightRange": 30,
+      "huntSightCone": 160,
+      "driftSeconds": 30,
+      "driftBlur": 8,
+      "peekLostSeconds": 2
+    }
+  },
+  "debug": {
+    "users": [
+      "Tasty Meow Mix"
+    ],
+    "_note": "VRChat display names (exact, case-sensitive) that get the debug tools - the DEBUG tab in the gear screen and the backtick keys - even with RaidManager debugKeys off for release."
+  },
+  "seals": {
+    "_note": "Seals + fonts replace generators + fuel on maps that have them (RaidSeals). Per crew size 1..13: count = seals picked (one per section where it can), hunger = full cubes of charge each seal drinks, fonts = fonts picked; minWalk = metres of walking (navmesh) every picked font keeps from every picked seal. The last seal closed spins the facility up (power.spinUpSeconds).",
+    "count": [
+      2,
+      2,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "hunger": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "fonts": [
+      5,
+      5,
+      6,
+      7,
+      7,
+      8,
+      8,
+      9,
+      10,
+      10,
+      11,
+      11,
+      12
+    ],
+    "minWalk": 30
+  },
+  "power": {
+    "fuelNeeded": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      12,
+      14,
+      17,
+      20,
+      20
+    ],
+    "generators": 2,
+    "apexGenDistance": 30,
+    "_generatorNote": "fuelNeeded[crew size - 1] cans in all, split across the raid's generators (power.generators of the map's candidates, the first takes the odd can); power comes on once every live generator is full. The apex wakes in a lair candidate at least apexGenDistance m from both.",
+    "spareCylinders": 1,
+    "pourSeconds": 6,
+    "secureRooms": 3,
+    "secureLockedShare": 0.4,
+    "candidateLockChance": 0.25,
+    "apexCrates": 14,
+    "secureCacheItems": 1,
+    "_secureNote": "Each raid secureRooms of the candidate rooms (PowerDoor_<Room>) are secure: sealed until power-on, then open (or, at secureLockedShare odds per door, a lock to crack), lit, panels + stripes shown, secureCacheItems from the secure table dropped on their floor. Unpicked candidates are ordinary rooms (doors locked at candidateLockChance).",
+    "balanceZone": 0.35,
+    "balanceDrift": 2.2,
+    "balanceInstability": 1.6,
+    "balancePush": 5,
+    "spillLoss": 0.15,
+    "spillNoise": 12,
+    "spillPause": 1.5,
+    "zoneDrift": 0.3,
+    "zoneHoldMin": 1.6,
+    "zoneHoldMax": 3.4,
+    "teamPourBonus": 0.5,
+    "teamPourMax": 2,
+    "_pourNote": "Pouring a can: pourSeconds of level pouring / PlayerStats.PourSpeed (skills fuelSpeed, gear pct.pourSpeed, -35% per broken arm). The can drifts (balanceDrift, balanceInstability pushes it away from level); Q / E (VR triggers) push balancePush. The green zone (balanceZone wide) drifts round the gauge: a new spot every zoneHoldMin..zoneHoldMax s, moving zoneDrift per s. Full flow while the can stays inside it; tipping out of it spills (spillZone, default = balanceZone): spillLoss of a can lost, back to level, a noise of radius spillNoise that husks hear, and everyone pouring at that generator waits spillPause seconds. Each other player pouring at the same generator adds teamPourBonus, up to teamPourMax x.",
+    "cansPerRaid": [
+      14,
+      16,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      38
+    ],
+    "canSpread": 8,
+    "spinUpSeconds": 20,
+    "fillSeconds": 6,
+    "pointFuel": 2
+  },
+  "exits": {
+    "roadSeconds": 300,
+    "ventKg": 15,
+    "dockRaiseSeconds": 40,
+    "hatchOpenSeconds": 10,
+    "hatchOpenFor": 60,
+    "hatchNoise": 25,
+    "roadKg": 6,
+    "_note": "Road evac is the emergency exit: opens in the last roadSeconds of the raid (late ditch, not a free early out), then only with no backpack and at most roadKg carried (pockets only)."
+  },
+  "voiceDefault": 1,
+  "starterKitItems": [
+    "bandage",
+    "cheap_flashlight"
+  ],
+  "starterKitStation": {
+    "_note": "The outpost STARTER KIT button: starterKitItems for survivors up to maxLevel, once per raid, only what you don't carry, with no trade value (the user, 2026-10-31).",
+    "maxLevel": 10
+  },
+  "starterKit": [
+    "knife"
+  ],
+  "enemies": {
+    "husk": {
+      "hp": 60,
+      "walkSpeed": 0.45,
+      "chaseSpeed": 3.0,
+      "damageMin": 5,
+      "damageMax": 10,
+      "bleedChance": 0.04,
+      "fractureChance": 0.05,
+      "wHead": 4,
+      "wThorax": 14,
+      "wStomach": 14,
+      "wArm": 17,
+      "wLeg": 17,
+      "attackCooldown": 1.6,
+      "reach": 1.2,
+      "sight": 12,
+      "sightAngle": 70,
+      "hear": 5,
+      "loseSeconds": 4,
+      "stagger": 0.45,
+      "dropChance": 0.45,
+      "corpseSeconds": 3,
+      "trackRange": 8,
+      "speedSpread": 0.12,
+      "temperaments": [
+        {
+          "id": "shambler",
+          "weight": 5,
+          "walk": 0.85,
+          "chase": 0.55,
+          "desc": "Walks at you, relentless but slow (~1.6 m/s)"
+        },
+        {
+          "id": "stalker",
+          "weight": 3,
+          "walk": 1.0,
+          "chase": 1.0,
+          "desc": "Jogs after you (~3 m/s)"
+        },
+        {
+          "id": "runner",
+          "weight": 2,
+          "walk": 1.1,
+          "chase": 1.35,
+          "desc": "Sprints once it has seen you (~4 m/s, close to your sprint)"
+        },
+        {
+          "id": "lurcher",
+          "weight": 2,
+          "walk": 0.8,
+          "chase": 0.6,
+          "burst": 2.6,
+          "burstEvery": 4,
+          "burstFor": 1.1,
+          "desc": "Shuffles, then lunges for about a second every few seconds"
+        }
+      ],
+      "_temperNote": "Each spawn rolls a temperament (weights) and a +/- speedSpread jitter. walk/chase multiply walkSpeed/chaseSpeed; lurchers multiply chase by burst for burstFor s every ~burstEvery s.",
+      "_gaitNote": "walkSpeed 0.45 m/s matches the shambling clips (ZOMBIE Starter walk 0.19 m/s, chase 0.42 m/s natural - Tools/Extraction/Fit Husk Gait); faster than a tree's fastest clip plays it faster (up to 2.2x). chaseSpeed 3 vs the hyper-chase clip's 2.55 m/s.",
+      "grabChance": 0.05,
+      "grabCooldown": 20,
+      "grabBiteDelay": 2,
+      "grabBiteEvery": 1,
+      "biteMin": 3,
+      "biteMax": 6,
+      "biteBleedChance": 0.05,
+      "grabStabsMin": 2,
+      "grabStabsMax": 4,
+      "grabZone": 0.4,
+      "grabLeash": 2.5,
+      "grabReleaseStagger": 1.2,
+      "_grabNote": "Grab: grabChance per attack in reach (never two husks on one player; per-husk grabCooldown after it lets go). The player is locked facing it; after grabBiteDelay it bites every grabBiteEvery (biteMin-Max, mostly chest). VR: stab the knife into its chest (grabZone m) grabStabsMin-Max times, pulling out between. Desktop: hit the dial's red zone that many times (locks.struggle*). A teammate's landed melee hit frees you at once. While held, only the grabber can hurt you. Costs sanity.grabLoss.",
+      "footWalk": 5,
+      "footRun": 14,
+      "lightSeen": 14,
+      "investigateMul": 2.4,
+      "_footNote": "Footsteps (same floor only): walking is heard within footWalk m, running footRun m; standing still / creeping is silent. Inside half that range a husk hunts you; further out it hurries over to look (walkSpeed x investigateMul). A light shone on a husk within lightSeen m (clear line, in the beam) draws it straight to you."
+    },
+    "director": {
+      "base": 6,
+      "perPlayer": 3,
+      "max": 16,
+      "spawnMinDist": 18,
+      "despawnDist": 80,
+      "_despawnNote": "A husk more than despawnDist from every raider for despawnSeconds is taken out, so the drift (driftMin..driftMax) can walk one in near the team. Riverside v2 is one map: with 5000 here (left from the old teleport interior) the start fill parked every husk 60-240 m away and the cap kept any from coming near.",
+      "despawnSeconds": 20,
+      "tickSeconds": 1,
+      "startBurst": 4,
+      "spawnApart": 6,
+      "driftMin": 45,
+      "driftMax": 90,
+      "driftNear": 12,
+      "driftFar": 35
+    },
+    "bloater": {
+      "_note": "The fat husk (Morbid tank bodies; Tools/Extraction/Build Bloater Husks puts them on the last husks of the pool). Any enemies.husk key set here overrides it for bloaters only. chance = odds a spawn is a bloater (if one is free). weight_<temperament id> overrides that temperament's weight: slow and heavy, never a runner.",
+      "chance": 0.15,
+      "hp": 150,
+      "walkSpeed": 0.4,
+      "chaseSpeed": 2.4,
+      "damageMin": 9,
+      "damageMax": 16,
+      "bleedChance": 0.12,
+      "fractureChance": 0.15,
+      "attackCooldown": 2.2,
+      "reach": 1.4,
+      "stagger": 0.25,
+      "sight": 10,
+      "hear": 6,
+      "grabChance": 0.12,
+      "biteMin": 4,
+      "biteMax": 8,
+      "grabStabsMin": 3,
+      "grabStabsMax": 5,
+      "dropChance": 0.6,
+      "corpseSeconds": 5,
+      "weight_shambler": 6,
+      "weight_stalker": 2,
+      "weight_runner": 0,
+      "weight_lurcher": 1
+    }
+  },
+  "combat": {
+    "minHitInterval": 1.0,
+    "weakFactor": 0.2
+  },
+  "sanity": {
+    "basePerMin": 0.8,
+    "darkPerMin": 1.2,
+    "alonePerMin": 0.8,
+    "huskPerMin": 0.6,
+    "huskRange": 8,
+    "aloneRange": 10,
+    "hitLoss": 3,
+    "grabLoss": 10,
+    "teammateDownLoss": 8,
+    "teammateDeathLoss": 12,
+    "powerOnGain": 20
+  },
+  "locks": {
+    "_note": "Locked containers/doors. Pick: lockpick skill check (any \"lockpick\"-tagged tool). The needle spins round the dial non-stop (needleSpeed deg/s, +needleSpeedUp per pin); a zone (pickZone deg + skills / gloves / Mechanic passive, -pickZoneShrink per pin, never under pickZoneMin) appears ahead of it pickZoneFirstDelay s in, then pickZoneDelay s after each hit. Waiting never fails; a press outside the zone = missNoise radius m, breakChance to snap the pick, and you're kicked out. pinsByType / doorPins hits open it (pickHits skills take pins off container locks). Pry: crowbar, prySeconds (over the prySpeed perks), pryNoise radius m every 2 s, hovers hoverSeconds after. bonusRolls = extra loot rolls in a container that was locked. pryLeash = how far you can step from the crowbar before it stops (m). Per container: pickOnly / pryOnly odds.",
+    "pickSuccesses": 4,
+    "pinsByType": {
+      "crate": 3,
+      "training_lockbox": 3,
+      "locker": 4,
+      "medcab": 4,
+      "fridge": 4,
+      "register": 5,
+      "secure": 6
+    },
+    "doorPins": 4,
+    "_pinsNote": "Hits (pins) a pick needs: by container type (pinsByType, else pickSuccesses), doors doorPins. Better locks take more pins; each pin shrinks the zone and speeds the needle.",
+    "pickZone": 38,
+    "struggleZone": 60,
+    "struggleSpeed": 260,
+    "struggleMissPause": 0.7,
+    "pickZoneShrink": 7,
+    "pickZoneMin": 12,
+    "pickZoneDelay": 0.6,
+    "pickZoneFirstDelay": 0.5,
+    "needleSpeed": 240,
+    "needleSpeedUp": 55,
+    "breakChance": 0.35,
+    "missNoise": 6,
+    "prySeconds": 8,
+    "pryNoise": 14,
+    "pryRange": 1.1,
+    "hoverSeconds": 1.5,
+    "bonusRolls": 1,
+    "pryLeash": 1.8
+  },
+  "insurance": {
+    "_note": "Sidelined: insuring gear felt too safe. 1 = re-enable the INSURE buttons (kept once on death).",
+    "enabled": 0
+  },
+  "crafting": {
+    "fee": 0.15,
+    "blueprintFromRarity": 2,
+    "hiddenFromRarity": 3,
+    "needsBlueprint": [
+      "syringe"
+    ]
+  },
+  "shop": {
+    "starterBonus": 500,
+    "valuableRate": 0.8,
+    "items": [
+      {
+        "item": "cheap_flashlight",
+        "price": 30
+      },
+      {
+        "item": "lockpick",
+        "price": 12
+      },
+      {
+        "item": "knife",
+        "price": 40
+      },
+      {
+        "item": "crowbar",
+        "price": 65
+      },
+      {
+        "item": "energy_bar",
+        "price": 13
+      },
+      {
+        "item": "canned_food",
+        "price": 17
+      },
+      {
+        "item": "water",
+        "price": 15
+      },
+      {
+        "item": "cigarettes",
+        "price": 20
+      },
+      {
+        "item": "bandage",
+        "price": 20
+      },
+      {
+        "item": "padded_cap",
+        "price": 30,
+        "level": 2
+      },
+      {
+        "item": "gloves",
+        "price": 30,
+        "level": 2
+      },
+      {
+        "item": "padded_jacket",
+        "price": 35,
+        "level": 3
+      },
+      {
+        "item": "sneakers",
+        "price": 30,
+        "level": 3
+      },
+      {
+        "item": "sling_bag",
+        "price": 35,
+        "level": 4
+      },
+      {
+        "item": "painkillers",
+        "price": 65,
+        "level": 4,
+        "quest": "First Aid"
+      },
+      {
+        "item": "splint",
+        "price": 70,
+        "level": 4,
+        "quest": "First Aid"
+      },
+      {
+        "item": "backpack",
+        "price": 110,
+        "level": 6,
+        "quest": "Scavenger"
+      },
+      {
+        "item": "hard_hat",
+        "price": 75,
+        "level": 6,
+        "quest": "Hard Head"
+      },
+      {
+        "item": "scrap_vest",
+        "price": 120,
+        "level": 8,
+        "quest": "Riot Control"
+      },
+      {
+        "item": "padded_sleeves",
+        "price": 70,
+        "level": 8,
+        "quest": "Riot Control"
+      },
+      {
+        "item": "headlamp",
+        "price": 70,
+        "level": 7,
+        "quest": "Hands Free"
+      },
+      {
+        "item": "quiet_boots",
+        "price": 85,
+        "level": 10,
+        "quest": "Quiet Feet"
+      },
+      {
+        "item": "runner_boots",
+        "price": 90,
+        "level": 10,
+        "quest": "Quiet Feet"
+      },
+      {
+        "item": "syringe",
+        "price": 125,
+        "level": 5,
+        "quest": "First Aid"
+      },
+      {
+        "item": "tactical_flashlight",
+        "price": 160,
+        "level": 9,
+        "quest": "Dark Hours"
+      },
+      {
+        "item": "bow",
+        "price": 1,
+        "dev": true
+      },
+      {
+        "item": "arrow",
+        "price": 1,
+        "qty": 16,
+        "dev": true
+      }
+    ],
+    "sell": {
+      "_note": "Selling non-valuables one at a time: price = item value x the best share among its tags x rarityMult[rarity], never above maxShareOfBuy x the trader's own price for it (no buy-low/sell-high loops). noSell tags can't be sold. Valuables go through QUICK SELL at valuableRate.",
+      "tags": {
+        "material": 0.5,
+        "monster": 0.6,
+        "medical": 0.45,
+        "food": 0.35,
+        "gear": 0.35,
+        "tool": 0.3,
+        "weapon": 0.3
+      },
+      "default": 0.3,
+      "rarityMult": [
+        1.0,
+        1.08,
+        1.16,
+        1.25,
+        1.35
+      ],
+      "maxShareOfBuy": 0.3,
+      "noSell": [
+        "key",
+        "objective"
+      ]
+    },
+    "_devNote": "Entries with \"dev\": true are only shown to and sold to debug users (testing new items). Keep them at the END of the list. \"qty\" = how many one purchase gives."
+  },
+  "salvage": {
+    "_note": "Salvage (outpost workbench): items.<id>.salvage = the materials you get back. Rule: about half the craft recipe, nudged so the materials are worth 45-65% of the item. Buying from the trader and salvaging always loses money; salvaging loot and selling the parts beats selling the item by a few dollars at most (junk only). Valuables, food, meds, materials and the free rack flashlight don't salvage. See Docs/BALANCE.md.",
+    "enabled": 1
+  },
+  "_stackNote": "items.<id>.stack: raw materials and monster parts stack to 6 (pockets, backpack, secure slot and stash). Weight and value count every unit; selling and hand-ins take one unit at a time.",
+  "_beamNote": "items.<id>.beam for light items: range (m), angle (spot degrees), intensity, flicker 0-1 (how often it stutters). Tiers (close quarters, a beam not a pool of light): rack loaner 'flashlight' 10 m / 40 deg (free, worn out, flickers), headlamp 9 m / 50 deg (wider, hands-free), bought cheap_flashlight 13 m / 36 deg, tactical 20 m / 28 deg (narrow, bright). Every beam wears the flashlight cookie (hot spot, faint spill, black rim). The map bakes with almost no ambient light, so beam range is how far you can see.",
+  "_gripNote": "items.<id>.grip: how the hand holds it (pickup orientation Gun). z = point along the item's length in its unit box (-0.5 = the -Z end; models are normalised with the thinner end at +Z), yaw 180 = held the other way round, roll = turned about its length (e.g. to bring a crowbar's hook upright), flip = VR trigger toggles reverse grip.",
+  "throw": {
+    "breakFrom": 3.5,
+    "breakAt": 9,
+    "_note": "Fragile items (tag 'fragile') can smash on landing: 0% at breakFrom m/s, 100% at breakAt. Set down gently (< 2.5 m/s) = no noise, no break. Desktop G toss lands at ~7 m/s (about 64%)."
+  },
+  "whatsNewTitle": "WHAT'S NEW  ·  ALPHA 0.26: LONGSKULL",
+  "whatsNew": "Something new hunts Riverside. <b>Longskull</b> climbs walls and ceilings, and moves through the vents. Look up.\n\nIt doesn't kill you. It downs you, then takes you with its tail to a <b>cage</b>. Your crew has three minutes to get you out with a lockpick or a charged cube. Caught twice, you're gone.\n\nMash Use to break free. A cube at 80% charge makes it flinch and let go.\n\nYour class is your <b>cube</b> now: Veilwalker, then Keeper, Mender and Brand as you level.",
+  "_whatsNewNote": "WHAT'S NEW page after the credits on the join screen: the latest Docs/DEVLOG.md entry in short. Update it with each release.",
+  "version": "ALPHA 0.26",
+  "lobby": {
+    "_note": "Raid terminal (RaidLobby): when everyone in the outpost is ready, the run starts after autoStartSeconds.",
+    "autoStartSeconds": 5
+  },
+  "supporters": {
+    "_note": "Ko-fi support in the world. on 0 = paused: the SUPPORTERS board and LINK terminal hide themselves and the supporter XP boost is off. Set on 1 (and put the two Ko-fi lines back into dataNotice, see Docs/DATA_NOTICE.md) to bring it back, no reupload. Paused until the world is out of Community Labs (the user, 2026-10-26).",
+    "on": 0
+  },
+  "dataNotice": {
+    "_note": "The player-facing data notice (master copy and the facts behind it: Docs/DATA_NOTICE.md). join = the intro warnings page paragraph; pages = the ABOUT & DATA board. {contact} is replaced by contact. Keep it true to what the game sends and keeps. Edit here, sync both feed files, push: live in ~2 min, no reupload. Keep it true but non-mechanical: no anti-cheat details (the user, 2026-10-26).",
+    "contact": "my Discord: discord.gg/cJGZrRPCfu (also on the ABOUT & DATA board's DISCORD button)",
+    "join": "SEAL ORDER uses analytics: with Allow Untrusted URLs on, your play in this world is sent to me, tied to your VRChat name. I use it to see what's working and make the game better. The same connection helps keep the world from being lifted. Records are deleted after 14 days.",
+    "pages": [
+      {
+        "title": "What is sent, and why",
+        "lines": [
+          "Nothing is sent unless VRChat's Allow Untrusted URLs is on. Without it, the world can't run.",
+          "With it on, the game sends analytics on your progress, runs and earnings in this world, tied to your VRChat name.",
+          "I use them to see what's working and make the game better.",
+          "The same connection helps keep SEAL ORDER from being lifted.",
+          "Nothing else is sent: no voice, chat or avatar."
+        ]
+      },
+      {
+        "title": "Your save",
+        "lines": [
+          "Your level, money, stash and quests are saved by VRChat's own save system, on your VRChat account, for this world.",
+          "VRChat shares that save with the others in your instance.",
+          "A season reset wipes everyone's progress at once. Settings are kept."
+        ]
+      },
+      {
+        "title": "Kept, and deleted",
+        "lines": [
+          "Records of your play are deleted automatically after 14 days.",
+          "Your saved progress lives with VRChat. Season resets clear it in-world.",
+          "To have your records deleted: {contact}. Include your display name."
+        ]
+      }
+    ]
+  },
+  "hazardCrates": {
+    "_note": "Hazard crates (ApexCrates): open from the raid start. An emptied crate is charged again at its panel: whoever starts it stays within holdRange m for chargeSeconds while it grinds - a noise every noiseEvery s, noiseRadius m (husks and the apex come) - then it holds a fresh apex item, and can be charged again only after cooldownSeconds. How many show: power.apexCrates.",
+    "chargeSeconds": 30,
+    "holdRange": 4,
+    "noiseRadius": 25,
+    "noiseEvery": 4,
+    "cooldownSeconds": 240
+  }
+}
