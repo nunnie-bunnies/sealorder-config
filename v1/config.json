@@ -5376,6 +5376,187 @@
         }
       ]
     },
+    "dailies": {
+      "_note": "Stamp-card dailies (Docs/QUESTS.md sec. 9): perDay rolled at 00:00 UTC from templates at your band (bands = min level of each band; a count of 0 = not offered there), weight = how often; easy ones guarantee band 1 a doable day; coop only with someone else in the instance, and at most one a day. Unfinished dailies are replaced at the reset. rerolls = free rerolls per slot per day. Progress counts on raid end - escape or death - except escape objectives. raidDone = your raid ended (escape or death) and a seal you fed closed that raid.",
+      "perDay": 2,
+      "rerolls": 1,
+      "bands": [
+        1,
+        8,
+        15
+      ],
+      "templates": [
+        {
+          "id": "dly_finish",
+          "title": "Finish a Raid",
+          "text": "See a raid through. Dying counts, if a seal you fed closed first.",
+          "objective": {
+            "type": "raidDone",
+            "count": [
+              1,
+              1,
+              1
+            ]
+          },
+          "weight": 3,
+          "easy": true
+        },
+        {
+          "id": "dly_seals",
+          "title": "Close Seals",
+          "text": "Close {N} seals you helped feed.",
+          "objective": {
+            "type": "sealClosed",
+            "count": [
+              2,
+              2,
+              3
+            ]
+          },
+          "weight": 3
+        },
+        {
+          "id": "dly_escape",
+          "title": "Escape",
+          "text": "Get out alive.",
+          "objective": {
+            "type": "escape",
+            "count": [
+              1,
+              1,
+              1
+            ]
+          },
+          "weight": 3,
+          "easy": true
+        },
+        {
+          "id": "dly_search",
+          "title": "Search",
+          "text": "Fully search {N} containers.",
+          "objective": {
+            "type": "search",
+            "container": "any",
+            "count": [
+              10,
+              12,
+              15
+            ]
+          },
+          "weight": 3,
+          "easy": true
+        },
+        {
+          "id": "dly_charge",
+          "title": "Draw Charge",
+          "text": "Draw {N} full charges from fonts.",
+          "objective": {
+            "type": "chargeDrawn",
+            "count": [
+              2,
+              3,
+              4
+            ]
+          },
+          "weight": 2
+        },
+        {
+          "id": "dly_locks",
+          "title": "Open Locks",
+          "text": "Open {N} locks, any way.",
+          "objective": {
+            "type": "unlock",
+            "method": "any",
+            "count": [
+              2,
+              3,
+              4
+            ]
+          },
+          "weight": 2
+        },
+        {
+          "id": "dly_uncaught",
+          "title": "Get Out Clean",
+          "text": "Escape without being caged.",
+          "objective": {
+            "type": "escape",
+            "uncaught": true,
+            "count": [
+              1,
+              1,
+              1
+            ]
+          },
+          "weight": 1
+        },
+        {
+          "id": "dly_flinch",
+          "title": "Make It Flinch",
+          "text": "Stun Longskull.",
+          "objective": {
+            "type": "apexStun",
+            "how": "any",
+            "count": [
+              0,
+              1,
+              1
+            ]
+          },
+          "weight": 1
+        },
+        {
+          "id": "dly_haul",
+          "title": "Bring Something Home",
+          "text": "Escape with ${HAUL} of loot found on the run.",
+          "objective": {
+            "type": "escape",
+            "haul": [
+              100,
+              200,
+              300
+            ],
+            "count": [
+              1,
+              1,
+              1
+            ]
+          },
+          "weight": 2
+        },
+        {
+          "id": "dly_rescue",
+          "title": "Open a Cage",
+          "text": "Get a teammate out of a cage.",
+          "objective": {
+            "type": "rescue",
+            "how": "any",
+            "count": [
+              1,
+              1,
+              1
+            ]
+          },
+          "weight": 2,
+          "coop": true
+        },
+        {
+          "id": "dly_patch",
+          "title": "Patch a Teammate",
+          "text": "Treat a teammate {N} times.",
+          "objective": {
+            "type": "medicalOther",
+            "count": [
+              1,
+              2,
+              2
+            ]
+          },
+          "weight": 1,
+          "coop": true
+        }
+      ]
+    },
     "givers": [
       {
         "id": "ninth",
@@ -7010,6 +7191,90 @@
           "ninth": -3,
           "net": -2
         }
+      }
+    ]
+  },
+  "stampCard": {
+    "_note": "The stamp card (Docs/QUESTS.md sec. 9). Seasons of `weeks` from `start` (UTC date); only the card resets. free = stamps a new card starts with; guided = the once-per-account stamp for finishing the guided raid (outside the daily cap). A daily done = 1 stamp, weekendMult on Saturday / Sunday (UTC), at most dailyCap x (weekendMult on weekends) a day; over the cap a daily gives overflowPoints instead; a full card gives fullCardPoints, then afterFullPoints per daily. pointsPerStamp = points with each stamp. tiers[].at = stamps; items go to pockets / stash (paid like quest items), cosmetic = an id other systems read (HasCosmetic), {S} = the season number.",
+    "start": "2026-11-09",
+    "weeks": 4,
+    "stamps": 30,
+    "free": 2,
+    "guided": 1,
+    "dailyCap": 2,
+    "weekendMult": 2,
+    "pointsPerStamp": 10,
+    "overflowPoints": 10,
+    "fullCardPoints": 100,
+    "afterFullPoints": 20,
+    "tiers": [
+      {
+        "at": 3,
+        "name": "2 Lockpicks + 2 Bandages",
+        "items": {
+          "lockpick": 2,
+          "bandage": 2
+        }
+      },
+      {
+        "at": 6,
+        "name": "Runner Boots",
+        "items": {
+          "runner_boots": 1
+        }
+      },
+      {
+        "at": 9,
+        "name": "Scavenger's Gloves",
+        "items": {
+          "scavenger_gloves": 1
+        }
+      },
+      {
+        "at": 12,
+        "name": "Syringe + Splint",
+        "items": {
+          "syringe": 1,
+          "splint": 1
+        }
+      },
+      {
+        "at": 15,
+        "name": "Quiet Boots",
+        "items": {
+          "quiet_boots": 1
+        }
+      },
+      {
+        "at": 18,
+        "name": "Headlamp",
+        "items": {
+          "headlamp": 1
+        }
+      },
+      {
+        "at": 21,
+        "name": "Backpack",
+        "items": {
+          "backpack": 1
+        }
+      },
+      {
+        "at": 24,
+        "name": "Locksmith's Gloves",
+        "items": {
+          "locksmith_gloves": 1
+        }
+      },
+      {
+        "at": 27,
+        "name": "Season {S} cube trim",
+        "cosmetic": "s{S}_trim"
+      },
+      {
+        "at": 30,
+        "name": "Season {S} cube change",
+        "cosmetic": "s{S}_change"
       }
     ]
   },
