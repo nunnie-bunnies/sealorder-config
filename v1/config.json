@@ -7440,6 +7440,18 @@
   },
   "voiceDefault": 1,
   "starterKitItems": ["bandage", "cheap_flashlight"],
+  "starterGift": {
+    "_note": "Once per version, every player (new and returning) gets these items in their stash, no trade value. Raise version to hand out a new list once more. All or nothing: a full stash waits until there is room (the user, 2026-11-06).",
+    "version": 1,
+    "items": [
+      { "item": "backpack", "count": 2 },
+      { "item": "bandage", "count": 3 },
+      { "item": "painkillers", "count": 1 },
+      { "item": "lockpick", "count": 2 },
+      { "item": "water", "count": 1 },
+      { "item": "energy_bar", "count": 1 }
+    ]
+  },
   "starterKitStation": {
     "_note": "The outpost STARTER KIT button: starterKitItems for survivors up to maxLevel, once per raid, only what you don't carry, with no trade value (the user, 2026-10-31).",
     "maxLevel": 10
