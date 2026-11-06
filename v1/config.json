@@ -7823,7 +7823,7 @@
   "dataNotice": {
     "_note": "The player-facing data notice (master copy and the facts behind it: Docs/DATA_NOTICE.md). join = the intro warnings page paragraph; pages = the ABOUT & DATA board. {contact} is replaced by contact. Keep it true to what the game sends and keeps. Edit here, sync both feed files, push: live in ~2 min, no reupload. Keep it true but non-mechanical: no anti-cheat details (the user, 2026-10-26).",
     "contact": "my Discord: discord.gg/cJGZrRPCfu (also on the ABOUT & DATA board's DISCORD button)",
-    "join": "SEAL ORDER uses analytics: your play in this world is sent to me, tied to your VRChat name. I use it to see what's working and make the game better. The same connection helps keep the world from being lifted. Records are deleted after 14 days.",
+    "join": "SEAL ORDER uses analytics: your play in this world is sent to me, tied to your VRChat name. I use it to see what's working and make the game better. The same connection helps deter reuploading. Records are deleted after 14 days.",
     "pages": [
       {
         "title": "What is sent, and why",
@@ -7831,7 +7831,7 @@
           "Nothing is sent unless VRChat's Allow Untrusted URLs is on. Without it, the world can't run.",
           "With it on, the game sends analytics on your progress, runs and earnings in this world, tied to your VRChat name.",
           "I use them to see what's working and make the game better.",
-          "The same connection helps keep SEAL ORDER from being lifted.",
+          "The same connection helps deter reuploading.",
           "Nothing else is sent: no voice, chat or avatar."
         ]
       },
