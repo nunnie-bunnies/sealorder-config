@@ -7156,7 +7156,7 @@
   },
   "stampCard": {
     "_note": "The stamp card (Docs/QUESTS.md sec. 9). Seasons of `weeks` from `start` (UTC date); only the card resets. free = stamps a new card starts with; guided = the once-per-account stamp for finishing the guided raid (outside the daily cap). A daily done = 1 stamp, weekendMult on Saturday / Sunday (UTC), at most dailyCap x (weekendMult on weekends) a day; over the cap a daily gives overflowPoints instead; a full card gives fullCardPoints, then afterFullPoints per daily. pointsPerStamp = points with each stamp. tiers[].at = stamps; items go to pockets / stash (paid like quest items), cosmetic = an id other systems read (HasCosmetic), {S} = the season number.",
-    "start": "2026-11-09",
+    "start": "2026-11-06",
     "weeks": 4,
     "stamps": 30,
     "free": 2,
