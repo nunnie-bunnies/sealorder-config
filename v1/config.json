@@ -2416,7 +2416,7 @@
       },
       "model": "Assets/ThirdParty/MedkitProps/Prefabs/Case_01_A.prefab",
       "maxSize": 0.32,
-      "desc": "Field kit: stops all bleeding and patches you up.",
+      "desc": "Field kit: on yourself it makes you healthy again after a hit, and stops all bleeding. On a teammate: stops bleeding and patches them up.",
       "icon": "medical"
     },
     "syringe": {
@@ -2471,7 +2471,7 @@
         "chemicals": 2,
         "electronics": 1
       },
-      "desc": "Field surgery: repairs serious limb damage.",
+      "desc": "Field surgery: repairs serious limb damage and makes you healthy again; for 2 minutes the next hit that would down you only hurts.",
       "icon": "medical"
     },
     "energy_bar": {
@@ -2493,7 +2493,7 @@
       "use": "comfort",
       "sanity": 5,
       "heal": 6,
-      "desc": "Quick calories. A little health and calm.",
+      "desc": "Quick calories. A little calm.",
       "icon": "food"
     },
     "canned_food": {
@@ -2516,7 +2516,7 @@
       "model": "Assets/ThirdParty/SurvivalProps/prefabs/canned tuna.prefab",
       "sanity": 8,
       "heal": 12,
-      "desc": "Cold beans. Some health and calm.",
+      "desc": "Cold beans. Some calm.",
       "icon": "food"
     },
     "water": {
@@ -2539,7 +2539,7 @@
       "model": "Assets/ThirdParty/SurvivalProps/prefabs/canteen.prefab",
       "sanity": 6,
       "heal": 4,
-      "desc": "Clean water. A little health and calm.",
+      "desc": "Clean water. A little calm.",
       "icon": "water"
     },
     "soda": {
@@ -2583,7 +2583,7 @@
       "use": "comfort",
       "sanity": 15,
       "heal": 20,
-      "desc": "A full ration. Good health and calm.",
+      "desc": "A full ration. Good calm.",
       "icon": "food"
     },
     "padded_cap": {
@@ -2850,11 +2850,14 @@
         "cloth": 2,
         "glue": 1
       },
-      "desc": "Soft armour vest. Good torso protection.",
+      "desc": "Soft armour vest with one plate: once a raid it takes a hit that would down you.",
       "icon": "vest",
       "salvage": {
         "cloth": 2,
         "glue": 1
+      },
+      "save": {
+        "plates": 1
       }
     },
     "plate_carrier": {
@@ -2888,11 +2891,14 @@
         "leather": 2,
         "rope": 1
       },
-      "desc": "Military plates. The best torso protection; slows you down.",
+      "desc": "Military plates: once a raid they take a hit that would down you. The best torso protection; slows you down.",
       "icon": "vest",
       "salvage": {
         "kevlar": 1,
         "leather": 1
+      },
+      "save": {
+        "plates": 1
       }
     },
     "gloves": {
@@ -4078,7 +4084,7 @@
           "end_sprint",
           "end_regen"
         ],
-        "desc": "+25% stamina regen below 30% health; -10% max stamina",
+        "desc": "+25% stamina regen while injured; -10% max stamina",
         "kind": "keystone",
         "pct": {
           "maxStamina": -0.1
@@ -4097,10 +4103,10 @@
         "cost": 1,
         "ranks": 5,
         "req": [],
-        "desc": "+3% max health (every body part)",
+        "desc": "Medical items are 6% quicker to use (with Field Medic: at most 40% quicker)",
         "kind": "small",
         "hook": {
-          "maxHp": 0.03
+          "medSpeed": 0.06
         }
       },
       {
@@ -4151,10 +4157,10 @@
         "req": [
           "vit_tough"
         ],
-        "desc": "At full rage, an apex that downs you is 10% less likely to finish you (all 5: half as likely)",
+        "desc": "Your cage stage lasts 4% longer (all 5: +20%)",
         "kind": "small",
         "hook": {
-          "executeResist": 0.1
+          "cageTime": 0.04
         }
       },
       {
@@ -4168,10 +4174,10 @@
         "req": [
           "vit_clot"
         ],
-        "desc": "Medical items heal 8% more",
+        "desc": "A bandage also cuts 20 s off being injured",
         "kind": "notable",
         "hook": {
-          "medicalHeal": 0.08
+          "injuredCut": 20
         }
       },
       {
@@ -4186,11 +4192,11 @@
           "vit_dress",
           "vit_limbs"
         ],
-        "desc": "Bleed-out timer +50% when downed; you take +10% damage",
+        "desc": "Downed, it closes in on you 20% slower; but you stay injured 30 s longer",
         "kind": "keystone",
         "hook": {
-          "bleedOut": 0.5,
-          "damageTaken": 0.1
+          "pickupSlow": 0.2,
+          "injuredExtra": 30
         }
       },
       {
@@ -4716,7 +4722,7 @@
           "vw_swift",
           "vw_breath"
         ],
-        "desc": "A second skill (Z / VR: right trigger twice): blink 5 m where you look, through the veil. 25% charge, 15 s cooldown",
+        "desc": "A second skill (N / VR: right trigger twice): blink 5 m where you look, through the veil. 25% charge, 15 s cooldown",
         "kind": "capstone",
         "hook": {
           "veilStep": 1
@@ -4899,7 +4905,7 @@
           "md_light",
           "md_clean"
         ],
-        "desc": "A second skill (Z / VR: right trigger twice): at a downed teammate, hold 4 s - they're up, injured. 60% charge, 90 s cooldown",
+        "desc": "A second skill (N / VR: right trigger twice): at a downed teammate, hold 4 s - they're up, injured. 60% charge, 90 s cooldown",
         "kind": "capstone",
         "hook": {
           "fieldSurgery": 1
@@ -4993,7 +4999,7 @@
           "br_heavy",
           "br_reach"
         ],
-        "desc": "A second skill (Z / VR: right trigger twice): a point-blank stun burst, no aiming (3 m). 60% charge, 60 s cooldown",
+        "desc": "A second skill (N / VR: right trigger twice): a point-blank stun burst, no aiming (3 m). 60% charge, 60 s cooldown",
         "kind": "capstone",
         "hook": {
           "brandFlare": 1
@@ -7366,6 +7372,10 @@
     "crawlClipSpeed": 0.55,
     "_crawlClipsNote": "Crawl form clips (Blender, 2026-10-25): Crawl = the slow stalk, authored at crawlClipSpeed m/s (wandering plays it at speed / crawlClipSpeed, 1-2.5x); CrawlChase = the scuttle, authored at runClipSpeed. Execute = one 5 s clip (grab 0.55 s, strike 3.45 s, let go 3.97 s), the seat follows its throat point at the held player's own eye height.",
     "xenosaurid": {
+      "surgerySaveSeconds": 120,
+      "saveCapSeconds": 60,
+      "hitGuardSeconds": 6,
+      "injuredSeconds": 240,
       "executeChance": 0.5,
       "hitRecoverSeconds": 3,
       "hitRecoverSpeed": 0.35,
