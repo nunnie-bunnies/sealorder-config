@@ -7812,7 +7812,7 @@
   "whatsNewTitle": "WHAT'S NEW  ·  ALPHA 0.26: LONGSKULL",
   "whatsNew": "Something new hunts Riverside. <b>Longskull</b> climbs walls and ceilings, and moves through the vents. Look up.\n\nIt doesn't kill you. It downs you, then takes you with its tail to a <b>cage</b>. Your crew has three minutes to get you out with a lockpick or a charged cube. Caught twice, you're gone.\n\nMash Use to break free. A cube at 80% charge makes it flinch and let go.\n\nYour class is your <b>cube</b> now: Veilwalker, then Keeper, Mender and Brand as you level.",
   "_whatsNewNote": "WHAT'S NEW page after the credits on the join screen: the latest Docs/DEVLOG.md entry in short. Update it with each release.",
-  "version": "ALPHA 0.29",
+  "version": "ALPHA 0.31",
   "lobby": {
     "_note": "Ready = seated in the outpost's drop cage (or READY at the raid terminal). Everyone in the outpost ready: the run starts after autoStartSeconds. Only some: the first one ready starts a seatWaitSeconds count (WREN: 'Cage is hot'), and when it runs out the ready ones go and the rest stay.",
     "autoStartSeconds": 5,
