@@ -1595,8 +1595,10 @@
         "scrap_metal": 2,
         "duct_tape": 1,
         "batteries": 1,
-        "cloth": 1
+        "cloth": 1,
+        "wedding_ring": 0
       },
+      "always": "wedding_ring",
       "lockChance": 0.0
     },
     "guided_case": {
@@ -1605,8 +1607,10 @@
       "items": {
         "bandage": 3,
         "painkillers": 1,
-        "splint": 1
+        "splint": 1,
+        "wedding_ring": 0
       },
+      "always": "wedding_ring",
       "lockChance": 0.0
     },
     "guided_toolbox": {
@@ -1615,8 +1619,10 @@
       "items": {
         "screwdriver": 1,
         "copper_wire": 1,
-        "glue": 1
+        "glue": 1,
+        "wedding_ring": 0
       },
+      "always": "wedding_ring",
       "lockChance": 0.0
     },
     "secure_case": {
@@ -3424,7 +3430,7 @@
         0.01
       ],
       "use": "hatch",
-      "model": "Assets/ThirdParty/SurvivalProps/prefabs/key1.prefab",
+      "model": "Assets/Items/Models/HatchKey/HatchKey.prefab",
       "desc": "Opens this run's live escape hatch.",
       "icon": "key"
     },
