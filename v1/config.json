@@ -7815,7 +7815,7 @@
   "version": "ALPHA 0.31",
   "lobby": {
     "_note": "Ready = seated in the outpost's drop cage (or READY at the raid terminal). Everyone in the outpost ready: the run starts after autoStartSeconds. Only some: the first one ready starts a seatWaitSeconds count (WREN: 'Cage is hot'), and when it runs out the ready ones go and the rest stay.",
-    "autoStartSeconds": 5,
+    "autoStartSeconds": 10,
     "seatWaitSeconds": 30
   },
   "supporters": {
