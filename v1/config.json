@@ -7168,74 +7168,36 @@
     "fullCardPoints": 100,
     "afterFullPoints": 20,
     "tiers": [
-      {
-        "at": 3,
-        "name": "2 Lockpicks + 2 Bandages",
-        "items": {
-          "lockpick": 2,
-          "bandage": 2
-        }
-      },
-      {
-        "at": 6,
-        "name": "Runner Boots",
-        "items": {
-          "runner_boots": 1
-        }
-      },
-      {
-        "at": 9,
-        "name": "Scavenger's Gloves",
-        "items": {
-          "scavenger_gloves": 1
-        }
-      },
-      {
-        "at": 12,
-        "name": "Syringe + Splint",
-        "items": {
-          "syringe": 1,
-          "splint": 1
-        }
-      },
-      {
-        "at": 15,
-        "name": "Quiet Boots",
-        "items": {
-          "quiet_boots": 1
-        }
-      },
-      {
-        "at": 18,
-        "name": "Headlamp",
-        "items": {
-          "headlamp": 1
-        }
-      },
-      {
-        "at": 21,
-        "name": "Backpack",
-        "items": {
-          "backpack": 1
-        }
-      },
-      {
-        "at": 24,
-        "name": "Locksmith's Gloves",
-        "items": {
-          "locksmith_gloves": 1
-        }
-      },
-      {
-        "at": 27,
-        "name": "Season {S} cube trim",
-        "cosmetic": "s{S}_trim"
-      },
-      {
-        "at": 30,
-        "name": "Season {S} cube change",
-        "cosmetic": "s{S}_change"
-      }
+      {"at": 1, "name": "Energy Bar", "items": {"energy_bar": 1}},
+      {"at": 2, "name": "Bandage", "items": {"bandage": 1}},
+      {"at": 3, "name": "2 Lockpicks + 2 Bandages", "items": {"lockpick": 2, "bandage": 2}},
+      {"at": 4, "name": "Batteries", "items": {"batteries": 1}},
+      {"at": 5, "name": "Water + Canned Food", "items": {"water": 1, "canned_food": 1}},
+      {"at": 6, "name": "Runner Boots", "items": {"runner_boots": 1}},
+      {"at": 7, "name": "Painkillers", "items": {"painkillers": 1}},
+      {"at": 8, "name": "Duct Tape + Lockpick", "items": {"duct_tape": 1, "lockpick": 1}},
+      {"at": 9, "name": "Scavenger's Gloves", "items": {"scavenger_gloves": 1}},
+      {"at": 10, "name": "2 Bandages", "items": {"bandage": 2}},
+      {"at": 11, "name": "Batteries + Energy Bar", "items": {"batteries": 1, "energy_bar": 1}},
+      {"at": 12, "name": "Syringe + Splint", "items": {"syringe": 1, "splint": 1}},
+      {"at": 13, "name": "2 Lockpicks", "items": {"lockpick": 2}},
+      {"at": 14, "name": "Painkillers + Water", "items": {"painkillers": 1, "water": 1}},
+      {"at": 15, "name": "Quiet Boots", "items": {"quiet_boots": 1}},
+      {"at": 16, "name": "Crowbar", "items": {"crowbar": 1}},
+      {"at": 17, "name": "Splint + Bandage", "items": {"splint": 1, "bandage": 1}},
+      {"at": 18, "name": "Headlamp", "items": {"headlamp": 1}},
+      {"at": 19, "name": "2 Batteries", "items": {"batteries": 2}},
+      {"at": 20, "name": "Medkit", "items": {"medkit": 1}},
+      {"at": 21, "name": "Backpack", "items": {"backpack": 1}},
+      {"at": 22, "name": "3 Lockpicks", "items": {"lockpick": 3}},
+      {"at": 23, "name": "Syringe + Painkillers", "items": {"syringe": 1, "painkillers": 1}},
+      {"at": 24, "name": "Locksmith's Gloves", "items": {"locksmith_gloves": 1}},
+      {"at": 25, "name": "2 Medkits", "items": {"medkit": 2}},
+      {"at": 26, "name": "Duct Tape + 2 Batteries", "items": {"duct_tape": 1, "batteries": 2}},
+      {"at": 27, "name": "Tactical Flashlight", "items": {"tactical_flashlight": 1}},
+      {"at": 28, "name": "Medkit + Syringe", "items": {"medkit": 1, "syringe": 1}},
+      {"at": 29, "name": "3 Lockpicks + 2 Bandages", "items": {"lockpick": 3, "bandage": 2}},
+      {"at": 30, "name": "Season {S} cube trim", "cosmetic": "s{S}_trim"}
     ]
   },
   "rarity": {
@@ -7850,8 +7812,9 @@
   "_whatsNewNote": "WHAT'S NEW page after the credits on the join screen: the latest Docs/DEVLOG.md entry in short. Update it with each release.",
   "version": "ALPHA 0.26",
   "lobby": {
-    "_note": "Raid terminal (RaidLobby): when everyone in the outpost is ready, the run starts after autoStartSeconds.",
-    "autoStartSeconds": 5
+    "_note": "Ready = seated in the outpost's drop cage (or READY at the raid terminal). Everyone in the outpost ready: the run starts after autoStartSeconds. Only some: the first one ready starts a seatWaitSeconds count (WREN: 'Cage is hot'), and when it runs out the ready ones go and the rest stay.",
+    "autoStartSeconds": 5,
+    "seatWaitSeconds": 30
   },
   "supporters": {
     "_note": "Ko-fi support in the world. on 0 = paused: the SUPPORTERS board and LINK terminal hide themselves and the supporter XP boost is off. Set on 1 (and put the two Ko-fi lines back into dataNotice, see Docs/DATA_NOTICE.md) to bring it back, no reupload. Paused until the world is out of Community Labs (the user, 2026-10-26).",
@@ -7860,7 +7823,7 @@
   "dataNotice": {
     "_note": "The player-facing data notice (master copy and the facts behind it: Docs/DATA_NOTICE.md). join = the intro warnings page paragraph; pages = the ABOUT & DATA board. {contact} is replaced by contact. Keep it true to what the game sends and keeps. Edit here, sync both feed files, push: live in ~2 min, no reupload. Keep it true but non-mechanical: no anti-cheat details (the user, 2026-10-26).",
     "contact": "my Discord: discord.gg/cJGZrRPCfu (also on the ABOUT & DATA board's DISCORD button)",
-    "join": "SEAL ORDER uses analytics: with Allow Untrusted URLs on, your play in this world is sent to me, tied to your VRChat name. I use it to see what's working and make the game better. The same connection helps keep the world from being lifted. Records are deleted after 14 days.",
+    "join": "SEAL ORDER uses analytics: your play in this world is sent to me, tied to your VRChat name. I use it to see what's working and make the game better. The same connection helps keep the world from being lifted. Records are deleted after 14 days.",
     "pages": [
       {
         "title": "What is sent, and why",
