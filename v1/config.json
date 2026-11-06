@@ -1,21 +1,8 @@
 {
   "cage": {"_note": "Xenosaurid cages (XenoCages): stageSeconds to be opened or you die; the maxCaptures-th capture kills; a teammate opens the gate with a lockpick (pickSeconds, quiet, can snap) or the cube held out at chargeCost% (chargeSeconds, loud, charge spent); for freeGrace s after a cage opens it leaves anyone within freeGraceRange m alone.", "stageSeconds": 180, "maxCaptures": 2, "pickSeconds": 8, "pickNoiseRadius": 10, "pickNoiseEvery": 3, "pickSnap": 0.25, "chargeCost": 60, "chargeSeconds": 3, "chargeNoiseRadius": 120, "chargeNoiseEvery": 1.5, "freeGrace": 10, "freeGraceRange": 8, "resinCages": 3},
   "cube": {"_note": "The cube stun (XenoClimber): Use with stunMinCharge% or more, aimed at the Xenosaurid (stunAngle deg) within stunRange m, spends stunCost%: carrying someone it drops them, else it is stunned stunSeconds.", "stunMinCharge": 80, "stunCost": 40, "stunSeconds": 6, "stunRange": 8, "stunAngle": 30},
-  "guided": {
-    "_note": "Guided first raid: real items a player can take from its containers per session, first time through only.",
-    "realItems": 8
-  },
-  "ambience": {
-    "_note": "RaidAmbience (Docs/SOUNDS.md plan): beds start at startLevel x cap and rise over rampSeconds to cap; Emergency Stairwell in stair shafts, Utility Level below basementBelowY; chase music while an apex chases within chaseRange m (lingers chaseLinger s); Tense Full Mix in the squeeze; madhouse under madhouseBelow sanity. All x the ambience volume setting.",
-    "cap": 0.35,
-    "startLevel": 0.15,
-    "rampSeconds": 1140,
-    "basementBelowY": -1.5,
-    "chaseRange": 35,
-    "chaseLinger": 6,
-    "madhouseBelow": 20,
-    "madhouseLevel": 0.35
-  },
+  "guided": {"_note": "Guided first raid: real items a player can take from its containers per session, first time through only.", "realItems": 8},
+  "ambience": {"_note": "RaidAmbience (Docs/SOUNDS.md plan): beds start at startLevel x cap and rise over rampSeconds to cap; Emergency Stairwell in stair shafts, Utility Level below basementBelowY; chase music while an apex chases within chaseRange m (lingers chaseLinger s); Tense Full Mix in the squeeze; madhouse under madhouseBelow sanity. All x the ambience volume setting.", "cap": 0.35, "startLevel": 0.15, "rampSeconds": 1140, "basementBelowY": -1.5, "chaseRange": 35, "chaseLinger": 6, "madhouseBelow": 20, "madhouseLevel": 0.35},
   "raidSeconds": 1440,
   "entryCloseSeconds": 300,
   "joinSeconds": 240,
@@ -1489,8 +1476,7 @@
         0.8,
         0
       ],
-      "affinity": {
-        "bandage": 6,
+      "affinity": {"bandage": 6, 
         "material": 4,
         "medical": 2,
         "gear": 0.5,
@@ -1588,40 +1574,21 @@
       "pryOnly": 1.0
     },
     "guided_crate": {
-      "_note": "Guided first raid (per player, training-style). First time through the finds are real (at most guided.realItems), replays training items.",
-      "min": 1,
-      "max": 2,
-      "items": {
-        "scrap_metal": 2,
-        "duct_tape": 1,
-        "batteries": 1,
-        "cloth": 1,
-        "wedding_ring": 0
-      },
+      "_note": "Guided first raid (per player, training-style). First time through the finds are real (at most guided.realItems), replays training items. always: one item every guided container holds (something worth putting in SECURE).",
+      "min": 1, "max": 2,
+      "items": {"scrap_metal": 2, "duct_tape": 1, "batteries": 1, "cloth": 1, "wedding_ring": 0},
       "always": "wedding_ring",
       "lockChance": 0.0
     },
     "guided_case": {
-      "min": 1,
-      "max": 2,
-      "items": {
-        "bandage": 3,
-        "painkillers": 1,
-        "splint": 1,
-        "wedding_ring": 0
-      },
+      "min": 1, "max": 2,
+      "items": {"bandage": 3, "painkillers": 1, "splint": 1, "wedding_ring": 0},
       "always": "wedding_ring",
       "lockChance": 0.0
     },
     "guided_toolbox": {
-      "min": 1,
-      "max": 1,
-      "items": {
-        "screwdriver": 1,
-        "copper_wire": 1,
-        "glue": 1,
-        "wedding_ring": 0
-      },
+      "min": 1, "max": 1,
+      "items": {"screwdriver": 1, "copper_wire": 1, "glue": 1, "wedding_ring": 0},
       "always": "wedding_ring",
       "lockChance": 0.0
     },
@@ -3431,9 +3398,9 @@
       "max": 120,
       "shape": "cube",
       "size": [
-        0.03,
-        0.1,
-        0.01
+        0.032,
+        0.148,
+        0.084
       ],
       "use": "hatch",
       "model": "Assets/Items/Models/HatchKey/HatchKey.prefab",
@@ -3733,17 +3700,11 @@
       "model": "Assets/Art/Weapons/Bow/Bow_Static.prefab",
       "maxSize": 1.6,
       "icon": "knife",
-      "grip": {
-        "z": -0.25,
-        "yaw": 180,
-        "roll": 0
-      },
+      "grip": {"z": -0.25, "yaw": 180, "roll": 0},
       "_bowNote": "BowController: speed lerps speedMin..speedMax with draw^1.2 (m/s), gravity x 9.81, damage damageMin..damageMax with draw^2, x headMul above the husk's 1.45 m. drawSeconds = desktop full draw. grabReach = VR off-hand distance to the nock to grab the string. range = the owner's max shooter-to-hit distance. stickSeconds = how long stuck arrows stay.",
       "speedMin": 4,
       "speedMax": 14,
-      "gravity": 0.6,
-      "gravityWeak": 1.4,
-      "gravityStrong": 0.55,
+      "gravity": 0.6, "gravityWeak": 1.4, "gravityStrong": 0.55,
       "damageMin": 15,
       "damageMax": 55,
       "headMul": 1.6,
@@ -3751,17 +3712,7 @@
       "minDraw": 0.15,
       "grabReach": 0.2,
       "range": 80,
-      "vrShotX": -1,
-      "vrShotY": 0,
-      "vrShotZ": 0,
-      "vrLimbX": 0,
-      "vrLimbY": 0,
-      "vrLimbZ": -1,
-      "vrOffX": -0.03,
-      "vrOffY": 0,
-      "vrOffZ": 0,
-      "_vrNote": "VR hold: the shot axis and limb axis in the held pickup frame, offset (m) in the bow frame from the grip point. Tune live.",
-      "stickSeconds": 20
+      "vrShotX": -1, "vrShotY": 0, "vrShotZ": 0, "vrLimbX": 0, "vrLimbY": 0, "vrLimbZ": -1, "vrOffX": -0.03, "vrOffY": 0, "vrOffZ": 0, "_vrNote": "VR hold: the shot axis and limb axis in the held pickup frame, offset (m) in the bow frame from the grip point. Tune live.", "stickSeconds": 20
     },
     "arrow": {
       "name": "Arrow",
@@ -3810,10 +3761,7 @@
     "extract": 50,
     "haulShare": 0.2,
     "revive": 75,
-    "levelCurve": 22,
-    "earlyLevels": 0,
-    "earlyScale": 0.25,
-    "earlyPower": 3,
+    "levelCurve": 22, "earlyLevels": 0, "earlyScale": 0.25, "earlyPower": 3,
     "_note": "Per level: levelBase + levelStep*(L-1) + levelCurve*(L-1)^2. Raid XP is banked: full on escape, deathShare on death. Tuned 2026-10-24 for a player who dies 1 raid in 4: ~550 XP a raid (time out, x3 per minute once the power's on, searches, picks / pries, kills, fuel, power-on, secure rooms entered, hazard crates, extract + haul) -> level 50 in ~1,880 raids, ~690 hours at 22 min a raid. Level 50 is today's cap, not the final one.",
     "kill": 15,
     "pick": 20,
@@ -7347,13 +7295,8 @@
     "walkClipSpeed": 1.2,
     "whipMinRange": 2.5,
     "whipMaxRange": 6.5,
-    "whipWindup": 2.5,
-    "whipClipStrike": 0.9,
-    "whipRecover": 0.8,
-    "whipMoveScale": 1,
-    "meleeFront": 1.0,
-    "meleeReach": 1.0,
-    "swingMoveScale": 0.5,
+    "whipWindup": 2.5, "whipClipStrike": 0.9,
+    "whipRecover": 0.8, "whipMoveScale": 1, "meleeFront": 1.0, "meleeReach": 1.0, "swingMoveScale": 0.5,
     "whipCooldown": 7,
     "whipLag": 0.6,
     "whipTurnRate": 200,
@@ -7367,9 +7310,9 @@
     "_note": "Player walk 2.0, sprint 4.5. The apex starts a bit slower than a walk; anger builds 0..1 over angerMinutes of being out and adds up to angerMaxBoost (x1.8 = about 5 m/s chase at full: it outruns a sprint, so a long raid ends with someone caught). Downing someone it just hit drops anger by angerDropOnDown, each hit by angerDropOnHit. Each raid wakes one apex: secondChance = odds it is the Xenosaurid (Apex2) instead of Hollowface.",
     "execEyeHeight": 1.7,
     "execSeatUp": 0,
-    "execSeatForward": 0,
-    "execCenter": 0,
+    "execSeatForward": 0, "execCenter": 0,
     "crawlClipSpeed": 0.55,
+    "noiseSeconds": 20,
     "_crawlClipsNote": "Crawl form clips (Blender, 2026-10-25): Crawl = the slow stalk, authored at crawlClipSpeed m/s (wandering plays it at speed / crawlClipSpeed, 1-2.5x); CrawlChase = the scuttle, authored at runClipSpeed. Execute = one 5 s clip (grab 0.55 s, strike 3.45 s, let go 3.97 s), the seat follows its throat point at the held player's own eye height.",
     "xenosaurid": {
       "surgerySaveSeconds": 120,
@@ -7428,53 +7371,37 @@
     ],
     "_note": "VRChat display names (exact, case-sensitive) that get the debug tools - the DEBUG tab in the gear screen and the backtick keys - even with RaidManager debugKeys off for release."
   },
+  "nest": {
+    "_note": "The Xenosaurid's nests (ApexNests; Riverside v2/Build Apex Nests places the spots). Its grab-and-lift drags you off instead of killing you: kidnapShare of its full-anger executions, and downKidnapChance of any hit that would down you (time's-up executions still kill). At kidnapAt s into the Execute clip it lets go, the screen goes black for blackoutSeconds and you're pinned in a free nest - the nearest one at least minDistance m away (perRaid of the spots show each raid). A teammate within rescueRange m holds interact on the cocoon for rescueSeconds to cut you out; it's loud: a noise every noiseEvery s that husks within noiseRadius m and the Xenosaurid within apexHearRadius m come to (apex.noiseSeconds). Alone: the break-free dial, struggleNeed hits (struggleNeedKnife with a knife on you). Nobody gets you out in seconds s: you die. on 0 = no kidnaps (the old executions / downs).",
+    "on": 1,
+    "perRaid": 5,
+    "seconds": 90,
+    "kidnapShare": 1,
+    "downKidnapChance": 0.35,
+    "kidnapAt": 2.9,
+    "blackoutSeconds": 2.5,
+    "minDistance": 12,
+    "rescueSeconds": 5,
+    "rescueRange": 2.2,
+    "noiseRadius": 25,
+    "apexHearRadius": 90,
+    "noiseEvery": 2,
+    "struggleNeed": 10,
+    "struggleNeedKnife": 5
+  },
+  "hazardCrates": {
+    "_note": "Hazard crates (ApexCrates): open from the raid start. An emptied crate is charged again at its panel: whoever starts it stays within holdRange m for chargeSeconds while it grinds - a noise every noiseEvery s, noiseRadius m (husks and the apex come) - then it holds a fresh apex item, and can be charged again only after cooldownSeconds. How many show: power.apexCrates.",
+    "chargeSeconds": 30,
+    "holdRange": 4,
+    "noiseRadius": 25,
+    "noiseEvery": 4,
+    "cooldownSeconds": 240
+  },
   "seals": {
-    "_note": "Seals + fonts replace generators + fuel on maps that have them (RaidSeals). Per crew size 1..13: count = seals picked (one per section where it can), hunger = full cubes of charge each seal drinks, fonts = fonts picked; minWalk = metres of walking (navmesh) every picked font keeps from every picked seal. The last seal closed spins the facility up (power.spinUpSeconds).",
-    "count": [
-      2,
-      2,
-      3,
-      3,
-      3,
-      4,
-      4,
-      4,
-      5,
-      5,
-      5,
-      5,
-      5
-    ],
-    "hunger": [
-      2,
-      2,
-      2,
-      3,
-      3,
-      3,
-      3,
-      4,
-      4,
-      4,
-      4,
-      4,
-      4
-    ],
-    "fonts": [
-      5,
-      5,
-      6,
-      7,
-      7,
-      8,
-      8,
-      9,
-      10,
-      10,
-      11,
-      11,
-      12
-    ],
+    "_note": "Seals + fonts replace generators + fuel on maps that have them (RaidSeals). More, quicker seals (2026-11-05, the user: a payoff every ~3-4 min of a 24 min raid; each closed seal opens its section's caged cache): about the same total cube work as before. Per crew size 1..13: count = seals picked (one per section where it can), hunger = full cubes of charge each seal drinks, fonts = fonts picked; minWalk = metres of walking (navmesh) every picked font keeps from every picked seal. The last seal closed spins the facility up (power.spinUpSeconds).",
+    "count": [5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7],
+    "hunger": [1, 1, 1, 1.5, 1.5, 2, 2, 2, 3, 3, 3, 3, 3],
+    "fonts": [7, 7, 8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14],
     "minWalk": 30
   },
   "power": {
@@ -7548,10 +7475,7 @@
     "_note": "Road evac is the emergency exit: opens in the last roadSeconds of the raid (late ditch, not a free early out), then only with no backpack and at most roadKg carried (pockets only)."
   },
   "voiceDefault": 1,
-  "starterKitItems": [
-    "bandage",
-    "cheap_flashlight"
-  ],
+  "starterKitItems": ["bandage", "cheap_flashlight"],
   "starterKitStation": {
     "_note": "The outpost STARTER KIT button: starterKitItems for survivors up to maxLevel, once per raid, only what you don't carry, with no trade value (the user, 2026-10-31).",
     "maxLevel": 10
@@ -7567,12 +7491,7 @@
       "damageMin": 5,
       "damageMax": 10,
       "bleedChance": 0.04,
-      "fractureChance": 0.05,
-      "wHead": 4,
-      "wThorax": 14,
-      "wStomach": 14,
-      "wArm": 17,
-      "wLeg": 17,
+      "fractureChance": 0.05, "wHead": 4, "wThorax": 14, "wStomach": 14, "wArm": 17, "wLeg": 17,
       "attackCooldown": 1.6,
       "reach": 1.2,
       "sight": 12,
@@ -7970,13 +7889,5 @@
         ]
       }
     ]
-  },
-  "hazardCrates": {
-    "_note": "Hazard crates (ApexCrates): open from the raid start. An emptied crate is charged again at its panel: whoever starts it stays within holdRange m for chargeSeconds while it grinds - a noise every noiseEvery s, noiseRadius m (husks and the apex come) - then it holds a fresh apex item, and can be charged again only after cooldownSeconds. How many show: power.apexCrates.",
-    "chargeSeconds": 30,
-    "holdRange": 4,
-    "noiseRadius": 25,
-    "noiseEvery": 4,
-    "cooldownSeconds": 240
   }
 }
