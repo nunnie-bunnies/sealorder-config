@@ -7229,6 +7229,8 @@
     "_note": "Medical items take time (MedUse): items.<id>.useSeconds (else defaultSeconds), divided by 1 + the medSpeed skill hook. A bar shows on your HUD; it stops if you move faster than cancelSpeed (a walk is fine, a run isn't), go down, lose the item, or get more than reach metres from the teammate you're treating."
   },
   "apex": {
+    "spawnDistance": 35,
+    "_spawnDistance": "The lair is picked at least this far (m) from the raid spawns' middle (the clinic's Longskull started down the hall from the drop).",
     "wakeSeconds": 180,
     "wakeMaxSeconds": 300,
     "chaseSpeed": 1.8,
