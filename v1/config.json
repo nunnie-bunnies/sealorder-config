@@ -9,7 +9,7 @@
   "squeeze": {
     "_note": "Closing out long runs. From enrageSeconds left the evac siren sounds: the apex stays at full anger and wakes even if the power never came on (a shock mine only stands the Xenosaurid up for standSeconds, flares burn flareSeconds). Time's up = overtimeSeconds more, where an apex hit kills; then the run ends.",
     "enrageSeconds": 300,
-    "overtimeSeconds": 120,
+    "overtimeSeconds": 600,
     "standSeconds": 20,
     "flareSeconds": 10
   },
@@ -7645,7 +7645,7 @@
     "items": [
       {
         "item": "cheap_flashlight",
-        "price": 30
+        "price": 0
       },
       {
         "item": "lockpick",
