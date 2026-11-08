@@ -7842,8 +7842,8 @@
       {
         "title": "What is sent, and why",
         "lines": [
-          "Nothing is sent unless VRChat's Allow Untrusted URLs is on. Without it, the world can't run.",
-          "With it on, the game sends analytics on your progress, runs and earnings in this world, tied to your VRChat name.",
+          "Please turn on Allow Untrusted URLs to avoid bugs and get the best experience possible.",
+          "The game collects analytics on your progress, runs and earnings in this world, tied to your VRChat name, in order to improve the game.",
           "I use them to see what's working and make the game better.",
           "The same connection helps deter reuploading.",
           "Nothing else is sent: no voice, chat or avatar."
