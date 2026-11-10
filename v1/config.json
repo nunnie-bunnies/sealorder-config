@@ -7520,6 +7520,10 @@
   },
   "voiceDefault": 1,
   "starterKitItems": ["bandage", "cheap_flashlight"],
+  "playerGifts": {
+    "_note": "One player's own gift, by VRChat display name: {version, items: [{item, count}]} into their stash once per version (like starterGift, but for one person). Raise the version to send the list again.",
+    "Tasty Meow Mix": {"version": 1, "items": [{"item": "exo_lifter_armored", "count": 1}, {"item": "exo_lifter", "count": 1}, {"item": "exo_cell", "count": 2}]}
+  },
   "starterGift": {
     "_note": "Once per version, every player (new and returning) gets these items in their stash, no trade value. Raise version to hand out a new list once more. All or nothing: a full stash waits until there is room (the user, 2026-11-06).",
     "version": 1,
