@@ -1642,6 +1642,9 @@
     }
   },
   "items": {
+    "exo_lifter": {"name": "Lifter Exosuit", "pool": 0, "code": "EXO", "rarity": 3, "tags": ["gear"], "kg": 8.0, "min": 260, "max": 380, "shape": "cube", "size": [0.5, 0.55, 0.35], "slot": 9, "flat": {"carryLimit": 15}, "pct": {"walkSpeed": -0.03, "noise": 0.1, "staminaRegen": 0.1}, "craft": {"electronics": 4, "scrap_metal": 6, "toolbox": 1, "batteries": 2, "bolt": 4}, "salvage": {"electronics": 2, "scrap_metal": 3, "bolt": 2}, "desc": "An industrial frame: a back battery, arm assist and leg struts. You carry a lot more and tire less, but it isn't quiet."},
+    "exo_lifter_armored": {"name": "Armoured Lifter", "pool": 0, "code": "EXO", "rarity": 4, "tags": ["gear"], "kg": 13.0, "min": 600, "max": 900, "shape": "cube", "size": [0.55, 0.6, 0.4], "slot": 9, "flat": {"carryLimit": 10}, "pct": {"walkSpeed": -0.07, "runSpeed": -0.05, "noise": 0.15}, "armor": {"thorax": 0.4, "stomach": 0.35, "arms": 0.25, "legs": 0.25}, "craft": {"exo_lifter": 1, "ceramic_plate": 3, "kevlar": 4, "glue": 2}, "salvage": {"kevlar": 2, "scrap_metal": 3, "electronics": 1}, "desc": "The Lifter frame under curved plates. It covers your chest, arms and legs where your own armour doesn't, and it wears like armour does."},
+    "exo_cell": {"name": "Exo Cell", "code": "CEL", "rarity": 2, "tags": ["tool"], "kg": 0.6, "min": 30, "max": 50, "shape": "cube", "size": [0.12, 0.18, 0.08], "use": "exocell", "craft": {"batteries": 3, "copper_wire": 2, "electronics": 1}, "salvage": {"batteries": 1, "copper_wire": 1}, "desc": "A fresh battery for an exosuit. Swap it in when the suit runs low; at the outpost the charger tops it up for free."},
     "seal_residue": {
       "name": "Seal Residue",
       "code": "SRS",
@@ -7258,6 +7261,13 @@
     "comfortPerHeal": 0.05,
     "comfortMax": 6,
     "_note": "Medical items take time (MedUse): items.<id>.useSeconds (else defaultSeconds), divided by 1 + the medSpeed skill hook. A bar shows on your HUD; it stops if you move faster than cancelSpeed (a walk is fine, a run isn't), go down, lose the item, or get more than reach metres from the teammate you're treating."
+  },
+  "exo": {
+    "_note": "Exosuit battery: worn in a raid it drains over batteryMinutes (sprintDrain times faster sprinting); flat, the suit's help is off and deadSlow is the dead weight (an armoured suit's plates still count). Full again at the outpost; an Exo Cell (use exocell) puts in a fresh one.",
+    "batteryMinutes": 12,
+    "sprintDrain": 2,
+    "deadSlow": -0.08,
+    "hitWear": 2
   },
   "outpost": {
     "_note": "DEPTH_PLAN part 2: each player's own outpost upgrades, bought at the workbench (OUTPOST). stash1..3: 60 / 72 / 96 slots; bench1: Military upgrades; bench2: benchDiscount off repairs and upgrades. Each {money, item: count} from the stash. residuePerSeal: Seal Residue dropped at a seal as it closes; fragmentChance: an Apex Fragment beside a hazard crate's counter item.",
