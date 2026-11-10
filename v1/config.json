@@ -7263,11 +7263,12 @@
     "_note": "Medical items take time (MedUse): items.<id>.useSeconds (else defaultSeconds), divided by 1 + the medSpeed skill hook. A bar shows on your HUD; it stops if you move faster than cancelSpeed (a walk is fine, a run isn't), go down, lose the item, or get more than reach metres from the teammate you're treating."
   },
   "exo": {
-    "_note": "Exosuit battery: worn in a raid it drains over batteryMinutes (sprintDrain times faster sprinting); flat, the suit's help is off and deadSlow is the dead weight (an armoured suit's plates still count). Full again at the outpost; an Exo Cell (use exocell) puts in a fresh one.",
+    "_note": "Exosuit battery: worn in a raid it drains over batteryMinutes (sprintDrain times faster sprinting); flat, the suit's help is off and deadSlow is the dead weight (an armoured suit's plates still count). Full again at the outpost; an Exo Cell (use exocell) puts in a fresh one. beltTilt: degrees the worn suit's belt piece leans its front down (the model has it rising toward the front).",
     "batteryMinutes": 12,
     "sprintDrain": 2,
     "deadSlow": -0.08,
-    "hitWear": 2
+    "hitWear": 2,
+    "beltTilt": 14
   },
   "outpost": {
     "_note": "DEPTH_PLAN part 2: each player's own outpost upgrades, bought at the workbench (OUTPOST). stash1..3: 60 / 72 / 96 slots; bench1: Military upgrades; bench2: benchDiscount off repairs and upgrades. Each {money, item: count} from the stash. residuePerSeal: Seal Residue dropped at a seal as it closes; fragmentChance: an Apex Fragment beside a hazard crate's counter item.",
