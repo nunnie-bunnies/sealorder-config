@@ -7189,7 +7189,7 @@
     ]
   },
   "stampCard": {
-    "_note": "The stamp card (Docs/QUESTS.md sec. 9). Seasons of `weeks` from `start` (UTC date); only the card resets. free = stamps a new card starts with; guided = the once-per-account stamp for finishing the guided raid (outside the daily cap). A daily done = 1 stamp, weekendMult on Saturday / Sunday (UTC), at most dailyCap x (weekendMult on weekends) a day; over the cap a daily gives overflowPoints instead; a full card gives fullCardPoints, then afterFullPoints per daily. pointsPerStamp = points with each stamp. tiers[].at = stamps; items go to pockets / stash (paid like quest items), cosmetic = an id other systems read (HasCosmetic), {S} = the season number.",
+    "_note": "The stamp card (Docs/QUESTS.md sec. 9). Seasons of `weeks` from `start` (UTC date); only the card resets. free = stamps a new card starts with; guided = the once-per-account stamp for finishing the guided raid (outside the daily cap). A daily done = 1 stamp, weekendMult on Saturday / Sunday (UTC), at most dailyCap x (weekendMult on weekends) a day; over the cap a daily gives overflowPoints instead; a full card gives fullCardPoints, then afterFullPoints per daily. pointsPerStamp = points with each stamp. tiers[].at = stamps; items go to pockets / stash (paid like quest items), cosmetic = an id other systems read (HasCosmetic), {S} = the season number. backpay: true = this tier's reward changed mid-season; anyone who passed it before is sent the new reward once.",
     "start": "2026-11-06",
     "weeks": 4,
     "stamps": 30,
@@ -7205,11 +7205,11 @@
       {"at": 1, "name": "Energy Bar", "items": {"energy_bar": 1}},
       {"at": 2, "name": "Bandage", "items": {"bandage": 1}},
       {"at": 3, "name": "2 Lockpicks + 2 Bandages", "items": {"lockpick": 2, "bandage": 2}},
-      {"at": 4, "name": "Batteries", "items": {"batteries": 1}},
+      {"at": 4, "name": "2 Lifter Exosuits + 4 Exo Cells", "items": {"exo_lifter": 2, "exo_cell": 4}, "backpay": true},
       {"at": 5, "name": "Water + Canned Food", "items": {"water": 1, "canned_food": 1}},
       {"at": 6, "name": "Runner Boots", "items": {"runner_boots": 1}},
       {"at": 7, "name": "Painkillers", "items": {"painkillers": 1}},
-      {"at": 8, "name": "Duct Tape + Lockpick", "items": {"duct_tape": 1, "lockpick": 1}},
+      {"at": 8, "name": "2 Lifter Exosuits + 4 Exo Cells", "items": {"exo_lifter": 2, "exo_cell": 4}, "backpay": true},
       {"at": 9, "name": "Scavenger's Gloves", "items": {"scavenger_gloves": 1}},
       {"at": 10, "name": "2 Bandages", "items": {"bandage": 2}},
       {"at": 11, "name": "Batteries + Energy Bar", "items": {"batteries": 1, "energy_bar": 1}},
@@ -7220,7 +7220,7 @@
       {"at": 16, "name": "Crowbar", "items": {"crowbar": 1}},
       {"at": 17, "name": "Splint + Bandage", "items": {"splint": 1, "bandage": 1}},
       {"at": 18, "name": "Headlamp", "items": {"headlamp": 1}},
-      {"at": 19, "name": "2 Batteries", "items": {"batteries": 2}},
+      {"at": 19, "name": "2 Armoured Lifters + 4 Exo Cells", "items": {"exo_lifter_armored": 2, "exo_cell": 4}, "backpay": true},
       {"at": 20, "name": "Medkit", "items": {"medkit": 1}},
       {"at": 21, "name": "Backpack", "items": {"backpack": 1}},
       {"at": 22, "name": "3 Lockpicks", "items": {"lockpick": 3}},
@@ -7520,6 +7520,11 @@
   },
   "voiceDefault": 1,
   "starterKitItems": ["bandage", "cheap_flashlight"],
+  "everyoneGift": {
+    "_note": "A free gift for every player (new and returning), once per version, into their stash: {version, items: [{item, count}]}. All or nothing: a full stash waits until there's room. Raise the version to hand out a new list once more (the user, 2026-11-10: a Lifter and 2 Exo Cells).",
+    "version": 1,
+    "items": [{"item": "exo_lifter", "count": 1}, {"item": "exo_cell", "count": 2}]
+  },
   "playerGifts": {
     "_note": "One player's own gift, by VRChat display name: {version, items: [{item, count}]} into their stash once per version (like starterGift, but for one person). Raise the version to send the list again.",
     "Tasty Meow Mix": {"version": 1, "items": [{"item": "exo_lifter_armored", "count": 1}, {"item": "exo_lifter", "count": 1}, {"item": "exo_cell", "count": 2}]}
