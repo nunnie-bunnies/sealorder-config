@@ -3378,9 +3378,9 @@
       "desc": "A solid metal torch. Clips into your LIGHT slot.",
       "icon": "flashlight",
       "beam": {
-        "range": 16,
-        "angle": 40,
-        "intensity": 0.6,
+        "range": 30,
+        "angle": 75,
+        "intensity": 1.6,
         "flicker": 0.25
       },
       "model": "Assets/ThirdParty/SurvivalProps/prefabs/flashlight.prefab",
@@ -3545,9 +3545,9 @@
         "plastic": 1
       },
       "beam": {
-        "range": 22,
-        "angle": 65,
-        "intensity": 1.4,
+        "range": 30,
+        "angle": 80,
+        "intensity": 1.7,
         "flicker": 0.08,
         "cutPerMin": 0.4,
         "cutMin": 1.5,
@@ -7443,10 +7443,67 @@
     "cooldownSeconds": 240
   },
   "seals": {
-    "_note": "Seals + fonts replace generators + fuel on maps that have them (RaidSeals). More, quicker seals (2026-11-05, the user: a payoff every ~3-4 min of a 24 min raid; each closed seal opens its section's caged cache): about the same total cube work as before. Per crew size 1..13: count = seals picked (one per section where it can), hunger = full cubes of charge each seal drinks, fonts = fonts picked; minWalk = metres of walking (navmesh) every picked font keeps from every picked seal. The last seal closed spins the facility up (power.spinUpSeconds).",
-    "count": [5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7],
-    "hunger": [1, 1, 1, 1.5, 1.5, 2, 2, 2, 3, 3, 3, 3, 3],
-    "fonts": [7, 7, 8, 9, 9, 10, 10, 11, 12, 12, 13, 13, 14],
+    "_note": "Seals + fonts replace generators + fuel on maps that have them (RaidSeals). More, quicker seals (2026-11-05, the user: a payoff every ~3-4 min of a 24 min raid; each closed seal opens its section's caged cache): about the same total cube work as before. Per crew size 1..13: count = seals picked (one per section where it can), hunger = full cubes of charge each seal drinks, fonts = fonts picked; minWalk = metres of walking (navmesh) every picked font keeps from every picked seal. The last seal closed spins the facility up (power.spinUpSeconds). required = seals that must close to power the facility; count places more as options (the user, 2026-11-10: \"3x as much seals ... 4x more fonts ... same requirements just more options\"). A section powers when any of its seals closes.",
+    "count": [
+      15,
+      15,
+      18,
+      18,
+      18,
+      18,
+      18,
+      21,
+      21,
+      21,
+      21,
+      21,
+      21
+    ],
+    "required": [
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "hunger": [
+      1,
+      1,
+      1,
+      1.5,
+      1.5,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "fonts": [
+      28,
+      28,
+      32,
+      36,
+      36,
+      40,
+      40,
+      44,
+      48,
+      48,
+      52,
+      52,
+      56
+    ],
     "minWalk": 30
   },
   "power": {
