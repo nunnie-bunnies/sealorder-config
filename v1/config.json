@@ -3545,9 +3545,9 @@
         "plastic": 1
       },
       "beam": {
-        "range": 17,
-        "angle": 55,
-        "intensity": 0.9,
+        "range": 22,
+        "angle": 65,
+        "intensity": 1.4,
         "flicker": 0.08,
         "cutPerMin": 0.4,
         "cutMin": 1.5,
