@@ -1398,14 +1398,7 @@
         0.35,
         0.1
       ],
-      "affinity": {
-        "bandage": 1,
-        "material": 6,
-        "gear": 0.8,
-        "valuable": 0.8,
-        "food": 1,
-        "medical": 0.4
-      },
+      "affinity": {"bandage": 1, "material": 6, "gear": 0.8, "valuable": 0.8, "food": 1, "medical": 0.4, "sling_bag": 3.5},
       "lockChance": 0.15,
       "pryOnly": 0.5
     },
@@ -1419,14 +1412,7 @@
         0.9,
         0.3
       ],
-      "affinity": {
-        "bandage": 1,
-        "material": 3,
-        "gear": 2,
-        "medical": 1,
-        "valuable": 0.5,
-        "key": 0.3
-      },
+      "affinity": {"bandage": 1, "material": 3, "gear": 2, "medical": 1, "valuable": 0.5, "key": 0.3, "sling_bag": 3},
       "lockChance": 0.75,
       "pickOnly": 0.45,
       "pryOnly": 0.35,
@@ -1517,13 +1503,7 @@
         1.5,
         1.0
       ],
-      "affinity": {
-        "gear": 3,
-        "valuable": 3,
-        "medical": 2,
-        "material": 1,
-        "key": 0.6
-      },
+      "affinity": {"gear": 3, "valuable": 3, "medical": 2, "material": 1, "key": 0.6, "sling_bag": 3},
       "lockChance": 0.8,
       "pickOnly": 0.5
     },
@@ -1631,15 +1611,7 @@
       0.12,
       0.02
     ],
-    "affinity": {
-      "material": 5,
-      "food": 2,
-      "medical": 0.8,
-      "valuable": 0.8,
-      "tool": 0.6,
-      "weapon": 0.2,
-      "gear": 0.3
-    }
+    "affinity": {"material": 5, "food": 2, "medical": 0.8, "valuable": 0.8, "tool": 0.6, "weapon": 0.2, "gear": 0.3, "sling_bag": 3}
   },
   "items": {
     "exo_lifter": {"name": "Lifter Exosuit", "pool": 0, "code": "EXO", "rarity": 3, "tags": ["gear"], "kg": 8.0, "min": 260, "max": 380, "shape": "cube", "size": [0.5, 0.55, 0.35], "slot": 9, "flat": {"carryLimit": 15}, "pct": {"walkSpeed": -0.03, "noise": 0.1, "staminaRegen": 0.1}, "craft": {"electronics": 4, "scrap_metal": 6, "toolbox": 1, "batteries": 2, "bolt": 4}, "salvage": {"electronics": 2, "scrap_metal": 3, "bolt": 2}, "desc": "An industrial frame: a back battery, arm assist and leg struts. You carry a lot more and tire less, but it isn't quiet."},
@@ -7369,7 +7341,10 @@
       "hitRecoverSpeed": 0.35,
       "chaseRampMax": 1.15,
       "chaseRampSeconds": 25,
-      "climbAfterLostSeconds": 3
+      "climbAfterLostSeconds": 3,
+        "noDownUntilSeconds": 480,
+        "hitSwitchChance": 0.7,
+        "hitSwitchRange": 30
     },
     "hollowface": {
       "_note": "Hollowface v2, the stalker (Docs/HOLLOWFACE.md). STALK below huntAt: sneaks, keeps stalkMin..stalkMax m away, peeks from HFPeek markers (peekMin..peekMax s); only swipes when cornered (corneredRange, corneredDamage x). A flashlight on it while stalking: it flees fleeSeconds at skitterSpeed and gains lightCatchAnger + lightAnger per second lit. Loud noises: noiseAnger x radius/14 (max noiseAngerMax). Stared at while peeking for stareSeconds: stareAnger and it ducks out. HUNT at huntAt (or the squeeze): flashlights ignored, skitterSpeed x (1 + (anger - huntAt) x huntBoost), hits x huntDamage, a down rolls executeChance; huntLoseSeconds with nobody sensed -> anger afterHuntAnger, back to stalking. VISION: it only knows where you are from sight (sightRange m, sightCone deg; hunting huntSightRange / huntSightCone; peeking it looks out from its leaning face) or hearing; it works from your last known spot, goes there when the trail is 6 s cold, then roams. Nobody sensed for driftSeconds while stalking: a vague pull toward the nearest player (+- driftBlur m). It only peeks from a marker where the wall hides its body from you and its face sees you; if you leave its view for peekLostSeconds it ducks back.",
