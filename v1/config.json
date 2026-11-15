@@ -1599,7 +1599,8 @@
     "crate_spots": {
       "_note": "Not a loot table: the share of Riverside's 521 loot crate candidates (CrateSpot_n, about 5 per room) switched on each raid by the CrateSpots picker (SecureCases.cs, table crate_spots), +-15% per raid: about 130 crates, a different set every run.",
       "share": 0.25
-    }
+    },
+    "seal_box": {"_note": "Not a loot table: how many of Hospital 2's sealed boxes (Markers/LootSpots Loot_n, about 220 across the rooms) show each raid, picked by the SealBoxes picker (SecureCases.cs, table seal_box). Rare finds; the seal rooms' own boxes are separate and always there. The boxes roll the vault table.", "perRaidMin": 3, "perRaidMax": 5}
   },
   "floorLoot": {
     "_note": "A sparse handful of loose items per run on the map's FloorLoot spots (one per spot). Same rarity bias / tag affinity as containers.",
@@ -2720,7 +2721,7 @@
       "beam": {
         "range": 14.5,
         "angle": 50,
-        "intensity": 0.68,
+        "intensity": 0.42,
         "flicker": 0
       }
     },
@@ -3353,7 +3354,7 @@
       "beam": {
         "range": 30,
         "angle": 75,
-        "intensity": 1.6,
+        "intensity": 0.95,
         "flicker": 0.25
       },
       "model": "Assets/ThirdParty/SurvivalProps/prefabs/flashlight.prefab",
@@ -3520,7 +3521,7 @@
       "beam": {
         "range": 30,
         "angle": 80,
-        "intensity": 1.7,
+        "intensity": 0.72,
         "flicker": 0.08,
         "cutPerMin": 0.4,
         "cutMin": 1.5,
@@ -3662,7 +3663,7 @@
       "beam": {
         "range": 32,
         "angle": 28,
-        "intensity": 1.0,
+        "intensity": 0.6,
         "flicker": 0
       },
       "grip": {
@@ -7246,7 +7247,7 @@
   "outpost": {
     "_note": "DEPTH_PLAN part 2: each player's own outpost upgrades, bought at the workbench (OUTPOST). stash1..3: 60 / 72 / 96 slots; bench1: Military upgrades; bench2: benchDiscount off repairs and upgrades. Each {money, item: count} from the stash. residuePerSeal: Seal Residue dropped at a seal as it closes; fragmentChance: an Apex Fragment beside a hazard crate's counter item.",
     "residuePerSeal": 1,
-    "fragmentChance": 0.35,
+    "fragmentChance": 0.005,
     "benchDiscount": 0.3,
     "stash1": { "money": 600, "scrap_metal": 4, "bolt": 4 },
     "stash2": { "money": 1500, "scrap_metal": 8, "plastic": 6, "seal_residue": 1 },
@@ -7503,8 +7504,8 @@
     "_generatorNote": "fuelNeeded[crew size - 1] cans in all, split across the raid's generators (power.generators of the map's candidates, the first takes the odd can); power comes on once every live generator is full. The apex wakes in a lair candidate at least apexGenDistance m from both.",
     "spareCylinders": 1,
     "pourSeconds": 6,
-    "secureRooms": 3,
-    "secureLockedShare": 0.4,
+    "secureRooms": 8,
+    "secureLockedShare": 0,
     "candidateLockChance": 0.25,
     "apexCrates": 14,
     "secureCacheItems": 1,
@@ -7552,7 +7553,7 @@
     "roadKg": 6,
     "_note": "Road evac is the emergency exit: opens in the last roadSeconds of the raid (late ditch, not a free early out), then only with no backpack and at most roadKg carried (pockets only)."
   },
-  "voiceDefault": 1,
+  "voiceDefault": 2,
   "starterKitItems": ["bandage", "cheap_flashlight"],
   "everyoneGift": {
     "_note": "A free gift for every player (new and returning), once per version, into their stash: {version, items: [{item, count}]}. All or nothing: a full stash waits until there's room. Raise the version to hand out a new list once more (the user, 2026-11-10: a Lifter and 2 Exo Cells).",
