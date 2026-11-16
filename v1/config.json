@@ -1,6 +1,6 @@
 {
   "cage": {"_note": "Xenosaurid cages (XenoCages): stageSeconds to be opened or you die; the maxCaptures-th capture kills; a teammate opens the gate with a lockpick (pickSeconds, quiet, can snap) or the cube held out at chargeCost% (chargeSeconds, loud, charge spent); for freeGrace s after a cage opens it leaves anyone within freeGraceRange m alone.", "stageSeconds": 180, "maxCaptures": 2,
-    "carveSeconds": 60, "pickSeconds": 8, "pickNoiseRadius": 10, "pickNoiseEvery": 3, "pickSnap": 0.25, "chargeCost": 60, "chargeSeconds": 3, "chargeNoiseRadius": 120, "chargeNoiseEvery": 1.5, "freeGrace": 10, "freeGraceRange": 8, "resinCages": 3},
+    "carveSeconds": 60, "free": 1, "freeSeconds": 6, "freeNoiseRadius": 10, "pickSeconds": 8, "pickNoiseRadius": 10, "pickNoiseEvery": 3, "pickSnap": 0.25, "chargeCost": 60, "chargeSeconds": 3, "chargeNoiseRadius": 120, "chargeNoiseEvery": 1.5, "freeGrace": 10, "freeGraceRange": 8, "resinCages": 3},
   "cube": {"_note": "The cube stun (XenoClimber): Use with stunMinCharge% or more, aimed at the Xenosaurid (stunAngle deg) within stunRange m, spends stunCost%: carrying someone it drops them, else it is stunned stunSeconds.", "stunMinCharge": 80, "stunCost": 40, "stunSeconds": 6, "stunRange": 8, "stunAngle": 30},
   "guided": {"_note": "Guided first raid: real items a player can take from its containers per session, first time through only.", "realItems": 8},
   "ambience": {"_note": "RaidAmbience (Docs/SOUNDS.md plan): beds start at startLevel x cap and rise over rampSeconds to cap; Emergency Stairwell in stair shafts, Utility Level below basementBelowY; chase music while an apex chases within chaseRange m (lingers chaseLinger s); Tense Full Mix in the squeeze; madhouse under madhouseBelow sanity. All x the ambience volume setting.", "cap": 0.35, "startLevel": 0.15, "rampSeconds": 1140, "basementBelowY": -1.5, "chaseRange": 35, "chaseLinger": 6, "madhouseBelow": 20, "madhouseLevel": 0.35},
@@ -7245,7 +7245,7 @@
     "beltTilt": 14
   },
   "outpost": {
-    "_note": "DEPTH_PLAN part 2: each player's own outpost upgrades, bought at the workbench (OUTPOST). stash1..3: 60 / 72 / 96 slots; bench1: Military upgrades; bench2: benchDiscount off repairs and upgrades. Each {money, item: count} from the stash. residuePerSeal: Seal Residue dropped at a seal as it closes; fragmentChance: an Apex Fragment beside a hazard crate's counter item.",
+    "_note": "DEPTH_PLAN part 2: each player's own outpost upgrades, bought at the workbench (OUTPOST). stash1..3: 84 / 96 / 120 slots (the base stash is 72); bench1: Military upgrades; bench2: benchDiscount off repairs and upgrades. Each {money, item: count} from the stash. residuePerSeal: Seal Residue dropped at a seal as it closes; fragmentChance: an Apex Fragment beside a hazard crate's counter item.",
     "residuePerSeal": 1,
     "fragmentChance": 0.005,
     "benchDiscount": 0.3,
@@ -7563,6 +7563,32 @@
   "playerGifts": {
     "_note": "One player's own gift, by VRChat display name: {version, items: [{item, count}]} into their stash once per version (like starterGift, but for one person). Raise the version to send the list again.",
     "Tasty Meow Mix": {"version": 1, "items": [{"item": "exo_lifter_armored", "count": 1}, {"item": "exo_lifter", "count": 1}, {"item": "exo_cell", "count": 2}]}
+  },
+  "tutorialReward": {
+    "_note": "Signed off by the user 2026-11-15 (Docs/TUTORIAL_REVAMP.md 5). The advanced tutorial's starter package: into the stash once per version, the moment the tutorial's recovery lift powers up (the training counts as done), full runs only. A gift: no trade value. grade (armour and meds only): standard / refined / military. All or nothing: it waits for room - kept to 31 slots so a new player's stash (72 slots since 2026-11-15, with the starter and everyone gifts in it) takes it.",
+    "version": 1,
+    "items": [
+      {"item": "sling_bag", "count": 1},
+      {"item": "backpack", "count": 2},
+      {"item": "hiking_pack", "count": 1},
+      {"item": "bandage", "count": 2},
+      {"item": "bandage", "count": 2, "grade": "refined"},
+      {"item": "splint", "count": 2, "grade": "refined"},
+      {"item": "painkillers", "count": 1},
+      {"item": "painkillers", "count": 1, "grade": "military"},
+      {"item": "medkit", "count": 1, "grade": "refined"},
+      {"item": "medkit", "count": 1, "grade": "military"},
+      {"item": "syringe", "count": 2, "grade": "refined"},
+      {"item": "exo_lifter", "count": 2},
+      {"item": "exo_cell", "count": 4},
+      {"item": "flashlight", "count": 1},
+      {"item": "tactical_flashlight", "count": 1},
+      {"item": "riot_helmet", "count": 1, "grade": "refined"},
+      {"item": "combat_helmet", "count": 1, "grade": "military"},
+      {"item": "vest", "count": 1, "grade": "refined"},
+      {"item": "lockpick", "count": 3},
+      {"item": "crowbar", "count": 1}
+    ]
   },
   "starterGift": {
     "_note": "Once per version, every player (new and returning) gets these items in their stash, no trade value. Raise version to hand out a new list once more. All or nothing: a full stash waits until there is room (the user, 2026-11-06).",
