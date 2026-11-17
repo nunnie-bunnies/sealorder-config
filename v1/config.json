@@ -7572,7 +7572,7 @@
   },
   "tutorialReward": {
     "_note": "Signed off by the user 2026-11-15 (Docs/TUTORIAL_REVAMP.md 5). The advanced tutorial's starter package: into the stash once per version, the moment the tutorial's recovery lift powers up (the training counts as done), full runs only. A gift: no trade value. grade (armour and meds only): standard / refined / military. All or nothing: it waits for room - kept to 31 slots so a new player's stash (72 slots since 2026-11-15, with the starter and everyone gifts in it) takes it.",
-    "version": 1,
+    "version": 2,
     "items": [
       {"item": "sling_bag", "count": 1},
       {"item": "backpack", "count": 2},
