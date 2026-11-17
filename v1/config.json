@@ -1535,22 +1535,26 @@
       "lockChance": 0.0
     },
     "training_lockbox": {
-      "_note": "Training wing: locked; the lock bonus roll gives the crowbar.",
+      "_note": "Training: locked (pick it). Valuables - why you pick a lock: a wristwatch always, old coins from the lock bonus roll. No tools: the step hands you its lockpick (the user, 2026-11-17: 'the crate u lockpick gives u a crowbar? what are these steps').",
       "min": 0,
       "max": 0,
       "items": {
-        "crowbar": 1
+        "old_coins": 1,
+        "wristwatch": 0
       },
+      "always": "wristwatch",
       "lockChance": 1.0,
       "pickOnly": 1.0
     },
     "training_prybox": {
-      "_note": "Training wing: locked; a bandage (+1 from the lock bonus).",
-      "min": 1,
-      "max": 1,
+      "_note": "Training: nailed (pry it). Silverware always, a lighter from the lock bonus roll - not two bandages (the user: 'why does the nailed crate have 2 bandages anyway, for what?').",
+      "min": 0,
+      "max": 0,
       "items": {
-        "bandage": 1
+        "lighter": 1,
+        "silverware": 0
       },
+      "always": "silverware",
       "lockChance": 1.0,
       "pryOnly": 1.0
     },
@@ -1729,6 +1733,8 @@
     },
     "bottle": {
       "name": "Empty Bottle",
+      "model": "Assets/ThirdParty/WasteOvergrowth/Mesh/Bottle/Mesh_BeerBottle.fbx",
+      "maxSize": 0.24,
       "code": "BTL",
       "rarity": 0,
       "tags": [
