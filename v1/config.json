@@ -3,7 +3,7 @@
     "carveSeconds": 60, "free": 1, "freeSeconds": 6, "freeNoiseRadius": 10, "pickSeconds": 8, "pickNoiseRadius": 10, "pickNoiseEvery": 3, "pickSnap": 0.25, "chargeCost": 60, "chargeSeconds": 3, "chargeNoiseRadius": 120, "chargeNoiseEvery": 1.5, "freeGrace": 10, "freeGraceRange": 8, "resinCages": 3},
   "cube": {"_note": "The cube stun (XenoClimber): Use with stunMinCharge% or more, aimed at the Xenosaurid (stunAngle deg) within stunRange m, spends stunCost%: carrying someone it drops them, else it is stunned stunSeconds.", "stunMinCharge": 80, "stunCost": 40, "stunSeconds": 6, "stunRange": 8, "stunAngle": 30},
   "guided": {"_note": "Guided first raid: real items a player can take from its containers per session, first time through only.", "realItems": 8},
-  "ambience": {"_note": "RaidAmbience (Docs/SOUNDS.md plan): beds start at startLevel x cap and rise over rampSeconds to cap; Emergency Stairwell in stair shafts, Utility Level below basementBelowY; chase music while an apex chases within chaseRange m (lingers chaseLinger s); Tense Full Mix in the squeeze; madhouse under madhouseBelow sanity. All x the ambience volume setting.", "cap": 0.35, "startLevel": 0.15, "rampSeconds": 1140, "basementBelowY": -1.5, "chaseRange": 35, "chaseLinger": 6, "madhouseBelow": 20, "madhouseLevel": 0.35},
+  "ambience": {"_note": "RaidAmbience (Docs/SOUNDS.md plan): beds start at startLevel x cap and rise over rampSeconds to cap; Emergency Stairwell in stair shafts, Utility Level below basementBelowY; chase music while an apex chases within chaseRange m (lingers chaseLinger s); Tense Full Mix in the squeeze; madhouse under madhouseBelow sanity. All x the ambience volume setting.", "cap": 0.18, "startLevel": 0.15, "rampSeconds": 1140, "basementBelowY": -1.5, "chaseRange": 35, "chaseLinger": 6, "madhouseBelow": 20, "madhouseLevel": 0.35},
   "raidSeconds": 1440,
   "entryCloseSeconds": 300,
   "joinSeconds": 240,
@@ -2725,9 +2725,9 @@
         "plastic": 2
       },
       "beam": {
-        "range": 14.5,
-        "angle": 50,
-        "intensity": 0.42,
+        "range": 14,
+        "angle": 48,
+        "intensity": 0.44,
         "flicker": 0
       }
     },
@@ -3358,10 +3358,10 @@
       "desc": "A solid metal torch. Clips into your LIGHT slot.",
       "icon": "flashlight",
       "beam": {
-        "range": 30,
-        "angle": 75,
-        "intensity": 0.95,
-        "flicker": 0.25
+        "range": 17,
+        "angle": 52,
+        "intensity": 0.52,
+        "flicker": 0.04
       },
       "model": "Assets/ThirdParty/SurvivalProps/prefabs/flashlight.prefab",
       "alignZ": true,
@@ -3525,9 +3525,9 @@
         "plastic": 1
       },
       "beam": {
-        "range": 30,
-        "angle": 80,
-        "intensity": 0.72,
+        "range": 13,
+        "angle": 60,
+        "intensity": 0.44,
         "flicker": 0.08,
         "cutPerMin": 0.4,
         "cutMin": 1.5,
@@ -3667,9 +3667,9 @@
       "slot": 7,
       "icon": "flashlight",
       "beam": {
-        "range": 32,
-        "angle": 28,
-        "intensity": 0.6,
+        "range": 24,
+        "angle": 26,
+        "intensity": 0.62,
         "flicker": 0
       },
       "grip": {
